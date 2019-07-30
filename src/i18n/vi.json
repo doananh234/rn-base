@@ -1,0 +1,255 @@
+{
+  "appName": "Máu nóng yêu thương",
+  "appDescription": "Đồng cảm đơn giản là sẻ chia...\n\n*** MỤC ĐÍCH HOẠT ĐỘNG ***\n\nTrợ giúp nhu cầu về MÁU NÓNG để cấp cứu, điều trị cho bệnh nhân \n\nTrợ giúp nhu cầu về MÁU NHÂN ĐẠO TẬP TRUNG để lưu trữ cho các đợt thấp điểm về hiến máu \n\nTạo môi trường hoạt động lành mạnh, hướng mọi người đến sự đồng cảm, tạo thói quen chia sẻ trong cuộc sống\n\n*** TÔN CHỈ HOẠT ĐỘNG ***\n\nNhân đạo - Tự nguyện - Vô tư\nSẵn sàng - Nhanh chóng - Kịp thời\nTrung lập - Tôn trọng - Bình đẳng\n\n*** ĐỊA BÀN HOẠT ĐỘNG ***\n\nTp Đà Nẵng và các vùng lân cận",
+  "devBy": "Lập trình với tất cả trái tim\n♥ Enouvo IT Solution ♥",
+  "about": "About",
+  "username": "TÊN ĐĂNG NHẬP",
+  "password": "MẬT KHẨU",
+  "repeatPassword": "NHẬP LẠI MẬT KHẨU",
+  "signIn": "ĐĂNG NHẬP",
+  "connectFB": "ĐĂNG NHẬP BẰNG FACEBOOK",
+  "dontHavePassword": "Không có tài khoản? ",
+  "signUp": "ĐĂNG KÝ",
+  "intro": {},
+  "send": "GỞI",
+  "tabs": {
+    "members": "Thành viên",
+    "bloodDonation": "Ca hiến máu",
+    "search": "Tìm kiếm"
+  },
+  "userInfo": {
+    "title": "Thông tin cá nhân",
+    "name": "Họ & Tên",
+    "username": "Tên đăng nhập",
+    "namePlaceholder": "Nhập họ và tên của bạn",
+    "firstName": "Tên",
+    "firstNamePlaceholder": "Nhập tên của bạn",
+    "lastName": "Họ",
+    "phone": "Số điện thoại",
+    "phonePlaceholder": "Nhập Số điện thoại của bạn",
+    "cmnd": "Chứng minh nhân dân",
+    "address": "Địa chỉ",
+    "addressPlaceholder": "Nhập địa chỉ của bạn",
+    "birthday": "Ngày sinh",
+    "homeTown": "Hộ khẩu thường trú",
+    "homeTownPlaceholder": "Nhập quê quán của bạn",
+    "signupPrivacy": "Tôi đồng ý với tất cả điều khoản tại đây",
+    "contact": "Thông tin liên hệ",
+    "password": "MẬT KHẨU",
+    "passwordPlaceholder": "Nhập mật khẩu của bạn",
+    "email": "EMAIL",
+    "emailPlaceholder": "Nhập Email của bạn",
+    "sex": "GIỚI TÍNH",
+    "sexPlaceholder": "Chọn giới tính",
+    "zipCode": "Zip Code",
+    "register": "Đăng ký",
+    "workPlace": "Công tác tại",
+    "facebookName": "tên Facebook",
+    "facebookLink": "Link Facebook",
+    "job": "Nghề nghiệp",
+    "gender": "Giới tính",
+    "password": {
+      "title": "Password",
+      "placeholder": "Nhập Mật khẩu",
+      "forgotPassword": "Quên Mật khẩu",
+      "resetPassword": "Tạo lại Mật khẩu",
+      "newPassword": "Mật khẩu mới",
+      "confirmPassword": "Xác nhận lại Mật khẩu",
+      "forgotPasswordCaption": "Nhập Email của bạn khi tham gia.",
+      "forgotPasswordDescription": "Chúng tôi sẻ gởi 1 email cho bạn với đường link để tạo lại mật khẩu của bạn.",
+      "verifyPassword": "Xác thực Mật khẩu",
+      "verifyPasswordCaption": "Mã xác nhận đã được gửi vào Email của bạn.",
+      "verifyPasswordDescription": "Hãy nhập mã xác nhận để tạo lại mật khẩu."
+    },
+    "medicalInfo": {
+      "title": "Sức khoẻ tổng quát",
+      "height": "Chiều cao",
+      "weight": "Cân nặng",
+      "bloodPressure": "Huyết áp",
+      "clinical": "Lâm sàng",
+      "subclinical": "Cận lâm sàng",
+      "vessel": "Ven to",
+      "exposedFace": "Tiếp xúc tốt",
+      "pulse": "Mạch"
+    },
+    "bloodFormula": {
+      "title": "Công thức máu",
+      "type": "Phân loại",
+      "bloodGroup": "Nhóm máu",
+      "rh": "Rh",
+      "plt": "PLT",
+      "rbc": "RBC",
+      "wbc": "WBC",
+      "hgb": "HGB",
+      "mcv": "MCV",
+      "hct": "HCT",
+      "mch": "MCH",
+      "mchc": "MCHC",
+      "totally": "Toàn phần",
+      "platelet": "tiểu cầu",
+      "method": "Phương pháp hiến",
+      "more": "Khác",
+      "donatePlateletStatus": "Hiến tiểu cầu được"
+    },
+    "bloodDonationInfo": {
+      "title": "Thông tin hiến máu",
+      "time": "Thời gian hiến",
+      "status": "Tình trạng hiến",
+      "delayTime": "Hoãn hiến đến ngày",
+      "numberOfDonationTotally": "Số lần hiến TP",
+      "numberOfDonationPlatelet": "Số lần hiến TC",
+      "numberOfDonationPP": "Số lần hiến PP khác",
+      "note": "Ghi chú",
+      "ready": "Sẵn sàng",
+      "unready": "Chưa sẵn sàng",
+      "unit": "lần",
+      "lastTime": "Hiến gần nhất"
+    }
+  },
+  "inputOTP": "Nhập mã OTP",
+  "inputOTPDes": "Nhập mã nhận được từ SMS tại đây.",
+  "resend": "gởi lại mã mới",
+  "submit": "gởi",
+  "olds": "tuổi",
+  "busy": "Bận",
+  "zipCode": "Zip Code",
+  "free": "Chưa có người đặt",
+  "register": "Đăng ký",
+  "moreText": {
+    "shareToFriend": "Chia sẻ cho bạn bè",
+    "rateForUs": "Đánh giá chúng tôi",
+    "privacy": "Chính sách bảo mật",
+    "termOfService": "Điều khoản dịch vụ",
+    "aboutUs": "Về chúng tôi",
+    "logout": "Đăng xuất",
+    "unknow": "Chưa có",
+    "setting": "Cài đặt",
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ"
+  },
+  "auth": {
+    "termsAndPrivacy": "Bằng cách nhấn Đăng ký, tôi đồng ý với Blood Donation \n",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản dịch vụ",
+    "and": "và"
+  },
+  "editProfile": "Chỉnh sửa thông tin cá nhân",
+  "undefined": "chưa rõ",
+  "notification": {
+    "title": "Thông báo",
+    "detailTitle": "Nội dung thông báo",
+    "empty": "Không có thông báo"
+  },
+  "share": "Chia sẻ",
+  "intro": {
+    "introTitle1": "Hiến máu",
+    "introDes1": "Hiến máu cứu người, một nghĩa cử cao đẹp",
+    "introTitle2": "Máu nóng yêu thương",
+    "introDes2": "Giọt máu - Khó báu tình người",
+    "introTitle3": "Cho đi để nhận lại",
+    "introDes3": "Mội giọt máu cho đi, một cuộc đời ở lại",
+    "introTitle4": "Trở thành thành viên",
+    "introDes4": "Hiến máu cứu người, một nghĩa cử cao đẹp",
+    "haveAccount": "Already have an account?",
+    "createAccount": "Tạo tài khoản",
+    "orLoginWithEmail": "hoặc đăng nhập bằng email",
+    "dontHaveAccount": "Chưa có tài khoản?",
+    "signUp": "Đăng ký",
+    "login": "Đăng nhập",
+    "appDes": "Máu nóng yêu thương",
+    "forgotPass": "Quên mật khẩu?"
+  },
+  "error": {
+    "login": "Sai mật khẩu hoặc số điện thoại.",
+    "signup": "{{message}} đã tồn tại.",
+    "password": "Mật khẩu phải hơn 6 ký tự",
+    "email": "Email sai định dạng",
+    "passwordMismatch": " Mật khẩu và xác nhận lại mật khẩu không giống nhau.",
+    "somethingWentWrong": "Một lỗi nào đó đã xảy ra."
+  },
+  "success": {
+    "addPatient": "Thêm người bệnh thành công!",
+    "addAppointment": "Thêm lịch khám thành công!",
+    "editUser": "Thay đổi thông tin thành công!"
+  },
+  "button": {
+    "confirm": "Xác nhận",
+    "next": "Tiếp theo",
+    "prev": "Về trước",
+    "add": "Thêm",
+    "submit": "Gửi đi",
+    "cancel": "Huỷ bỏ",
+    "reset": "Làm lại",
+    "search": "Tìm",
+    "save": "Lưu",
+    "back": "Trở lại",
+    "complete": "Hoàng thành"
+  },
+  "empty": {
+    "unselect": "Don't have the subjects you search",
+    "address": "Chưa cập nhập địa chỉ",
+    "info": "Chưa có thông tin",
+    "donationHistory": "Chưa hiến lần nào!",
+    "unknow": "Chưa có",
+    "members": "Tìm kiếm người hiến."
+  },
+  "role": {
+    "admin": "Quản trị",
+    "member": "Thành viên"
+  },
+  "comingsoon": {
+    "title": "Sắp ra mắt",
+    "description": "Chúng tôi đang làm việc rất chăm chỉ để hoàn thành tính năng này. Chúng tôi sẽ thông báo cho bạn khi nó đã sẵn sàng."
+  },
+  "summary": {
+    "totalMembers": "Thành viên",
+    "alreadyBloodDonation": "Sẵn sàng hiến",
+    "rareBloodType": "Máu hiếm",
+    "bloodDonations": "Ca hiến",
+    "pltTop": "Hiến tiểu cầu nhiều nhất",
+    "rbcTop": "Hiến toàn phần nhiều nhất"
+  },
+  "addBloodDonation": {
+    "title": "Thêm ca hiến",
+    "info": "Thông tin ca hiến",
+    "selectMember": "Chọn người hiến",
+    "searchMember": "Tìm thành viên...",
+    "searchDonatePlace": "Tìm Nơi hiến...",
+    "currentSelectedMember": "Đang chọn",
+    "searchResults": "Kết quả tìm kiếm"
+  },
+  "addMember": {
+    "title": "Thêm thành viên"
+  },
+  "search": {
+    "placeholder": "Nhập tên,..."
+  },
+  "bloodDonation": {
+    "donation": "Hiến",
+    "receiver": "Nhận",
+    "method": "Phương pháp hiến",
+    "donatePlace": "Nơi hiến",
+    "type": "Hình thức hiến",
+    "receiver": "Người nhận",
+    "volume": "Thể tích",
+    "time": "Thời gian hiến",
+    "caller": "Người gọi"
+  },
+  "detail": {
+    "information": "Thông tin",
+    "donationHistory": "Lịch sử hiến"
+  },
+  "contact": {
+    "or": "Hoặc",
+    "group": {
+      "name": "CLB Máu nóng yêu thương",
+      "phone": "+84961393255",
+      "facebook": "https://facebook.com/groups/clbmaunongtayyeuthuong/"
+    },
+    "enouvo": {
+      "name": "Enouvo IT Solutions",
+      "phone": "+84901131212",
+      "facebook": "https://facebook.com/enouvo/"
+    }
+  }
+}

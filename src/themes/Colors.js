@@ -1,0 +1,66 @@
+const colors = {
+  default: '#ffffff',
+  background: '#F5F5F5',
+  // tabsStyle
+  tabIcon: '#8e8e93',
+  tabSelected: '#36D7D6',
+  tabBackground: '#fff',
+
+  divider: '#D1D1D6',
+  lightDivider: '#E5E5EA',
+  blur: 'rgba(0, 0, 0, 0.3)',
+  blur0: 'rgba(100, 100, 100, 0.2)',
+  blur1: 'rgba(0, 0, 0, 0.6)',
+  superDarkBlur: 'rgba(0, 0, 0, 0.7)',
+  navigator: '#F7F6F2',
+  iconNav: '#36D7D6',
+  backgroundNav: '#0097a7',
+  backgroundNavGradient: '#c9caca',
+  titleNav: '#000',
+  disabledNavButons: '#bdbdbd',
+  whiteSmoke: '#f4f4f4',
+  //
+  // primary: '#F7962C', // '#FF671B',
+  primary: '#36D7D6',
+  secondary: '#FF6F61',
+  lightPrimary: '#2296f3',
+  darkPrimary: '#3abdf1',
+  // text color
+  primaryText: '#070707',
+  primaryTextBlur: '#808080',
+  secondaryText: '#8E8E93',
+  placeholderText: '#c7c7cc',
+
+  // global color
+  black: '#000',
+  red: '#FF6F61',
+  lightRed: '#FF6F6130',
+  blue: '#4A90E2',
+  lightBlue: '#4A90E230',
+  gray: '#8E8E93',
+  lightGray: '#8E8E9330',
+  secondaryGray: '#eff0f0',
+  thirdGray: '#e5e4e4', // for close button background
+  darkGray: '#444444',
+  grayBlue: '#E5E5EA',
+  light: '#f5f5f5',
+  yellow: '#cea849',
+  heart: '#ff2d3b',
+  orange: '#F6AC5A',
+  lightOrange: '#F6AC5A30',
+  green: '#36D7D6',
+  lightGreen: '#36D7D630',
+  pink: '#FF85B5',
+  lightPink: '#FF85B530',
+  violet: '#9085FF',
+  lightViolet: '#9085FF30',
+  shadow: 'rgba(10, 10, 10, 0.3)',
+
+  facebook: '#4267B2',
+  google: '#F75343',
+  starColors: ['#CD1C26', '#FF7800', '#CDD614', '#5BA829', '#3F7E00'],
+  rightMessageBackground: '#55b986',
+  leftMessageBackground: '#eff0f0',
+};
+
+export default colors;

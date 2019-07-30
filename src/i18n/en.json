@@ -1,0 +1,199 @@
+{
+  "appInfo": {
+    "termsURL": "https://www.iubenda.com/en/help/401-privacy-policy-for-ios-and-macos-apps",
+    "privacyPolicyURL": "https://www.iubenda.com/en/help/401-privacy-policy-for-ios-and-macos-apps",
+    "shareAppURL": "https://play.google.com/store/movies/details/Incredibles_2?id=51nVlqi9Zdo",
+    "rateURL": ""
+  },
+  "appName": "Local Tutor",
+  "appDescription": "Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in ấn từ những năm 1500, khi một họa sĩ vô danh ghép nhiều đoạn văn bản với nhau để tạo thành một bản mẫu văn bản. Đoạn văn bản này không những đã tồn tại năm thế kỉ, mà khi được áp dụng vào tin học văn phòng, nội dung của nó vẫn không hề bị thay đổi. Nó đã được phổ biến trong những năm 1960 nhờ việc bán những bản giấy Letraset in những đoạn Lorem Ipsum, và gần đây hơn, được sử dụng trong các ứng dụng dàn trang, như Aldus PageMaker.",
+  "devBy": "Develop by AnhDoan",
+  "about": "About",
+  "username": "Username",
+  "repeatPassword": "REPEAT PASSWORD",
+  "signIn": "Sign In",
+  "welcome": "Welcome to IoT",
+  "connectFB": "LOGIN WITH FACEBOOK",
+  "signUp": "Sign Up",
+  "footerLoginDescription": "By join IoT manager, you can easily handle your application",
+  "send": "SEND",
+  "userInfo": {
+    "username": "Username",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "contact": "Contact",
+    "name": "Full name",
+    "namePlaceholder": "Enter your Last Name",
+    "phone": "Phone number",
+    "phonePlaceholder": "Enter your Phone number",
+    "address": "Address",
+    "addressPlaceholder": "Enter your address",
+    "birthday": "Birthday",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "homeTown": "Home town",
+
+    "sex": "Gender",
+    "sexPlaceholder": "Select your gender",
+    "homeTownPlaceholder": "Enter your Home Town",
+    "signupPrivacy": "I have read and agree to the Terms and Conditions and Privacy Policy",
+    "register": "Register",
+    "zipCode": "Zip Code",
+    "password": {
+      "title": "Password",
+      "placeholder": "Enter your Password",
+      "forgotPassword": "Forgot Password?",
+      "resetPassword": "Reset Password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "forgotPasswordCaption": "Enter email address you used when joined.",
+      "forgotPasswordDescription": "We will email you a link to reset your password.",
+      "verifyPassword": "Verify password",
+      "verifyPasswordCaption": "The verification code has been sent to your email.",
+      "verifyPasswordDescription": "Please enter that code to reset your password."
+    }
+  },
+  "resend": "Resend a new code",
+  "olds": "olds",
+  "register": "Register",
+  "profile": "Profile",
+  "moreText": {
+    "updateLocation": "Update location",
+    "privacy": "Privacy policy",
+    "termOfService": "Term of service",
+    "logout": "Logout",
+    "unknow": "Unknow",
+    "setting": "Settings",
+    "contact": "Contact",
+    "account": {
+      "title": "ACCOUNT",
+      "getPremium": "Get Premium",
+      "getPremiumDes": "Unlock all functionalities",
+      "signIn_signUp": "Sign Up / Login",
+      "signIn_signUpDes": "Back up your current data",
+      "editProfile": "Edit Profile"
+    },
+    "list": {
+      "title": "LIST",
+      "favorites": "Favorites",
+      "myOwnRecipes": "My own recipes"
+    },
+    "share": {
+      "title": "SHARE",
+      "rateUse": "Rate us",
+      "shareApp": "Share the app"
+    },
+    "legal": {
+      "title": "LEGAL",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    }
+  },
+  "menu": {},
+  "notification": {
+    "title": "Notification",
+    "detailTitle": "Notification Detail",
+    "empty": "No notifications"
+  },
+  "share": "Share",
+  "home": {
+    "title": "Home",
+    "collections": "Collections",
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "snack": "Snack"
+  },
+  "intro": {
+    "introTitle1": "Local Tutor",
+    "introDes1": "Find tutor near you",
+    "introTitle2": "Request a tutor",
+    "introDes2": "You will instantly get paired with a professional tutor",
+    "introTitle3": "Browse tutor",
+    "introDes3": "You can choose your tutor\nand schedule an apointment",
+    "introTitle4": "Become a tutor",
+    "introDes4": "You can experience the joy of making a difference by becoming a tutor",
+    "haveAccount": "Already have an account?",
+    "createAccount": "Sign Up",
+    "orLoginWithEmail": "Or login with your email",
+    "dontHaveAccount": "Don't have account?",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "login": "Login",
+    "appDes": "Find tutor near you",
+    "forgotPass": "Forgot password?",
+    "alreadyMember": "Already Member? "
+  },
+  "confirm": "Confirm",
+  "auth": {
+    "termsAndPrivacy": "By tapping Sign up, I agree to Tutor's\n",
+    "privacy": "Privacy Policy",
+    "terms": "Term of Services",
+    "and": "and"
+  },
+  "error": {
+    "login": "The Email or password is invalid.",
+    "password": "The Password has more than 6 chars",
+    "email": "This Email is invalid format.",
+    "passwordMismatch": " Your password and confirm password do not match.",
+    "somethingWentWrong": "Something went wrong.",
+    "formatError": "Oops! Format error."
+  },
+  "button": {
+    "confirm": "Confirm",
+    "next": "Next",
+    "add": "Add",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "reset": "Reset",
+    "search": "Search",
+    "save": "Save",
+    "back": "Back",
+    "skip": "Skip",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "login": "Log In",
+    "seeAll": "See All",
+    "continue": "Continue",
+    "restore": "Restore",
+    "createARecipe": "Create a Recipe"
+  },
+  "empty": {
+    "unselect": "Don't have the subjects you search",
+    "default": "It's empty here"
+  },
+  "role": {
+    "admin": "Admin",
+    "member": "Member"
+  },
+  "comingsoon": {
+    "title": "Coming Soon",
+    "description": "We are working very hard to complete this feature. We will notify you once it is ready."
+  },
+  "summary": {
+    "totalMembers": "Members",
+    "alreadyBloodDonation": "Already Donation",
+    "rareBloodType": "Rate Blood Type",
+    "bloodDonations": "Blood Donations"
+  },
+  "text": {
+    "or": "OR"
+  },
+  "tabs": {
+    "recipes": "Recipes",
+    "calendar": "Calendar",
+    "setting": "Me"
+  },
+  "purchase": {
+    "goPremium": "Go Premium",
+    "subTitle": "Be Healthy, Be Happy",
+    "feature": [
+      "Unlimited access to all recipes for healthy eating",
+      "Unlimited access to all functionalities",
+      "Get instant customer support"
+    ],
+    "freeTrial": "3-Day Trial, Then ${{price}}/week",
+    "continuePrice": "${{price}}/month",
+    "description": "We currently offer the following our auto-renewing\nsubscription options that give you the VIP Access:\n• 3 day of free trial followed by $3.99/week\n• $9.99/month"
+  }
+}
