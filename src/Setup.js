@@ -4,31 +4,25 @@ import { registerScreens } from './navigation/screens';
 import { onNavigatorEvent } from './navigation/navigationActions/handleNavButtonOnPress';
 import { iconsLoaded } from './utils/appIcons';
 import configureStore from './redux/store';
-import Actions from './redux/AppRedux/actions';
 import './themes/Images';
 
 const App = () => {
   const loadStore = async() => {
     return new Promise(resolve => {
-      configureStore((store, persistor) => {
+      configureStore(store => {
         configI18n(store);
-        registerScreens(store, persistor);
-        resolve(store, persistor);
+        registerScreens(store);
+        resolve(store);
       });
     });
   };
-  const loadIntial = () => {
-    return Promise.all([loadStore(), iconsLoaded])
-      .then(response => {
-        const store = response[0];
-        const { token } = store.getState().login;
-        global.token = token;
-        console.log('store', store);
-        store.dispatch(Actions.startup());
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  const loadIntial = async() => {
+    try {
+    await iconsLoaded;
+    await loadStore();
+    } catch (error) {
+      //
+    }
   };
 
   Navigation.events().registerAppLaunchedListener(async() => {

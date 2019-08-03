@@ -28,32 +28,6 @@ target 'rnBaseNew' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
-
-  pod 'RNLocalize', :path => '../node_modules/react-native-localize'
-
-  pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
-
-
-  pod 'RNShare', :path => '../node_modules/react-native-share'
-
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
-
-
-
-
-  pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
-
-  pod 'CodePush', :path => '../node_modules/react-native-code-push'
-
-
-  pod 'react-native-config', :path => '../node_modules/react-native-config'
-
-  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
-
-  pod 'ReactNativeNavigation', :path => '../node_modules/react-native-navigation'
-
   target 'rnBaseNewTests' do
     inherit! :search_paths
     # Pods for testing

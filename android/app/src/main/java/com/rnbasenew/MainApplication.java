@@ -10,6 +10,7 @@ import com.facebook.soloader.SoLoader;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -43,7 +44,16 @@ public class MainApplication extends NavigationApplication {
   @Override
   public List<ReactPackage> createAdditionalReactPackages() {
     @SuppressWarnings("UnnecessaryLocalVariable")
-    List<ReactPackage> packages = new PackageList(this).getPackages();
+    List<ReactPackage> initializedPackages = new PackageList(this).getPackages();
+    List<ReactPackage> packages = new ArrayList<>();
+    for (ReactPackage p : initializedPackages) {
+      if (!(p instanceof CodePush)) {
+        packages.add(p);
+      }
+    }
+    packages.add(new CodePush(getResources().getString(R.string.CODE_PUSH_ANDROID_KEY), getApplicationContext(), isDebug()));
+
+
     // Packages that cannot be autolinked yet can be added manually here, for example:
     // packages.add(new MyReactNativePackage());
     return packages;

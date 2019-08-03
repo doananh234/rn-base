@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';
-// import { PersistGate } from 'redux-persist/integration/react';
+import { PersistGate } from 'redux-persist/integration/react';
 
 // Common screen
 import InAppNotification from '../screens/Popup/Notification';
@@ -58,27 +58,28 @@ const SCREENS = {
 };
 
 export function registerScreens(store, persistor) {
-  const PersistProvider = props => {
-    const { children } = props;
-    return (
-      <Provider {...props}>
-        {/* <PersistGate loading={null} persistor={persistor}> */}
-        {children}
-        {/* </PersistGate> */}
-      </Provider>
-    );
-  };
+  // const PersistProvider = props => {
+  //   // eslint-disable-next-line
+  //   const { children } = props;
+  //   return (
+  //     <Provider {...props}>
+  //       <PersistGate loading={null} persistor={persistor}>
+  //         {children}
+  //       </PersistGate>
+  //     </Provider>
+  //   );
+  // };
 
-  Object.keys(SCREENS_WITH_REDUX).map(screenName => {
+  Object.keys(SCREENS_WITH_REDUX).forEach(screenName => {
     Navigation.registerComponentWithRedux(
       screenName,
       () => SCREENS_WITH_REDUX[screenName],
-      PersistProvider,
+      Provider,
       store
     );
   });
 
-  Object.keys(SCREENS).map(screenName => {
+  Object.keys(SCREENS).forEach(screenName => {
     Navigation.registerComponent(screenName, () => SCREENS[screenName]);
   });
 }

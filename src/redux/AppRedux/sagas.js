@@ -4,13 +4,14 @@ import { Types } from './actions';
 
 export function* startup() {
   const { token, isSkipLogin } = yield select(state => state.login);
-  // token || isSkipLogin ? startWithTabs() : startStackScreen();
+  global.token = token;
+  token || isSkipLogin ? startWithTabs() : startStackScreen();
   // startWithTabs();
-  startStackScreen();
+  // startStackScreen();
 }
 
 const appSagas = () => {
-  return [takeLatest(Types.STARTUP, startup)];
+  return [takeLatest(Types.STARTUP, startup), takeLatest('persist/REHYDRATE', startup)];
 };
 
 export default appSagas();

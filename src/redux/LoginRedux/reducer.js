@@ -127,9 +127,12 @@ const fbSignInFailure = (state, action) => state.merge({
     loading: false,
   });
 
-const skipLogin = () => INITIAL_STATE.merge({
+const skipLogin = state => {
+  console.log('state', state);
+  return INITIAL_STATE.merge({
     isSkipLogin: true,
   });
+};
 
 const ACTION_HANDLERS = {
   // [AppLoginTypes.STARTUP]: startUp,

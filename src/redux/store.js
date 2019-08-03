@@ -2,14 +2,14 @@ import _ from 'lodash';
 import {
  createStore, applyMiddleware, compose, combineReducers,
 } from 'redux';
-// import { persistReducer, persistStore } from 'redux-persist';
+import { persistReducer, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import rootReducer from './reducers';
 import Config from '../config/DebugSettings';
 import rootSaga from './sagas';
 import deferredMiddleware from './ExposedPromiseMiddleware';
-// import { REDUX_PERSIST } from '../config/AppSetting';
+import { REDUX_PERSIST } from '../realm/persistRealm';
 
 export default onComplete => {
   /* ------------- Redux Configuration ------------- */
@@ -44,12 +44,10 @@ export default onComplete => {
 
   enhancers.push(applyMiddleware(...middleware));
 
-  // const persistedReducer = persistReducer(REDUX_PERSIST, combineReducers(rootReducer));
-  // const store = createStore(persistedReducer, compose(...enhancers));
-  const store = createStore(combineReducers(rootReducer), compose(...enhancers));
-  // const persistor = persistStore(store, {}, () => onComplete(store, persistor));
-  sagaMiddleware.run(rootSaga);
-  // return { store, persistor };
+  const persistedReducer = persistReducer(REDUX_PERSIST, combineReducers(rootReducer));
+  const store = createStore(persistedReducer, compose(...enhancers));
   onComplete(store);
+  persistStore(store, {}, () => {});
+  sagaMiddleware.run(rootSaga);
   return { store };
 };

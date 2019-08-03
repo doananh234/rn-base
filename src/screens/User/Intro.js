@@ -36,8 +36,8 @@ class Intro extends Component {
 
   skip = () => {
     const { skipLogin } = this.props;
-    startWithTabs();
     skipLogin();
+    startWithTabs();
   };
 
   signIn = () => {

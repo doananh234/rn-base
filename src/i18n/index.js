@@ -1,7 +1,7 @@
 import * as RNLocalize from 'react-native-localize';
 import i18n from 'i18n-js';
-import { memoize } from 'lodash';
 import { I18nManager } from 'react-native';
+
 import en from './en.json';
 import vi from './vi.json';
 
@@ -10,24 +10,19 @@ const translationGetters = {
   vi,
 };
 
-const setI18nConfig = () => {
+const setI18nConfig = store => {
   // fallback if no available language fits
-  const translate = memoize(
-    (key, config) => i18n.t(key, config),
-    (key, config) => (config ? key + JSON.stringify(config) : key),
-  );
   const fallback = { languageTag: 'en', isRTL: false };
-  const { languageTag, isRTL } =
-    RNLocalize.findBestAvailableLanguage(Object.keys(translationGetters)) || fallback;
+  const { isRTL } = RNLocalize.findBestAvailableLanguage(Object.keys(translationGetters)) || fallback;
   // clear translation cache
-  translate.cache.clear();
   // update layout direction
   I18nManager.forceRTL(isRTL);
-
   // set i18n-js config
-  i18n.translations = { [languageTag]: translationGetters[languageTag] };
-  i18n.locale = languageTag;
-  i18n.translate = translate;
+  i18n.translations = translationGetters;
+  i18n.translate = (key, config = {}) => {
+    const { language } = store.getState().app;
+    return i18n.t(key, { ...config, locale: language });
+  };
 };
 
 export const addHandleLocaleChange = func => RNLocalize.addEventListener('change', func);

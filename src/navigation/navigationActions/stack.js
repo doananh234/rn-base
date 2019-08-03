@@ -2,7 +2,7 @@ import { Navigation } from 'react-native-navigation';
 import { Colors } from '../../themes/index';
 import { navigatorStyle } from '../navigatonStyle';
 
-export function startStackScreen(screen = 'IntroWithSlide', title = '', isHaveNav = false) {
+export function startStackScreen(screen = 'Intro', title = '', isHaveNav = false) {
   Navigation.setRoot({
     root: {
       stack: {
