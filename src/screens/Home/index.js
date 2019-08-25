@@ -1,90 +1,59 @@
 /* eslint no-alert: 0 */
-import React, { Component } from 'react';
-import I18n from 'i18n-js';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { Navigation } from 'react-native-navigation';
 import { StyleSheet, ScrollView, FlatList } from 'react-native';
-import { connect } from 'react-redux';
+import { useNavigation } from 'react-navigation-hooks';
+import HomeItem from '../../components/Items/HomeItem';
+import Divider from '../../ui/Divider';
+import EmptyView from '../../ui/EmptyView';
 import CheckUpdate from './CheckUpdate';
-import { push } from '../../navigation/navigationActions';
 import { Colors } from '../../themes';
 import SummaryRow from './SummaryRow';
-import Divider from '../../components/Divider';
-import EmptyView from '../../components/EmptyView';
-import HomeItem from '../../components/Items/HomeItem';
+// import { push } from '../../navigation/actions';
 
-class Home extends Component {
-  static propTypes = {};
+function Home() {
+  const { push } = useNavigation();
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.navigationEventListener = Navigation.events().bindComponent(this);
-  }
+  const onPressItem = useCallback(
+    item => {
+      push('Detail', item);
+    },
+    [],
+  );
 
-  componentDidMount() {}
+  const renderItem = ({ item }) => <HomeItem data={item} onPress={onPressItem} />;
 
-  navigationButtonPressed = ({ buttonId }) => {
-    const { componentId } = this.props;
-    if (buttonId === 'addBloodDonation') {
-      push(componentId, 'addBloodDonation', {
-        title: I18n.t('addBloodDonation.title'),
-        topBar: { largeTitle: { visible: false } },
-      });
-    }
-  };
+  const DATA = [
+    {
+      title: 'Egg-stuffed Avocado 1',
+      value: '421',
+    },
 
-  onPressItem = item => {
-    const { componentId } = this.props;
-    push(componentId, 'Detail', {
-      passProps: {
-        item,
-        topBar: {
-          background: {
-            color: 'transparent',
-          },
-          largeTitle: {
-            visible: false,
-          },
-        },
-      },
-    });
-  };
+    {
+      title: 'Egg-stuffed Avocado 2',
+      value: '421',
+    },
 
-  renderItem = ({ item }) => <HomeItem item={item} />;
+    {
+      title: 'Egg-stuffed Avocado 3',
+      value: '421',
+    },
+  ];
 
-  render() {
-    const DATA = [
-      {
-        title: 'Egg-stuffed Avocado',
-        value: '421',
-      },
-
-      {
-        title: 'Egg-stuffed Avocado',
-        value: '421',
-      },
-
-      {
-        title: 'Egg-stuffed Avocado',
-        value: '421',
-      },
-    ];
-    return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-        <CheckUpdate />
-        <SummaryRow />
-        <FlatList
-          keyExtractor={(item, index) => String(index)}
-          ItemSeparatorComponent={() => <Divider style={styles.divider} />}
-          renderItem={this.renderItem}
-          data={DATA}
-          style={styles.flatList}
-          ListEmptyComponent={() => <EmptyView />}
-        />
-      </ScrollView>
-    );
-  }
+  return (
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <CheckUpdate />
+      <SummaryRow />
+      <FlatList
+        keyExtractor={(item, index) => String(index)}
+        ItemSeparatorComponent={() => <Divider style={styles.divider} />}
+        renderItem={renderItem}
+        data={DATA}
+        style={styles.flatList}
+        ListEmptyComponent={() => <EmptyView />}
+      />
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -99,18 +68,7 @@ const styles = StyleSheet.create({
 });
 
 Home.propTypes = {
-  componentId: PropTypes.string,
+  navigation: PropTypes.object,
 };
 
-function mapStateToProps() {
-  return {};
-}
-
-const mapDispatchToProps = () => {
-  return {};
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+export default React.memo(Home);

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Colors } from '../../themes';
 import { safeArea } from '../../utils/Devices';
 import PopupWrapper from '../../components/Popup/PopupWrapper';
-import Text from '../../components/Text';
+import Text from '../../ui/Text';
 
 export default class PopupItemEvent extends Component {
   constructor(props) {

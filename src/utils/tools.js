@@ -4,7 +4,7 @@ import _ from 'lodash';
 import Fuse from 'fuse.js';
 import Share from 'react-native-share';
 import { Linking } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
+// import DeviceInfo from 'react-native-device-info';
 
 export default {
   validateField(name) {
@@ -279,7 +279,7 @@ export const searchAsync = (func, callback) => {
 };
 
 // TODO: hasNotch
-export const hasNotch = DeviceInfo.hasNotch();
+// export const hasNotch = DeviceInfo.hasNotch();
 
 export const localSearch = (list, text) => {
   const options = {

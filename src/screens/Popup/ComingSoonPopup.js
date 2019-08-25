@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { View, Dimensions } from 'react-native';
 import I18n from 'i18n-js';
 import { Colors } from '../../themes';
-import Text from '../../components/Text';
-import Button from '../../components/Button';
+import Text from '../../ui/Text';
+import Button from '../../ui/Button';
 import PopupWrapper from '../../components/Popup/PopupWrapper';
-import { dismissLightBox } from '../../navigation/navigationActions';
+// import { dismissLightBox } from '../../navigation/navigationActions';
 
 const ComingSoonPopup = ({ componentId }) => {
-  const onClose = () => dismissLightBox(componentId);
+  // const onClose = () => dismissLightBox(componentId);
   return (
     <PopupWrapper onClose={onClose}>
       <View style={styles.innerContainer}>

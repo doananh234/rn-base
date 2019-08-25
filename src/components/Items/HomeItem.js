@@ -3,31 +3,40 @@ import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/mealplanner';
-import Text from '../Text';
+import Text from '../../ui/Text';
 import { Images, Colors } from '../../themes';
 import SwipeableRow from './SwipeableRow';
-import Button from '../Button';
+import Button from '../../ui/Button';
+import Touchable from '../../ui/Touchable';
 
-const HomeItem = ({ item, isFavoriteScreen }) => {
-  const { image, title, value } = item;
+const HomeItem = ({ onPress, data, isFavoriteScreen }) => {
+  const { image, title, value } = data;
+
+  const handlePress = () => {
+    onPress(data);
+  };
+
   const content = (
-    <View style={styles.container}>
-      <FastImage source={image ? { uri: image } : Images.test} style={styles.image} />
-      <View style={styles.center}>
-        <Text style={styles.title} numberOfLines={1} type="body2SemiBold">
-          {title}
-        </Text>
-        <View style={styles.row}>
-          <Icon name="fire" size={13} color={Colors.placeholderText} />
-          <Text type="semi">
-            {value}
-            {' '}
-cal
+    <Touchable style={styles.container} onPress={handlePress}>
+      <>
+        <FastImage source={image ? { uri: image } : Images.test} style={styles.image} />
+        <View style={styles.center}>
+          <Text style={styles.title} numberOfLines={1} type="body2SemiBold">
+            {title}
           </Text>
+          <View style={styles.row}>
+            <Icon name="fire" size={13} color={Colors.placeholderText} />
+            <Text type="semi">
+              {value}
+              {' '}
+              cal
+            </Text>
+          </View>
         </View>
-      </View>
-      {isFavoriteScreen && <Icon name="love-fill" style={styles.iconLove} />}
-    </View>
+        {isFavoriteScreen && <Icon name="love-fill" style={styles.iconLove} />}
+      </>
+
+    </Touchable>
   );
   const rightButtons = [
     <Button
@@ -47,10 +56,12 @@ cal
     >
       {content}
     </SwipeableRow>
-  );
+    );
 };
+
 HomeItem.propTypes = {
-  item: PropTypes.object,
+  data: PropTypes.object,
+  onPress: PropTypes.func,
   isFavoriteScreen: PropTypes.bool,
 };
 

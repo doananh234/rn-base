@@ -7,11 +7,9 @@ import { Colors } from '../../themes';
 import UserInfo from './UserInfo';
 import SettingItem from '../../components/Items/SettingItem';
 import LoginActions from '../../redux/LoginRedux/actions';
-import Divider from '../../components/Divider';
-import Button from '../../components/Button';
-import { showLightBox, push, showModal } from '../../navigation/navigationActions';
-import { signUp } from '../../navigation/navigationButtons';
-import Text from '../../components/Text';
+import Divider from '../../ui/Divider';
+import Button from '../../ui/Button';
+import Text from '../../ui/Text';
 import { shareApp, openURL } from '../../utils/tools';
 
 class Setting extends Component {
@@ -25,7 +23,7 @@ class Setting extends Component {
   componentDidMount() {}
 
   onPressPrivacy = () => {
-    showLightBox('ComingSoonPopup');
+    // showLightBox('ComingSoonPopup');
   };
 
   editProfile = () => {};
@@ -48,64 +46,64 @@ class Setting extends Component {
 
   openAbout = () => {
     const { componentId } = this.props;
-    push(componentId, 'About', {
-      topBar: {
-        background: {
-          color: 'transparent',
-        },
-        largeTitle: {
-          visible: false,
-        },
-        backButton: backCircle(),
-      },
-    });
+    // push(componentId, 'About', {
+    //   topBar: {
+    //     background: {
+    //       color: 'transparent',
+    //     },
+    //     largeTitle: {
+    //       visible: false,
+    //     },
+    //     backButton: backCircle(),
+    //   },
+    // });
   };
 
   openContact = () => {
     const { componentId } = this.props;
-    push(componentId, 'Contact', {
-      title: I18n.t('moreText.contact'),
-      topBar: {
-        largeTitle: {
-          visible: false,
-        },
-      },
-    });
+    // push(componentId, 'Contact', {
+    //   title: I18n.t('moreText.contact'),
+    //   topBar: {
+    //     largeTitle: {
+    //       visible: false,
+    //     },
+    //   },
+    // });
   };
 
   signIn = () => {
     const { componentId, token } = this.props;
-    push(componentId, token ? 'Signup' : 'SignIn', {
-      title: token ? I18n.t('moreText.account.editProfile') : I18n.t('SignIn'),
-      passProps: {
-        isEdit: true,
-      },
-      rightButtons: token ? [] : [signUp()],
-    });
+    // push(componentId, token ? 'Signup' : 'SignIn', {
+    //   title: token ? I18n.t('moreText.account.editProfile') : I18n.t('SignIn'),
+    //   passProps: {
+    //     isEdit: true,
+    //   },
+    //   rightButtons: token ? [] : [signUp()],
+    // });
   };
 
   onPressSetting = (screen, title, passProps) => () => {
     const { componentId } = this.props;
-    push(componentId, screen, {
-      title: I18n.t(title),
-      passProps,
-      topBar: {
-        largeTitle: {
-          visible: false,
-        },
-      },
-    });
+    // push(componentId, screen, {
+    //   title: I18n.t(title),
+    //   passProps,
+    //   topBar: {
+    //     largeTitle: {
+    //       visible: false,
+    //     },
+    //   },
+    // });
   };
 
   getPremium = () => {
-    showModal('Purchase', {
-      topBar: {
-        background: {
-          color: 'transparent',
-        },
-        drawBehind: true,
-      },
-    });
+    // showModal('Purchase', {
+    //   topBar: {
+    //     background: {
+    //       color: 'transparent',
+    //     },
+    //     drawBehind: true,
+    //   },
+    // });
   };
 
   renderSectionHeader = ({ section: { title } }) => (

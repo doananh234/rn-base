@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Dimensions, StyleSheet, Platform } from 'react-native';
 import { Colors } from '../../themes';
 import PopupWrapper from '../../components/Popup/PopupWrapper';
-import DatePicker from '../../components/DatePicker';
-import { dismissLightBox } from '../../navigation/navigationActions';
+import DatePicker from '../../ui/DatePicker';
+// import { dismissLightBox } from '../../navigation/navigationActions';
 
 export default class DatePickerUI extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ export default class DatePickerUI extends Component {
   onClose = () => {
     const { componentId, onClose } = this.props;
     onClose(this.selectedDate?.iso);
-    dismissLightBox(componentId);
+    // dismissLightBox(componentId);
   };
 
   render() {

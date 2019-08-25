@@ -4,7 +4,7 @@ import I18n from 'i18n-js';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/mealplanner';
 import { Colors } from '../../themes/index';
-import Text from '../Text';
+import Text from '../../ui/Text';
 
 const SettingItem = ({
   onPress,

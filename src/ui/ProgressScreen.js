@@ -9,8 +9,8 @@ class ProgressScreen extends Component {
   constructor(props) {
     super(props);
     this.loading = React.createRef();
-    const { onDisplay, componentId } = props;
-    onDisplay && onDisplay(componentId);
+    // const { onDisplay, componentId } = props;
+    // onDisplay && onDisplay(componentId);
   }
 
   componentDidMount() {
@@ -41,7 +41,7 @@ class ProgressScreen extends Component {
 ProgressScreen.propTypes = {
   isFullScreen: PropTypes.bool,
   onDisplay: PropTypes.func,
-  componentId: PropTypes.string,
+  // componentId: PropTypes.string,
 };
 
 ProgressScreen.defaultProps = {

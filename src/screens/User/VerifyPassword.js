@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import I18n from 'i18n-js';
 import { Colors } from '../../themes';
-import KeyboardAwareScrollView from '../../components/KeyboardAwareScrollView';
-import CodeInput from '../../components/CodeInput';
-import Button from '../../components/Button';
-import Text from '../../components/Text';
+import KeyboardAwareScrollView from '../../ui/KeyboardAwareScrollView';
+import CodeInput from '../../ui/CodeInput';
+import Button from '../../ui/Button';
+import Text from '../../ui/Text';
 import Actions from '../../redux/ForgotPasswordRedux/actions';
-import Container from '../../components/Container';
+import Container from '../../ui/Container';
 
 class VerifyPassword extends Component {
   static propTypes = {

@@ -8,10 +8,10 @@ import {
   Vibration,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import Text from '../../components/Text';
-import Touchable from '../../components/Touchable';
+import Text from '../../ui/Text';
+import Touchable from '../../ui/Touchable';
 import { Colors } from '../../themes';
-import { dismissInAppNoti } from '../../navigation/navigationActions';
+// import { dismissInAppNoti } from '../../navigation/navigationActions';
 import { safeArea } from '../../utils/Devices';
 
 export default class Notification extends Component {
@@ -36,7 +36,7 @@ export default class Notification extends Component {
     }).start(() => {
       InteractionManager.clearInteractionHandle(handle);
       if (!isShow) {
-        dismissInAppNoti();
+        // dismissInAppNoti();
       } else {
         Vibration.vibrate();
         isAutoDismiss
