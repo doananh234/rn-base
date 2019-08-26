@@ -1,10 +1,10 @@
 import { call } from 'redux-saga/effects';
 import _ from 'lodash';
 // import { loading, clearLoading } from '../redux/AppRedux/actions';
-import {
-  dismissInAppNoti,
-  showProgress,
-} from '../navigation/navigationActions';
+// import {
+//   dismissInAppNoti,
+//   showProgress,
+// } from '../navigation/navigationActions';
 
 export function makeConstantCreator(...params) {
   const constant = {};
@@ -31,17 +31,17 @@ export function* apiWrapper(
   ...params
 ) {
   try {
-    dismissInAppNoti();
+    // dismissInAppNoti();
     if (config.isShowProgress) {
-      showProgress();
+      // showProgress();
       // yield put(loading());
     }
     const response = yield call(apiFunc, ...params);
     // yield put(clearLoading());
-    showProgress(false);
+    // showProgress(false);
     return response;
   } catch (error) {
-    showProgress(false);
+    // showProgress(false);
     // yield put(clearLoading());
     return error;
   }

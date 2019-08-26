@@ -224,7 +224,6 @@ android {
 
 dependencies {
     implementation project(':realm')
-    implementation project(':react-native-navigation')
     implementation project(':react-native-code-push')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'com.google.android.material:material:1.0.0'

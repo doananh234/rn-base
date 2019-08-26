@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Dimensions, Image } from 'react-native';
+import {
+ View, StyleSheet, Dimensions, Image,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import I18n from 'i18n-js';
 import { Colors, Images } from '../../themes';
-import Button from '../../components/Button';
-import Text from '../../components/Text';
-import { push, startWithTabs } from '../../navigation/navigationActions';
+import Button from '../../ui/Button';
+import Text from '../../ui/Text';
+// import { push, startWithTabs } from '../../navigation/navigationActions';
 import CheckUpdate from '../Home/CheckUpdate';
-import SwipperView from '../../components/SwipperView';
+import SwipperView from '../../ui/SwipperView';
 import { safeArea } from '../../utils/Devices';
 
 class IntroWithSlide extends Component {
@@ -24,14 +26,14 @@ class IntroWithSlide extends Component {
   };
 
   onPressSkip = () => {
-    startWithTabs();
+    // startWithTabs();
   };
 
   signIn = () => {
     const { componentId } = this.props;
-    push(componentId, 'SignIn', {
-      title: I18n.t('signIn'),
-    });
+    // push(componentId, 'SignIn', {
+    //   title: I18n.t('signIn'),
+    // });
   };
 
   renderIntro = data => (

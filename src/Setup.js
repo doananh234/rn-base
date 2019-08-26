@@ -1,42 +1,40 @@
-import { Navigation } from 'react-native-navigation';
+import React, { useEffect } from 'react';
+
+import { Provider } from 'react-redux';
 import configI18n from './i18n/index';
-import { registerScreens } from './navigation/screens';
-import { onNavigatorEvent } from './navigation/navigationActions/handleNavButtonOnPress';
 import { iconsLoaded } from './utils/appIcons';
 import configureStore from './redux/store';
 import './themes/Images';
+import AppNavigation from './navigation/AppNavigation';
+// import AppNavigation from './navigation/AppNavigation';
 
-const App = () => {
-  const loadStore = async() => {
-    return new Promise(resolve => {
-      configureStore(store => {
-        configI18n(store);
-        registerScreens(store);
-        resolve(store);
-      });
-    });
-  };
-  const loadIntial = async() => {
-    try {
-    await iconsLoaded;
-    await loadStore();
-    } catch (error) {
-      //
-    }
-  };
 
-  Navigation.events().registerAppLaunchedListener(async() => {
-    try {
-      await loadIntial();
-    } catch (error) {
-      console.log('error', error);
-      //
+// const loadStore = async () => {
+//   return new Promise(resolve => {
+//     configureStore(store => {
+//       configI18n(store);
+//       resolve(store);
+//     });
+//   });
+// };
+
+
+export default function Setup() {
+  useEffect(() => {
+    async function sideEffect() {
+      await iconsLoaded;
     }
+    sideEffect();
+  }, []);
+
+  const configuredStore = configureStore(store => {
+    configI18n(store);
   });
 
-  Navigation.events().registerNavigationButtonPressedListener(({ buttonId, componentId }) => {
-    onNavigatorEvent(buttonId, componentId);
-  });
-};
 
-export default App;
+  return (
+    <Provider store={configuredStore}>
+      <AppNavigation />
+    </Provider>
+  );
+}

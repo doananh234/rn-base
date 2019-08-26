@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import I18n from 'i18n-js';
 import { Colors } from '../../themes';
-import Button from '../../components/Button';
-import { FacebookButton, GoogleButton } from '../../components/SocialButton';
-import Text from '../../components/Text';
-import { push, startWithTabs } from '../../navigation/navigationActions';
+import Button from '../../ui/Button';
+import { FacebookButton, GoogleButton } from '../../ui/SocialButton';
+import Text from '../../ui/Text';
+// import { push, startWithTabs } from '../../navigation/navigationActions';
 import CheckUpdate from '../Home/CheckUpdate';
 import { safeArea } from '../../utils/Devices';
-import BackgroundImage from '../../components/BackgroundImage';
+import BackgroundImage from '../../ui/BackgroundImage';
 import LoginActions from '../../redux/LoginRedux/actions';
-import { signUp, login } from '../../navigation/navigationButtons';
+// import { signUp, login } from '../../navigation/navigationButtons';
 
 class Intro extends Component {
   constructor(props) {
@@ -28,24 +28,24 @@ class Intro extends Component {
 
   signUp = () => {
     const { componentId } = this.props;
-    push(componentId, 'Signup', {
-      title: I18n.t('intro.signUp'),
-      rightButtons: [login()],
-    });
+    // push(componentId, 'Signup', {
+    //   title: I18n.t('intro.signUp'),
+    //   rightButtons: [login()],
+    // });
   };
 
   skip = () => {
     const { skipLogin } = this.props;
     skipLogin();
-    startWithTabs();
+    // startWithTabs();
   };
 
   signIn = () => {
     const { componentId } = this.props;
-    push(componentId, 'SignIn', {
-      title: I18n.t('SignIn'),
-      rightButtons: [signUp()],
-    });
+    // push(componentId, 'SignIn', {
+    //   title: I18n.t('SignIn'),
+    //   rightButtons: [signUp()],
+    // });
   };
 
   facebookSignIn = () => {

@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import I18n from 'i18n-js';
 import { connect } from 'react-redux';
 // import InAppBilling from 'react-native-billing';
-import { Navigation } from 'react-native-navigation';
 import {
  ScrollView, View, Dimensions, StyleSheet, FlatList,
 } from 'react-native';
-import Text from '../../components/Text';
+import Text from '../../ui/Text';
 import AppActions from '../../redux/AppRedux/actions';
 import { Colors } from '../../themes';
-import Button from '../../components/Button';
+import Button from '../../ui/Button';
 import { size, fontWeight } from '../../themes/Fonts';
 import PurchaseServiceItem from '../../components/Items/PurchaseServiceItem';
 import PurchaseLevelItem from '../../components/Items/PurchaseLevelItem';
@@ -20,8 +19,8 @@ import PurchaseLevelItem from '../../components/Items/PurchaseLevelItem';
 //   subscribe,
 //   restoreSubcription,
 // } from '../../utils/IAPUtils';
-import BackgroundImage from '../../components/BackgroundImage';
-import { push } from '../../navigation/navigationActions';
+import BackgroundImage from '../../ui/BackgroundImage';
+// import { push } from '../../navigation/navigationActions';
 
 class Purchase extends Component {
   constructor(props) {
@@ -40,18 +39,18 @@ class Purchase extends Component {
 
   openWebView = (title, passProps) => () => {
     const { componentId } = this.props;
-    push(componentId, 'WebView', {
-      title: I18n.t(title),
-      passProps,
-      topBar: {
-        largeTitle: {
-          visible: false,
-        },
-      },
-    });
+    // push(componentId, 'WebView', {
+    //   title: I18n.t(title),
+    //   passProps,
+    //   topBar: {
+    //     largeTitle: {
+    //       visible: false,
+    //     },
+    //   },
+    // });
   };
 
-  onPurchase = async() => {
+  onPurchase = async () => {
     // const { iapList, selected } = this.state;
     // const result = await subscribe(iapList[selected].productId);
     // if (result.purchaseState === 'PurchasedSuccessfully') {
@@ -59,7 +58,7 @@ class Purchase extends Component {
     // }
   };
 
-  getListProduct = async() => {
+  getListProduct = async () => {
     try {
       // await initIAP();
       // const data = await getIAPSubscriptionDetails();
@@ -77,7 +76,7 @@ class Purchase extends Component {
     // }, 10);
   };
 
-  restore = async() => {
+  restore = async () => {
     // const data = await restoreSubcription();
     // if (data && data.length > 0) {
     //   this.setPremium({ productId: data[0] }, 'Restore Successfully!');

@@ -8,7 +8,7 @@ import {
 } from '../../api/crud';
 import { makeActionName } from '../../utils/textUtils';
 import { PRIMARY_KEY, CRUD_ACTIONS } from './actions';
-import { showInAppNoti } from '../../navigation/navigationActions';
+// import { showInAppNoti } from '../../navigation/navigationActions';
 import { convertResponseData, convertRequestParams } from './dataProvider';
 import { DEFERRED } from '../ExposedPromiseMiddleware';
 
@@ -45,7 +45,7 @@ function* getAllSaga(data, options = {}, resource, successAction, failureAction)
       yield put(failureAction(response));
     }
   } catch (error) {
-    showInAppNoti({ title: null, content: 'Something wrong!', type: 'error' });
+    // showInAppNoti({ title: null, content: 'Something wrong!', type: 'error' });
     yield put(failureAction(error));
   }
 }
@@ -121,7 +121,7 @@ function* createSaga(data, options = {}, resource, successAction, failureAction,
       yield put(successAction(result));
       deferred.resolve(result);
     } else {
-      showInAppNoti({ title: null, content: response.message, type: 'error' });
+      // showInAppNoti({ title: null, content: response.message, type: 'error' });
       yield put(failureAction(response));
       deferred.reject(response);
     }

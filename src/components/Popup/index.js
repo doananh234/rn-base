@@ -8,7 +8,6 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import { Navigation } from 'react-native-navigation';
 import { Colors } from '../../themes';
 import CloseButton from './CloseButtonForLightBox';
 
@@ -37,8 +36,9 @@ export default class Popup extends Component {
   };
 
   onClose = () => {
-    const { onClose, componentId } = this.props;
-    Navigation.dismissModal(componentId);
+    const { onClose } = this.props;
+    // const { onClose, componentId } = this.props;
+    // Navigation.dismissModal(componentId);
     onClose && onClose();
   };
 
@@ -145,7 +145,7 @@ export default class Popup extends Component {
 }
 
 Popup.propTypes = {
-  componentId: PropTypes.string,
+  // componentId: PropTypes.string,
   onClose: PropTypes.func,
   renderFooter: PropTypes.func,
   children: PropTypes.node,

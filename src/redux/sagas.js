@@ -4,5 +4,5 @@ import appSagas from './AppRedux/sagas';
 import ForgotPasswordSagas from './ForgotPasswordRedux/sagas';
 
 export default function* root() {
-  yield all([...ForgotPasswordSagas, ...appSagas, ...loginSagas]);
+  yield all([...ForgotPasswordSagas, ...loginSagas]);
 }

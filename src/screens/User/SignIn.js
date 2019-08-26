@@ -1,125 +1,94 @@
-import React, { Component } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import I18n from 'i18n-js';
 import { View, StyleSheet, Dimensions } from 'react-native';
-import { Navigation } from 'react-native-navigation';
 import { Colors } from '../../themes';
-import KeyboardAwareScrollViewUI from '../../components/KeyboardAwareScrollView';
-import Button from '../../components/Button';
+import KeyboardAwareScrollViewUI from '../../ui/KeyboardAwareScrollView';
+import Button from '../../ui/Button';
 import LoginActions from '../../redux/LoginRedux/actions';
-import { push, pop } from '../../navigation/navigationActions';
-import { login } from '../../navigation/navigationButtons';
-import Container from '../../components/Container';
-import Text from '../../components/Text';
-import Divider from '../../components/Divider';
-import { FacebookButton, GoogleButton } from '../../components/SocialButton';
-import Input from '../../components/Input';
+// import { push, pop } from '../../navigation/navigationActions';
+// import { login } from '../../navigation/navigationButtons';
+import Container from '../../ui/Container';
+import Text from '../../ui/Text';
+import Divider from '../../ui/Divider';
+import { FacebookButton, GoogleButton } from '../../ui/SocialButton';
+import Input from '../../ui/Input';
 
-class SignIn extends Component {
-  static options() {
-    return {
-      topBar: {
-        title: {
-          text: I18n.t('SignIn'),
-        },
-      },
-    };
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.email = React.createRef();
-    this.password = React.createRef();
-    Navigation.events().bindComponent(this);
-  }
-
-  navigationButtonPressed = ({ buttonId }) => {
-    if (buttonId === 'Signup') {
-      this.signUp();
-    }
-  };
-
+function SignIn() {
+  const email = useRef();
+  const password = useRef();
   signUp = () => {
-    const { componentId, isFromSignUp } = this.props;
-    isFromSignUp
-      ? pop(componentId)
-      : push(componentId, 'Signup', {
-          title: I18n.t('intro.signUp'),
-          passProps: {
-            isFromSignIn: true,
-          },
-          rightButtons: [login()],
-        });
   };
 
-  login = () => {
-    const { signIn } = this.props;
-    if (this.email.current.getText() && this.password.current.getText()) {
-      const data = {
-        email: this.email.current.getText(),
-        password: this.password.current.getText(),
-      };
-      signIn(data);
-    }
+  const login = () => {
+    global.token = 'token_demo';
+    alert(global.token);
+    // const { signIn } = props;
+    // if (email.current.getText() && password.current.getText()) {
+    //   const data = {
+    //     email: email.current.getText(),
+    //     password: password.current.getText(),
+    //   };
+    //   signIn(data);
+    // }
   };
 
-  forgotPass = () => {
-    const { componentId } = this.props;
-    push(componentId, 'ForgotPassword', {
-      title: I18n.t('userInfo.password.forgotPassword'),
-    });
+  const forgotPass = () => {
+    // const { componentId } = props;
+    // push(componentId, 'ForgotPassword', {
+    //   title: I18n.t('userInfo.password.forgotPassword'),
+    // });
   };
 
-  facebookSignIn = () => {
-    const { fbSignIn } = this.props;
-    fbSignIn();
+  const facebookSignIn = () => {
+    // const { fbSignIn } = .props;
+    // fbSignIn();
   };
 
-  googleSignIn = () => {
-    const { googleLogin } = this.props;
-    googleLogin();
+  const googleSignIn = () => {
+    // const { googleLogin } = props;
+    // googleLogin();
   };
 
-  focusNextField(nextField) {
-    this[nextField].current.focus();
-  }
+  const focusNextField = nextField => {
+    // this[nextField].current.focus();
+  };
 
-  renderInputView = () => {
+  const renderInputView = () => {
     return (
       <View style={styles.vInput}>
         <Input
           icon="email"
-          ref={this.email}
+          ref={email}
           returnKeyType="next"
-          onSubmitEditing={() => this.focusNextField('password')}
+          onSubmitEditing={() => focusNextField('password')}
           placeholder={I18n.t('userInfo.email')}
         />
         <Divider style={styles.divider} />
         <Input
           icon="password"
-          ref={this.password}
+          ref={password}
           secureTextEntry
-          onSubmitEditing={this.login}
+          onSubmitEditing={login}
           placeholder={I18n.t('userInfo.password.title')}
         />
       </View>
     );
   };
 
-  renderButtonGroup = () => {
+  const renderButtonGroup = () => {
     return (
       <View style={styles.vButtonGroup}>
         <Button
           secondary
           style={styles.btn}
-          onPress={this.login}
+          onPress={login}
           buttonTitle={I18n.t('button.login')}
         />
         <Text
           type="body3SemiBold"
-          onPress={this.forgotPass}
+          onPress={forgotPass}
           style={styles.txtForgotPass}
           color={Colors.primaryText}
         >
@@ -133,27 +102,26 @@ class SignIn extends Component {
           <Divider />
         </View>
         <View style={styles.vSocialButton}>
-          <FacebookButton onPress={this.facebookSignIn} />
-          <GoogleButton onPress={this.googleSignIn} />
+          <FacebookButton onPress={facebookSignIn} />
+          <GoogleButton onPress={googleSignIn} />
         </View>
       </View>
     );
   };
 
-  render() {
-    return (
-      <Container>
-        <KeyboardAwareScrollViewUI>
-          {this.renderInputView()}
-          {this.renderButtonGroup()}
-        </KeyboardAwareScrollViewUI>
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <KeyboardAwareScrollViewUI>
+        {renderInputView()}
+        {renderButtonGroup()}
+      </KeyboardAwareScrollViewUI>
+    </Container>
+  );
 }
+
 SignIn.propTypes = {
   signIn: PropTypes.func,
-  componentId: PropTypes.string,
+  // componentId: PropTypes.string,
   fbSignIn: PropTypes.func,
   googleLogin: PropTypes.func,
   isFromSignUp: PropTypes.bool,
@@ -200,19 +168,21 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProps() {
-  return {};
-}
+export default React.memo(SignIn);
 
-const mapDispatchToProps = dispatch => {
-  return {
-    signIn: data => dispatch(LoginActions.signIn(data)),
-    fbSignIn: () => dispatch(LoginActions.fbSignIn()),
-    googleLogin: () => dispatch(LoginActions.googleLogin()),
-  };
-};
+// function mapStateToProps() {
+//   return {};
+// }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SignIn);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     signIn: data => dispatch(LoginActions.signIn(data)),
+//     fbSignIn: () => dispatch(LoginActions.fbSignIn()),
+//     googleLogin: () => dispatch(LoginActions.googleLogin()),
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps,
+// )(SignIn);

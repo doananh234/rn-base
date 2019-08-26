@@ -4,7 +4,12 @@
   "env": {
     "browser": true
   },
-  "plugins": ["react", "jsx-a11y", "react-native", "react-hooks"],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "react-native",
+    "react-hooks"
+  ],
   "globals": {
     "describe": true,
     "it": true,
@@ -17,19 +22,33 @@
   },
   "rules": {
     "jsx-a11y/img-has-alt": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
     "no-use-before-define": 0,
     "react/forbid-prop-types": 0,
     "react/require-default-props": 0,
     "arrow-body-style": 0,
-    "arrow-parens": ["error", "as-needed"],
-    "func-names": ["error", "never"],
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "func-names": [
+      "error",
+      "never"
+    ],
     "import/prefer-default-export": 0,
     "class-methods-use-this": 0,
-    "space-before-function-paren": [
-      "error",
-      { "anonymous": "never", "named": "never", "asyncArrow": "never" }
-    ],
+    // "space-before-function-paren": [
+    //   "error",
+    //   { "anonymous": "never", "named": "never", "asyncArrow": "never" }
+    // ],
     "no-throw-literal": 0,
     "no-undef": 0,
     "no-confusing-arrow": 0,
@@ -37,10 +56,37 @@
     "no-console": 0,
     "no-mixed-operators": [
       "error",
-      { "groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]] }
+      {
+        "groups": [
+          [
+            "&",
+            "|",
+            "^",
+            "~",
+            "<<",
+            ">>",
+            ">>>"
+          ],
+          [
+            "&&",
+            "||"
+          ]
+        ]
+      }
     ],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
     "camelcase": "error",
     "react-hooks/rules-of-hooks": "error",
     "comma-dangle": [

@@ -12,16 +12,16 @@ import {
   editUser,
   loginFacebook,
 } from '../../api/auth';
-import {
-  startStackScreen,
-  showInAppNoti,
-  showProgress,
-} from '../../navigation/navigationActions';
+// import {
+//   startStackScreen,
+//   showInAppNoti,
+//   showProgress,
+// } from '../../navigation/navigationActions';
 import { apiWrapper } from '../../utils/reduxUtils';
 
 export function* signOut() {
   try {
-    startStackScreen();
+    // startStackScreen();
     yield race([
       take('DELETE_DEVICE_TOKENS_SUCCESS'),
       take('DELETE_DEVICE_TOKENS_FAILURE'),
@@ -42,25 +42,25 @@ export function* signUp({ data }) {
     );
     if (!response || !response.token) {
       yield put(Actions.signUpFailure(response));
-      showInAppNoti({
-        title: null,
-        content: response?.message || I18n.t('error.resetPassword'),
-        type: 'error',
-      });
+      // showInAppNoti({
+      //   title: null,
+      //   content: response?.message || I18n.t('error.resetPassword'),
+      //   type: 'error',
+      // });
       return;
     }
     yield put(Actions.signInSuccess(response.token, response.user));
     global.token = response.token;
     // yield put(Actions.getUser());
-    yield put(AppActions.startup());
+    // yield put(AppActions.startup());
   } catch (err) {
     yield put(Actions.signUpFailure(err));
     if (err && err.error && err.error.response) {
-      showInAppNoti({
-        title: null,
-        content: I18n.t('error.signup', { message: 'tài khoản' }),
-        type: 'error',
-      });
+      // showInAppNoti({
+      //   title: null,
+      //   content: I18n.t('error.signup', { message: 'tài khoản' }),
+      //   type: 'error',
+      // });
     }
   }
 }
@@ -75,11 +75,11 @@ export function* signIn({ data }) {
     );
     if (!response || !response.token) {
       yield put(Actions.signInFailure(response));
-      showInAppNoti({
-        title: null,
-        content: I18n.t('error.login'),
-        type: 'error',
-      });
+      // showInAppNoti({
+      //   title: null,
+      //   content: I18n.t('error.login'),
+      //   type: 'error',
+      // });
       return;
     }
     yield put(Actions.signInSuccess(response.token, response.user));
@@ -87,11 +87,11 @@ export function* signIn({ data }) {
     // yield put(Actions.getUser());
     yield put(AppActions.startup());
   } catch (err) {
-    showInAppNoti({
-      title: null,
-      content: I18n.t('error.login'),
-      type: 'error',
-    });
+    // showInAppNoti({
+    //   title: null,
+    //   content: I18n.t('error.login'),
+    //   type: 'error',
+    // });
     yield put(Actions.signInFailure(err));
   }
 }
@@ -139,9 +139,9 @@ export function* fbSignIn() {
   try {
     // const accessToken = yield call(facebookSignInApi);
     const accessToken = '';
-    showProgress(true);
+    // showProgress(true);
     const response = yield call(loginFacebook, accessToken);
-    showProgress(false);
+    // showProgress(false);
     if (response && !response.token) {
       yield put(Actions.signInFailure(response));
       return;
@@ -151,7 +151,7 @@ export function* fbSignIn() {
     // yield put(Actions.getUser());
     yield put(AppActions.startup());
   } catch (err) {
-    showProgress(false);
+    // showProgress(false);
     yield put(Actions.signInFailure(err));
   }
 }

@@ -180,9 +180,9 @@
     "or": "OR"
   },
   "tabs": {
-    "recipes": "Recipes",
+    "home": "Home",
     "calendar": "Calendar",
-    "setting": "Me"
+    "setting": "Setting"
   },
   "purchase": {
     "goPremium": "Go Premium",

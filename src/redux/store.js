@@ -49,5 +49,5 @@ export default onComplete => {
   onComplete(store);
   persistStore(store, {}, () => {});
   sagaMiddleware.run(rootSaga);
-  return { store };
+  return store;
 };

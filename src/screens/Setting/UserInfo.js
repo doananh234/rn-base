@@ -10,8 +10,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { Colors, Images } from '../../themes';
-import Text from '../../components/Text';
-// import Avatar from '../../components/Avatar';
+import Text from '../../ui/Text';
 
 const UserInfo = ({ user, onPress }) => {
   const { first_name, last_name, avatar } = user;

@@ -5,11 +5,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import I18n from 'i18n-js';
 import { Colors } from '../../themes';
-import KeyboardAwareScrollView from '../../components/KeyboardAwareScrollView';
-import InputRow from '../../components/InputRow';
-import Button from '../../components/Button';
+import KeyboardAwareScrollView from '../../ui/KeyboardAwareScrollView';
+import InputRow from '../../ui/InputRow';
+import Button from '../../ui/Button';
 import Actions from '../../redux/ForgotPasswordRedux/actions';
-import Container from '../../components/Container';
+import Container from '../../ui/Container';
 
 class ForgotPassword extends Component {
   static propTypes = {

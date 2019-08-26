@@ -3,27 +3,25 @@ import PropTypes from 'prop-types';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import I18n from 'i18n-js';
-import { Navigation } from 'react-native-navigation';
 import { Colors } from '../../themes';
-import KeyboardAwareScrollView from '../../components/KeyboardAwareScrollView';
-import Text from '../../components/Text';
-import Button from '../../components/Button';
-import Avatar from '../../components/Avatar';
+import KeyboardAwareScrollView from '../../ui/KeyboardAwareScrollView';
+import Text from '../../ui/Text';
+import Button from '../../ui/Button';
+import Avatar from '../../ui/Avatar';
 import LoginActions from '../../redux/LoginRedux/actions';
-import Container from '../../components/Container';
-import Input from '../../components/Input';
-import Divider from '../../components/Divider';
-import { FacebookButton, GoogleButton } from '../../components/SocialButton';
-import { push, pop } from '../../navigation/navigationActions';
-import { signUp as btnSignUp } from '../../navigation/navigationButtons';
+import Container from '../../ui/Container';
+import Input from '../../ui/Input';
+import Divider from '../../ui/Divider';
+import { FacebookButton, GoogleButton } from '../../ui/SocialButton';
+// import { push, pop } from '../../navigation/navigationActions';
+// import { signUp as btnSignUp } from '../../navigation/navigationButtons';
 
-class Signup extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
       avatar: '',
     };
-    Navigation.events().bindComponent(this);
     this.userName = React.createRef();
     this.email = React.createRef();
     this.password = React.createRef();
@@ -37,15 +35,15 @@ class Signup extends Component {
 
   signIn = () => {
     const { componentId, isFromSignIn } = this.props;
-    isFromSignIn
-      ? pop(componentId)
-      : push(componentId, 'SignIn', {
-          title: I18n.t('SignIn'),
-          passProps: {
-            isFromSignUp: true,
-          },
-          rightButtons: [btnSignUp()],
-        });
+    // isFromSignIn
+    //   ? pop(componentId)
+    //   : push(componentId, 'SignIn', {
+    //       title: I18n.t('SignIn'),
+    //       passProps: {
+    //         isFromSignUp: true,
+    //       },
+    //       rightButtons: [btnSignUp()],
+    //     });
   };
 
   submitData = () => {
@@ -192,7 +190,7 @@ class Signup extends Component {
   }
 }
 
-Signup.propTypes = {
+SignUp.propTypes = {
   isEdit: PropTypes.bool,
   editUser: PropTypes.func,
   signUp: PropTypes.func,
@@ -269,4 +267,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Signup);
+)(SignUp);

@@ -4,13 +4,13 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import I18n from 'i18n-js';
 import { bindActionCreators } from 'redux';
+import InputRow from '../../ui/InputRow';
+import Button from '../../ui/Button';
+import Text from '../../ui/Text';
+import Container from '../../ui/Container';
+import Input from '../../ui/Input';
 import { Colors } from '../../themes';
-import InputRow from '../../components/InputRow';
-import Button from '../../components/Button';
-import Text from '../../components/Text';
 import Actions from '../../redux/ForgotPasswordRedux/actions';
-import Container from '../../components/Container';
-import Input from '../../components/Input';
 
 class ForgotPassword extends Component {
   static propTypes = {
