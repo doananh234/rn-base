@@ -23,7 +23,6 @@ export const convertRequestParams = (type, params, resource) => {
 };
 
 export const convertResponseData = (type, response) => {
-  console.log('response', response);
   switch (type) {
     case 'GET_ALL':
       return {

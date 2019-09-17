@@ -1,17 +1,10 @@
-// import { takeLatest, select } from 'redux-saga/effects';
-// // import { startWithTabs, startStackScreen } from '../../navigation/navigationActions';
-// import { Types } from './actions';
+import { takeLatest } from 'redux-saga/effects';
+import { Types } from './actions';
+import { navigate } from '../../navigation/NavigatorService';
 
-// export function* startup() {
-//   const { token, isSkipLogin } = yield select(state => state.login);
-//   global.token = token;
-//   token || isSkipLogin ? startWithTabs() : startStackScreen();
-//   // startWithTabs();
-//   // startStackScreen();
-// }
 
-// const appSagas = () => {
-//   return [takeLatest(Types.STARTUP, startup), takeLatest('persist/REHYDRATE', startup)];
-// };
+function* startup() {
+    navigate('BottomTabNavigator');
+}
 
-// export default appSagas();
+export default [takeLatest(Types.STARTUP, startup)];

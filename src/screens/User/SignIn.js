@@ -1,37 +1,42 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import I18n from 'i18n-js';
 import { View, StyleSheet, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/mealplanner';
+import { useNavigation } from 'react-navigation-hooks';
+import { useDispatch, useSelector } from 'react-redux';
 import { Colors } from '../../themes';
 import KeyboardAwareScrollViewUI from '../../ui/KeyboardAwareScrollView';
 import Button from '../../ui/Button';
-import LoginActions from '../../redux/LoginRedux/actions';
-// import { push, pop } from '../../navigation/navigationActions';
-// import { login } from '../../navigation/navigationButtons';
 import Container from '../../ui/Container';
 import Text from '../../ui/Text';
 import Divider from '../../ui/Divider';
 import { FacebookButton, GoogleButton } from '../../ui/SocialButton';
+import Touchable from '../../ui/Touchable';
 import Input from '../../ui/Input';
+import LoginActions from '../../redux/LoginRedux/actions';
 
-function SignIn() {
+const SignIn = React.memo(() => {
+  const isLogged = useSelector(state => state.login.isLogged);
+  const { navigate } = useNavigation();
+
+  // TODO: Hooks
   const email = useRef();
   const password = useRef();
+
+  const dispatch = useDispatch();
+
   signUp = () => {
   };
 
   const login = () => {
-    global.token = 'token_demo';
-    alert(global.token);
-    // const { signIn } = props;
-    // if (email.current.getText() && password.current.getText()) {
-    //   const data = {
-    //     email: email.current.getText(),
-    //     password: password.current.getText(),
-    //   };
-    //   signIn(data);
-    // }
+    if (email.current.getText() && password.current.getText()) {
+      const data = {
+        email: email.current.getText(),
+        password: password.current.getText(),
+      };
+      dispatch(LoginActions.signIn(data));
+    }
   };
 
   const forgotPass = () => {
@@ -117,7 +122,7 @@ function SignIn() {
       </KeyboardAwareScrollViewUI>
     </Container>
   );
-}
+});
 
 SignIn.propTypes = {
   signIn: PropTypes.func,
@@ -168,21 +173,33 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(SignIn);
+SignIn.navigationOptions = ({
+  navigation,
+}) => {
+  const onShowSignUp = () => {
+    navigation.push('SignUp');
+  };
+  return {
+    title: I18n.t('intro.signIn'),
+    headerRight: (
+      <Touchable onPress={onShowSignUp}>
+        <View style={{ marginRight: 20 }}>
+          <Text style={{ color: Colors.whiteSmoke }}>
+            Sign Up
+          </Text>
+        </View>
+      </Touchable>
+    ),
+    headerStyle: {
+      backgroundColor: Colors.secondary,
+    },
+    headerLeft: (
+      <Touchable onPress={() => navigation.goBack(null)}>
+        <Icon name="back" size={20} color={Colors.whiteSmoke} style={{ marginLeft: 20 }} />
+      </Touchable>
+    ),
+    headerTintColor: Colors.whiteSmoke,
+  };
+};
 
-// function mapStateToProps() {
-//   return {};
-// }
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     signIn: data => dispatch(LoginActions.signIn(data)),
-//     fbSignIn: () => dispatch(LoginActions.fbSignIn()),
-//     googleLogin: () => dispatch(LoginActions.googleLogin()),
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps,
-// )(SignIn);
+export default SignIn;

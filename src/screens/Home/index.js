@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, ScrollView, FlatList } from 'react-native';
 import { useNavigation } from 'react-navigation-hooks';
+import { useSelector } from 'react-redux';
 import HomeItem from '../../components/Items/HomeItem';
 import Divider from '../../ui/Divider';
 import EmptyView from '../../ui/EmptyView';
@@ -13,6 +14,7 @@ import SummaryRow from './SummaryRow';
 
 function Home() {
   const { push } = useNavigation();
+  const isLogged = useSelector(state => state.login.isLogged);
 
   const onPressItem = useCallback(
     item => {

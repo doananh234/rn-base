@@ -56,7 +56,7 @@ export function createRealmPersistStorage({ path } = {}) {
   }
 
   async function getItem(key, callback) {
-    return withCallback(callback, async() => {
+    return withCallback(callback, async () => {
       const items = await accessItemInstances();
       const matches = items.filtered(`name = "${key}"`);
       if (matches.length > 0 && matches[0]) {
@@ -67,7 +67,7 @@ export function createRealmPersistStorage({ path } = {}) {
   }
 
   async function setItem(key, value, callback) {
-    return withCallback(callback, async() => {
+    return withCallback(callback, async () => {
       const realm = await accessRealm();
       realm.write(() => {
         realm.create(
@@ -83,7 +83,7 @@ export function createRealmPersistStorage({ path } = {}) {
   }
 
   async function removeItem(key, callback) {
-    return withCallback(callback, async() => {
+    return withCallback(callback, async () => {
       const realm = await accessRealm();
       const items = await accessItemInstances();
       realm.write(() => {

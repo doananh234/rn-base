@@ -1,7 +1,6 @@
 import {
- call, put, takeLatest, take, race,
+  call, put, takeLatest, take, race,
 } from 'redux-saga/effects';
-import I18n from 'i18n-js';
 import Actions, { LoginTypes } from './actions';
 import AppActions from '../AppRedux/actions';
 import {
@@ -12,23 +11,16 @@ import {
   editUser,
   loginFacebook,
 } from '../../api/auth';
-// import {
-//   startStackScreen,
-//   showInAppNoti,
-//   showProgress,
-// } from '../../navigation/navigationActions';
 import { apiWrapper } from '../../utils/reduxUtils';
 
 export function* signOut() {
   try {
-    // startStackScreen();
     yield race([
       take('DELETE_DEVICE_TOKENS_SUCCESS'),
       take('DELETE_DEVICE_TOKENS_FAILURE'),
     ]);
     global.token = null;
   } catch (error) {
-    // console.log(error);
   }
 }
 
@@ -73,28 +65,18 @@ export function* signIn({ data }) {
       login,
       data,
     );
-    if (!response || !response.token) {
-      yield put(Actions.signInFailure(response));
-      // showInAppNoti({
-      //   title: null,
-      //   content: I18n.t('error.login'),
-      //   type: 'error',
-      // });
-      return;
-    }
     yield put(Actions.signInSuccess(response.token, response.user));
-    global.token = response.token;
-    // yield put(Actions.getUser());
+
     yield put(AppActions.startup());
   } catch (err) {
-    // showInAppNoti({
-    //   title: null,
-    //   content: I18n.t('error.login'),
-    //   type: 'error',
-    // });
     yield put(Actions.signInFailure(err));
   }
 }
+
+export function* skipLogin() {
+  yield put(AppActions.startup());
+}
+
 
 export function* getUser() {
   try {
@@ -156,13 +138,12 @@ export function* fbSignIn() {
   }
 }
 
-const loginSagas = () => [
+export default [
   takeLatest(LoginTypes.SIGN_UP, signUp),
   takeLatest(LoginTypes.SIGN_IN, signIn),
   takeLatest(LoginTypes.SIGN_OUT, signOut),
   takeLatest(LoginTypes.GET_USE, getUser),
   takeLatest(LoginTypes.EDIT_USER, editUserSaga),
   takeLatest(LoginTypes.FB_LOGIN, fbSignIn),
+  takeLatest(LoginTypes.SKIP_LOGIN, skipLogin),
 ];
-
-export default loginSagas();

@@ -13,7 +13,7 @@ export const INITIAL_STATE = Immutable({
   token: null,
   isFirstTime: true,
   isPremium: false,
-  expired_date: '2018-09-26T10:04:28.550Z',
+  expiredDate: '2018-09-26T10:04:28.550Z',
   setting: {},
   isSkipLogin: false,
 });
@@ -128,14 +128,12 @@ const fbSignInFailure = (state, action) => state.merge({
   });
 
 const skipLogin = state => {
-  console.log('state', state);
   return INITIAL_STATE.merge({
     isSkipLogin: true,
   });
 };
 
 const ACTION_HANDLERS = {
-  // [AppLoginTypes.STARTUP]: startUp,
   [LoginTypes.SIGN_OUT]: signOut,
   [LoginTypes.SIGN_UP]: signUp,
   [LoginTypes.SIGN_UP_SUCCESS]: signUpSuccess,

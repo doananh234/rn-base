@@ -64,7 +64,6 @@ class Purchase extends Component {
       // const data = await getIAPSubscriptionDetails();
       // this.setState({ iapList: data });
     } catch (error) {
-      console.log('error', error);
     }
   };
 

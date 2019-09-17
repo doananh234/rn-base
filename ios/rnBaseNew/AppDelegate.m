@@ -39,4 +39,11 @@
 #endif
 }
 
+// TODO: Fix Unable to find module for UIManager
+//#if RCT_DEV
+//- (BOOL)bridge:(RCTBridge *)bridge didNotFindModule:(NSString *)moduleName {
+//  return YES;
+//}
+//#endif
+
 @end

@@ -3,7 +3,6 @@ import { ImageEditor, Image } from 'react-native';
 export default async function uploadImage(img) {
   const uri = await cropImage(img);
   // call upload api here
-  console.log('uri', uri);
 }
 
 function cropImage(uri) {
@@ -23,13 +22,11 @@ function cropImage(uri) {
             resolve(successURI);
           },
           err => {
-            // console.log(err);
             reject(err);
           },
         );
       },
       err => {
-        // console.log(err);
         reject(err);
       },
     );

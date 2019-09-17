@@ -13,7 +13,6 @@ export default class DatePickerUI extends Component {
   }
 
   onDateChange = date => {
-    console.log('date', date);
     this.selectedDate = date;
   };
 

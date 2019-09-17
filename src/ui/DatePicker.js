@@ -69,7 +69,6 @@ export default class DatePicker extends Component {
         if (action === DatePickerAndroid.dismissedAction) {
           onClose && onClose();
         } else {
-          console.log('');
           const converDate = {
             year,
             month,

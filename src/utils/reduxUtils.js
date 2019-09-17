@@ -43,7 +43,7 @@ export function* apiWrapper(
   } catch (error) {
     // showProgress(false);
     // yield put(clearLoading());
-    return error;
+    throw error;
   }
 }
 

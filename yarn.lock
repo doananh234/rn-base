@@ -2798,6 +2798,11 @@ eslint-plugin-react-hooks@^1.5.1:
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.6.1.tgz#3c66a5515ea3e0a221ffc5d4e75c971c217b1a4c"
   integrity sha512-wHhmGJyVuijnYIJXZJHDUF2WM+rJYTjulUTqF9k61d3BTk8etydz+M4dXUVH7M76ZRS85rqBTCx0Es/lLsrjnA==
 
+eslint-plugin-react-hooks@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-2.0.1.tgz#e898ec26a0a335af6f7b0ad1f0bedda7143ed756"
+  integrity sha512-xir+3KHKo86AasxlCV8AHRtIZPHljqCRRUYgASkbatmt0fad4+5GgC7zkT7o/06hdKM6MIwp8giHVXqBPaarHQ==
+
 eslint-plugin-react-native-globals@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-native-globals/-/eslint-plugin-react-native-globals-0.1.2.tgz#ee1348bc2ceb912303ce6bdbd22e2f045ea86ea2"
@@ -5731,10 +5736,10 @@ node-plop@~0.19.0:
     pify "^4.0.0"
     resolve "^1.11.0"
 
-node-pre-gyp@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.11.0.tgz#db1f33215272f692cd38f03238e3e9b47c5dd054"
-  integrity sha512-TwWAOZb0j7e9eGaf9esRx3ZcLaE5tQ2lvYy1pb5IAaG1a2e2Kv5Lms1Y4hpj+ciXJRofIxxlt5haeQ/2ANeE0Q==
+node-pre-gyp@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.12.0.tgz#39ba4bb1439da030295f899e3b520b7785766149"
+  integrity sha512-4KghwV8vH5k+g2ylT+sLTjy5wmUOb9vPhnM8NHvRf9dHmnW/CndrFXy2aRPaPST6dugXSdHXfeaHQm77PIz/1A==
   dependencies:
     detect-libc "^1.0.2"
     mkdirp "^0.5.1"
@@ -5747,10 +5752,10 @@ node-pre-gyp@^0.11.0:
     semver "^5.3.0"
     tar "^4"
 
-node-pre-gyp@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.12.0.tgz#39ba4bb1439da030295f899e3b520b7785766149"
-  integrity sha512-4KghwV8vH5k+g2ylT+sLTjy5wmUOb9vPhnM8NHvRf9dHmnW/CndrFXy2aRPaPST6dugXSdHXfeaHQm77PIz/1A==
+node-pre-gyp@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.13.0.tgz#df9ab7b68dd6498137717838e4f92a33fc9daa42"
+  integrity sha512-Md1D3xnEne8b/HGVQkZZwV27WUi1ZRuZBij24TNaZwUPU3ZAFtvT6xxJGaUVillfmMKnn5oD1HoGsp2Ftik7SQ==
   dependencies:
     detect-libc "^1.0.2"
     mkdirp "^0.5.1"
@@ -6670,6 +6675,11 @@ react-native-localize@^1.1.4:
   resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-1.1.4.tgz#d48aa4f75afd39a42dcd0bdf40f7f44a8ccd604c"
   integrity sha512-NHsA812yvoH9ktPl1IqIxwDDwykipyH7K4zeW/nnipZuQb2g73SQEB3ryqKHmRASWD0DZl0hIxHr9IszzG5W5w==
 
+react-native-platform-touchable@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-platform-touchable/-/react-native-platform-touchable-1.1.1.tgz#fde4acc65eea585d28b164d0c3716a42129a68e4"
+  integrity sha1-/eSsxl7qWF0osWTQw3FqQhKaaOQ=
+
 react-native-reanimated@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.2.0.tgz#9219227a52a5dfa4d34c324596d6726ccd874293"
@@ -6749,6 +6759,13 @@ react-navigation-drawer@~1.4.0:
   integrity sha512-ZyWBozcjB2aZ7vwCALv90cYA2NpDjM+WALaiYRshvPvue8l7cqynePbHK8GhlMGyJDwZqp4MxQmu8u1XAKp3Bw==
   dependencies:
     react-native-tab-view "^1.2.0"
+
+react-navigation-header-buttons@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-navigation-header-buttons/-/react-navigation-header-buttons-3.0.2.tgz#f9ca750a15b4aad0fcf7ad5013b78b2ca0c7d14c"
+  integrity sha512-dzcJnr5uH76Ym8NhIM39zBxrXPgyJ7MLRRt/D5cuubE5w6uYZ5Hsep/QD7AiFlIV1cJrY3iCU0PXyjx33ZhoGA==
+  dependencies:
+    react-native-platform-touchable "^1.1.1"
 
 react-navigation-hooks@^1.0.1:
   version "1.0.1"
@@ -6901,10 +6918,10 @@ readable-stream@^2.0.1, readable-stream@^2.0.6, readable-stream@^2.2.2, readable
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
-realm@^2.29.1:
-  version "2.29.1"
-  resolved "https://registry.yarnpkg.com/realm/-/realm-2.29.1.tgz#24b3d1b6b66c08f51969932ee1e3268df0446d93"
-  integrity sha512-8oHCRrzz9vXNbr6PLnEDnNLCt+WKFO+JsJLCmY3raoPlamzPHBJndTAl3+x0Z1S0xR8Z0g86a53ptgCVOnfuQA==
+realm@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/realm/-/realm-3.0.0.tgz#55668c8e60a8f075ddaadc7d50adcd81c59c960e"
+  integrity sha512-YrjbQ2IWLYH4I1+wAVW+HOFyKugmeCFvV10seWAi+G6+lKt4+Br1hfGXjJGle7z4/MlFYQWDfIWpnIvChxPwPg==
   dependencies:
     command-line-args "^4.0.6"
     decompress "^4.2.0"
@@ -6915,7 +6932,7 @@ realm@^2.29.1:
     nan "^2.12.1"
     node-fetch "^1.7.3"
     node-machine-id "^1.1.10"
-    node-pre-gyp "^0.11.0"
+    node-pre-gyp "^0.13.0"
     progress "^2.0.3"
     prop-types "^15.6.2"
     request "^2.88.0"

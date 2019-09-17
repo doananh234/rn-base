@@ -34,10 +34,6 @@ export default class CheckUpdate extends Component {
           const downloadProgress = Math.round(
             (receivedBytes / totalBytes) * 100,
           );
-          // this.setState({
-          //   downloadProgress,
-          // });
-          console.log('downloadProgress', downloadProgress);
         },
       );
   }

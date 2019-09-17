@@ -1,31 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { Provider } from 'react-redux';
 import configI18n from './i18n/index';
-import { iconsLoaded } from './utils/appIcons';
+import { iconsLoaded, iconsMap } from './utils/appIcons';
 import configureStore from './redux/store';
 import './themes/Images';
 import AppNavigation from './navigation/AppNavigation';
-// import AppNavigation from './navigation/AppNavigation';
-
-
-// const loadStore = async () => {
-//   return new Promise(resolve => {
-//     configureStore(store => {
-//       configI18n(store);
-//       resolve(store);
-//     });
-//   });
-// };
+import { setNavigator } from './navigation/NavigatorService';
 
 
 export default function Setup() {
+  const navigatorRef = useRef();
+
   useEffect(() => {
     async function sideEffect() {
       await iconsLoaded;
     }
     sideEffect();
   }, []);
+
+  // TODO: Setup navigator to use react-navigation in saga
+  useEffect(() => {
+    setNavigator(navigatorRef.current);
+  }, [])
 
   const configuredStore = configureStore(store => {
     configI18n(store);
@@ -34,7 +31,7 @@ export default function Setup() {
 
   return (
     <Provider store={configuredStore}>
-      <AppNavigation />
+      <AppNavigation ref={navigatorRef} />
     </Provider>
   );
 }

@@ -1,7 +1,6 @@
 import Config from '../config/AppSetting';
 
 const checkIfErrorOccurs = res => {
-  // console.log('res', res);
   return {
     code: res.status,
     res,
@@ -73,7 +72,7 @@ export const timeoutPromise = (ms, promise) => {
 export default xfetch;
 
 function requestWrapper(method) {
-  return async(_url, _data = null, _params = {}) => {
+  return async (_url, _data = null, _params = {}) => {
     let url = _url;
     let data = _data;
     let params = _params;
