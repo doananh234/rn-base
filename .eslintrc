@@ -1,48 +1,47 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
-  "env": {
-    "browser": true
-  },
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "react-native",
-    "react-hooks"
-  ],
-  "globals": {
-    "describe": true,
-    "it": true,
-    "expect": true,
-    "fetch": true,
-    "navigator": true,
-    "__DEV__": true,
-    "XMLHttpRequest": true,
-    "FormData": true
-  },
+  "extends": ["airbnb"],
+  "plugins": ["react", "jsx-a11y", "react-native", "react-hooks"],
   "rules": {
+    "react/prop-types": ["error", { "ignore": ["navigation"] }],
+    "import/no-unresolved": 0,
+    "no-return-assign": 0,
+    "padded-blocks": 0,
+    "max-len": ["error", 80],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "object-curly-spacing": 0,
+    "new-cap": 0,
+    "no-underscore-dangle": 0,
+    "import/no-duplicates": 2,
+    "react/sort-comp": 0,
+    "react/no-array-index-key": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "packageDir": ["./", "./apps/mobile-app", "./packages/uxkit"]
+      }
+    ],
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
     "jsx-a11y/img-has-alt": "off",
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "no-use-before-define": 0,
     "react/forbid-prop-types": 0,
     "react/require-default-props": 0,
     "arrow-body-style": 0,
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
-    "func-names": [
-      "error",
-      "never"
-    ],
+    "arrow-parens": ["error", "as-needed"],
+    "func-names": ["error", "never"],
     "import/prefer-default-export": 0,
     "class-methods-use-this": 0,
     // "space-before-function-paren": [
@@ -57,27 +56,7 @@
     "no-mixed-operators": [
       "error",
       {
-        "groups": [
-          [
-            "&",
-            "|",
-            "^",
-            "~",
-            "<<",
-            ">>",
-            ">>>"
-          ],
-          [
-            "&&",
-            "||"
-          ]
-        ]
-      }
-    ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
+        "groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]
       }
     ],
     "no-unused-expressions": [
@@ -88,7 +67,6 @@
       }
     ],
     "camelcase": "error",
-    "react-hooks/rules-of-hooks": "error",
     "comma-dangle": [
       2,
       {
@@ -98,8 +76,36 @@
         "exports": "always-multiline",
         "functions": "ignore"
       }
-    ]
+    ],
+    "object-curly-newline": [
+      "error",
+      { "ImportDeclaration": "always", "ExportDeclaration": "never" }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
-  "react-hooks/rules-of-hooks": "error",
-  "react-hooks/exhaustive-deps": "warn"
+  "settings": {
+    "react": {
+      "version": "latest"
+    },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "env": {
+    "react-native/react-native": true
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "packages/*", "apps/*"],
+      "rules": {
+        "class-methods-use-this": "off"
+      }
+    }
+  ]
 }
