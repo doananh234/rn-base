@@ -4,8 +4,8 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@components": ["./src/components"],
-      "@screens": ["./src/screens"],
-      "@screens/*": ["./src/screens/*"],
+      "screens": ["./src/screens"],
+      "screens/*": ["./src/screens/*"],
       "@constants": ["./src/constants"],
       "@containers": ["./src/containers"],
       "@containers/*": ["./src/containers/*"],

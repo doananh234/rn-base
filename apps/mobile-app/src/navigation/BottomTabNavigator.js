@@ -8,11 +8,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {
  mapValues,
 } from 'lodash';
-import Detail from '@screens/Home/Detail';
-import Home from '@screens/Home';
-import Setting from '@screens/Setting';
-import Calendar from '@screens/Calendar';
-import Modal from '@screens/Modal';
+import Detail from 'screens/Home/Detail';
+import Home from 'screens/Home';
+import Setting from 'screens/Setting';
+import Calendar from 'screens/Calendar';
+import Modal from 'screens/Modal';
 
 const BOTTOM_TABS = {
   HomeTab: {

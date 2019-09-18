@@ -35,7 +35,7 @@ export default onComplete => {
     'EFFECT_TRIGGERED',
     'EFFECT_RESOLVED',
     'EFFECT_REJECTED',
-    'persist/REHYDRATE',
+    // 'persist/REHYDRATE',
   ];
   if (__DEV__) {
     // the logger master switch
@@ -50,7 +50,10 @@ export default onComplete => {
 
   enhancers.push(applyMiddleware(...middleware));
 
-  const persistedReducer = persistReducer(REDUX_PERSIST, combineReducers(rootReducer));
+  const persistedReducer = persistReducer(
+    REDUX_PERSIST,
+    combineReducers(rootReducer)
+  );
   const store = createStore(persistedReducer, compose(...enhancers));
   onComplete(store);
   persistStore(store, {}, () => {});

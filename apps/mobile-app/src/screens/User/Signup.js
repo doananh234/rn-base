@@ -59,7 +59,11 @@ class SignUp extends Component {
   submitData = () => {
     const { userName, email, password } = this;
     const { isEdit, editUser, signUp } = this.props;
-    if (userName.current.getText() && email.current.getText() && password.current.getText()) {
+    if (
+      userName.current.getText()
+      && email.current.getText()
+      && password.current.getText()
+    ) {
       const data = {
         first_name: userName.current.getText(),
         last_name: ' ',
@@ -138,18 +142,35 @@ class SignUp extends Component {
           secondary
           style={styles.button}
           onPress={this.submitData}
-          buttonTitle={isEdit ? I18n.t('button.save') : I18n.t('button.signUp').toLocaleUpperCase()}
+          buttonTitle={
+            isEdit
+              ? I18n.t('button.save')
+              : I18n.t('button.signUp').toLocaleUpperCase()
+          }
         />
         {!isEdit && (
-          <Text type="body3" color={Colors.primaryText} center style={styles.termsAndPrivacy}>
+          <Text
+            type="body3"
+            color={Colors.primaryText}
+            center
+            style={styles.termsAndPrivacy}
+          >
             {I18n.t('auth.termsAndPrivacy')}
-            <Text type="body3SemiBold" onPress={this.onPressTerms} color={Colors.primaryText}>
+            <Text
+              type="body3SemiBold"
+              onPress={this.onPressTerms}
+              color={Colors.primaryText}
+            >
               {I18n.t('auth.terms')}
             </Text>
             {' '}
             {I18n.t('auth.and')}
             {' '}
-            <Text type="body3SemiBold" onPress={this.onPressPrivacy} color={Colors.primaryText}>
+            <Text
+              type="body3SemiBold"
+              onPress={this.onPressPrivacy}
+              color={Colors.primaryText}
+            >
               {I18n.t('auth.privacy')}
             </Text>
             {' '}

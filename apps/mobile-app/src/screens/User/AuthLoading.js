@@ -3,9 +3,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import {
-  ActivityIndicator,
-  StatusBar,
-  View,
+ ActivityIndicator, StatusBar, View,
 } from 'react-native';
 import {
  useSelector,
@@ -16,12 +14,14 @@ import {
 
 function AuthLoading({ navigation }) {
   const isLogged = useSelector(state => state.login.isLogged);
+  const isSkipLogin = useSelector(state => state.login.isSkipLogin);
 
   // TODO: Fetch the token from storage then navigate to our appropriate place
   useEffect(() => {
-    navigation.navigate(isLogged ? 'BottomTabNavigator' : 'LaunchNavigator');
-  }, [isLogged, navigation]);
-
+    navigation.navigate(
+      isLogged || isSkipLogin ? 'BottomTabNavigator' : 'LaunchNavigator'
+    );
+  }, [isLogged, isSkipLogin, navigation]);
 
   // Render any loading content that you like here
   return (
