@@ -67,7 +67,6 @@
       }
     ],
     "camelcase": "error",
-    "react-hooks/rules-of-hooks": "error",
     "comma-dangle": [
       2,
       {
@@ -81,7 +80,9 @@
     "object-curly-newline": [
       "error",
       { "ImportDeclaration": "always", "ExportDeclaration": "never" }
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "react": {

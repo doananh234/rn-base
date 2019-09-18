@@ -9,15 +9,19 @@ const AppSchema = {
 
 const AuthSchema = {
   name: 'Auth',
-  primaryKey: 'id',
+  // primaryKey: 'id',
   properties: {
     id: 'string',
-    isPremium: 'bool',
+    token: 'string',
+    email: 'string',
+    scope: 'string',
+    emailVerified: 'bool',
+    ttl: 'int',
   },
 };
 
 export class BaseSchema {
-  schema ={ primaryKey: 'id', properties: {} };
+  schema = { primaryKey: 'id', properties: {} };
 
   constructor(name, initialData) {
     this.schema.name = name;
@@ -34,11 +38,11 @@ export class BaseSchema {
 export const realm = Realm.open({ schema: [AppSchema, AuthSchema] });
 
 export const writeToRealm = (model, data) => {
-realm.write(() => {
-  const record = realm.create(model, data);
-  // And then he didn't do so well on the third test
-  return record;
-});
+  realm.write(() => {
+    const record = realm.create(model, data);
+    // And then he didn't do so well on the third test
+    return record;
+  });
 };
 
 export const getAllData = (model, page, pageSize) => {

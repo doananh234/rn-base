@@ -195,13 +195,11 @@ export const openURL = (url, isWeb) => {
   Linking.canOpenURL(newUrl)
     .then(supported => {
       if (!supported) {
-        // console.log('Can\'t handle url: ' + url);
       } else {
         return Linking.openURL(newUrl);
       }
     })
     .catch(err => {
-      console.error('An error occurred', err);
     });
 };
 

@@ -20,7 +20,6 @@ export const getGeocode = address => {
       return response.json();
     })
     .catch(err => {
-      console.log('err', err);
     });
 };
 
@@ -50,6 +49,5 @@ export const getArea = (lat, lng) => {
       return response.json();
     })
     .catch(err => {
-      console.log('err', err);
     });
 };

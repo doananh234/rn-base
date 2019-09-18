@@ -1,17 +1,16 @@
-import React, {
- useState,
-} from 'react';
+import React from 'react';
+import {
+ useDispatch,
+} from 'react-redux';
 import {
  View, StyleSheet, Dimensions,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import {
- useDispatch,
-} from 'react-redux';
-import I18n from 'i18n-js';
-import {
  useNavigation,
 } from 'react-navigation-hooks';
+import I18n from 'i18n-js';
+import LoginActions from '../../redux/LoginRedux/actions';
 import {
  Colors,
 } from '../../themes';
@@ -20,57 +19,41 @@ import {
  FacebookButton, GoogleButton,
 } from '../../ui/SocialButton';
 import Text from '../../ui/Text';
-// import { push, startWithTabs } from '../../navigation/navigationActions';
 import CheckUpdate from '../Home/CheckUpdate';
 import {
  safeArea,
 } from '../../utils/Devices';
 import BackgroundImage from '../../ui/BackgroundImage';
-import LoginActions from '../../redux/LoginRedux/actions';
-// import { signUp, login } from '../../navigation/navigationButtons';
 
-const Intro = () => {
-  const [data, setData] = useState({});
+function Intro(props) {
   const dispatch = useDispatch();
+
   const { push } = useNavigation();
 
-  onChange = name => text => {
-    data[name] = text;
+  const signUp = () => {
+    push('SignUp');
   };
 
-  signUp = () => {
-    push('Signup');
-    // push(componentId, 'Signup', {
-    //   title: I18n.t('intro.signUp'),
-    //   rightButtons: [login()],
-    // });
-  };
-
-  skip = () => {
+  const skip = () => {
     dispatch(LoginActions.skipLogin());
-    // startWithTabs();
   };
 
-  signIn = () => {
-    push('SignIn');
-    // push(componentId, 'SignIn', {
-    //   title: I18n.t('SignIn'),
-    //   rightButtons: [signUp()],
-    // });
+  const signIn = () => {
+    push('SignIn', {});
   };
 
-  facebookSignIn = () => {
-    dispatch(LoginActions.fbSignIn());
+  const facebookSignIn = () => {
+    // const { fbSignIn } = this.props;
+    // fbSignIn();
   };
 
-  googleSignIn = () => {
-    dispatch(LoginActions.googleLogin());
+  const googleSignIn = () => {
+    // const { googleLogin } = this.props;
+    // googleLogin();
   };
 
-  return (
-    <View style={styles.container}>
-      <CheckUpdate />
-      <BackgroundImage imageName="backgroundIntro" />
+  const renderButtonGroup = () => {
+    return (
       <View style={styles.vButtonGroup}>
         <Button
           secondary
@@ -78,7 +61,6 @@ const Intro = () => {
           onPress={signUp}
           buttonTitle={I18n.t('intro.signUp')}
         />
-        {/* <View style={{ flex: 1 }} /> */}
         <Button
           transparent
           style={styles.btnSkip}
@@ -97,8 +79,22 @@ const Intro = () => {
           <GoogleButton onPress={googleSignIn} />
         </View>
       </View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <CheckUpdate />
+      <BackgroundImage imageName="backgroundIntro" />
+      {renderButtonGroup()}
     </View>
   );
+}
+
+Intro.propTypes = {
+  fbSignIn: PropTypes.func,
+  googleLogin: PropTypes.func,
+  skipLogin: PropTypes.func,
 };
 
 const { width } = Dimensions.get('window');
@@ -157,7 +153,25 @@ const styles = StyleSheet.create({
 });
 
 Intro.propTypes = {
-  componentId: PropTypes.string,
+  // signIn: PropTypes.func,
+  // componentId: PropTypes.string,
 };
 
-export default Intro;
+// function mapStateToProps() {
+//   return {};
+// }
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fbSignIn: () => dispatch(LoginActions.fbSignIn()),
+//     googleLogin: () => dispatch(LoginActions.googleLogin()),
+//     skipLogin: () => dispatch(LoginActions.skipLogin()),
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps,
+// )(Intro);
+
+export default React.memo(Intro);

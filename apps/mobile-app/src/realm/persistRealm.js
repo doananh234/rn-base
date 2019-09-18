@@ -6,7 +6,7 @@ import realmInstance from './RealmPersistInstance';
 
 const transformerConfig = {
   whitelistPerReducer: {
-    login: ['data', 'token', 'isFirstTime', 'isSkipLogin'],
+    login: ['data', 'token', 'isFirstTime', 'isSkipLogin', 'isLogged'],
   },
 };
 
