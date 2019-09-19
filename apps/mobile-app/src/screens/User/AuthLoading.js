@@ -1,20 +1,19 @@
 import React, {
- useEffect,
+  useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
 import {
- ActivityIndicator, StatusBar, View,
+  ActivityIndicator, StatusBar, View,
 } from 'react-native';
 import {
- useSelector,
+  useSelector,
 } from 'react-redux';
 import {
- withNavigation,
+  withNavigation,
 } from 'react-navigation';
 
 function AuthLoading({ navigation }) {
-  const isLogged = useSelector(state => state.login.isLogged);
-  const isSkipLogin = useSelector(state => state.login.isSkipLogin);
+  const { isLogged, isSkipLogin } = useSelector(state => state.login);
 
   // TODO: Fetch the token from storage then navigate to our appropriate place
   useEffect(() => {

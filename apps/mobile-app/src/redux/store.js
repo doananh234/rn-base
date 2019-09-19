@@ -1,21 +1,24 @@
 import _ from 'lodash';
 import {
- createStore, applyMiddleware, compose, combineReducers,
+  createStore, applyMiddleware, compose, combineReducers,
 } from 'redux';
 import {
- persistReducer, persistStore,
+  persistReducer, persistStore,
+  REHYDRATE, PURGE, persistCombineReducers,
 } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import {
- createLogger,
+  createLogger,
 } from 'redux-logger';
+
 import rootReducer from './reducers';
 import Config from '../config/DebugSettings';
 import rootSaga from './sagas';
 import deferredMiddleware from './ExposedPromiseMiddleware';
 import {
- REDUX_PERSIST,
+  REDUX_PERSIST,
 } from '../realm/persistRealm';
+
 
 export default onComplete => {
   /* ------------- Redux Configuration ------------- */
@@ -35,7 +38,6 @@ export default onComplete => {
     'EFFECT_TRIGGERED',
     'EFFECT_RESOLVED',
     'EFFECT_REJECTED',
-    // 'persist/REHYDRATE',
   ];
   if (__DEV__) {
     // the logger master switch
@@ -50,13 +52,13 @@ export default onComplete => {
 
   enhancers.push(applyMiddleware(...middleware));
 
-  const persistedReducer = persistReducer(
-    REDUX_PERSIST,
-    combineReducers(rootReducer)
-  );
-  const store = createStore(persistedReducer, compose(...enhancers));
+  const persistedReducer = persistCombineReducers(REDUX_PERSIST, rootReducer);
+
+  const store = createStore(persistedReducer, undefined, compose(...enhancers));
+
+  // TODO: Callback
   onComplete(store);
-  persistStore(store, {}, () => {});
+  const persistor = persistStore(store, null, () => { });
   sagaMiddleware.run(rootSaga);
-  return store;
+  return { store, persistor };
 };

@@ -139,7 +139,6 @@ const skipLogin = state => {
 };
 
 const ACTION_HANDLERS = {
-  // [AppLoginTypes.STARTUP]: startUp,
   [LoginTypes.SIGN_OUT]: signOut,
   [LoginTypes.SIGN_UP]: signUp,
   [LoginTypes.SIGN_UP_SUCCESS]: signUpSuccess,

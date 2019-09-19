@@ -13,4 +13,4 @@ function startup() {
     navigate('BottomTabNavigator');
 }
 
-export default [takeLatest(Types.STARTUP, startup)];
+export default [takeLatest(Types.START_UP, startup)];
