@@ -133,6 +133,8 @@ PODS:
     - React
   - RNReanimated (1.2.0):
     - React
+  - RNScreens (2.0.0-alpha.3):
+    - React
   - RNShare (1.2.1):
     - React
   - RNVectorIcons (6.6.0):
@@ -177,6 +179,7 @@ DEPENDENCIES:
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - RNShare (from `../node_modules/react-native-share`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -252,6 +255,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-localize"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   RNShare:
     :path: "../node_modules/react-native-share"
   RNVectorIcons:
@@ -294,6 +299,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: 0a731d984e64ee4c28bddaa7ce52262e4b80979f
   RNLocalize: 62a949d2ec5bee0eb8f39a80a48f01e2f4f67080
   RNReanimated: 1b52415c4302f198cb581282a0166690bad62c43
+  RNScreens: 402a99b0a27c0c32f079cec12d3ccbd35e20cd7f
   RNShare: 48cf88cadf9ca2143cdaa557c1ec7f8808040ffc
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   RSKImageCropper: 05e3b82a18da83ea3c2b7bffa7f2199a621d6802
@@ -302,6 +308,6 @@ SPEC CHECKSUMS:
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
-PODFILE CHECKSUM: 9d47a9a23995c1a51df7eb2fee5547642e3d9fd4
+PODFILE CHECKSUM: a54eb1f12b478c7878a7104974b292b41a853819
 
 COCOAPODS: 1.6.0

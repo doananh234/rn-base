@@ -30,6 +30,7 @@
     "react-native-linear-gradient": "^2.5.4",
     "react-native-localize": "^1.1.4",
     "react-native-reanimated": "^1.2.0",
+    "react-native-screens": "^2.0.0-alpha.3",
     "react-native-share": "https://github.com/doananh234/react-native-share",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^3.12.0",

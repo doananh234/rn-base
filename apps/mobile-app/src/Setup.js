@@ -1,6 +1,6 @@
 import React from 'react';
 import {
- Text,
+  Text,
 } from 'react-native';
 import {
   PersistGate,
@@ -9,6 +9,9 @@ import {
 import {
   Provider,
 } from 'react-redux';
+import {
+ useScreens,
+} from 'react-native-screens';
 import configI18n from './i18n/index';
 import configureStore from './redux/store';
 import './themes/Images';
@@ -16,6 +19,8 @@ import AppNavigation from './navigation/AppNavigation';
 import {
   setNavigator,
 } from './navigation/NavigatorService';
+
+useScreens();
 
 const { persistor, store } = configureStore(stored => {
   configI18n(stored);
@@ -25,6 +30,7 @@ const { persistor, store } = configureStore(stored => {
 const Loading = () => (<Text>Loading</Text>);
 
 export default function Setup() {
+
   const onBeforeLift = () => {
     // take some action before the gate lifts
   };
