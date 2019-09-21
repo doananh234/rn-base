@@ -20,6 +20,7 @@ import {
   setNavigator,
 } from './navigation/NavigatorService';
 
+// TODO: Enable screens support before any of your navigation screen renders
 useScreens();
 
 const { persistor, store } = configureStore(stored => {

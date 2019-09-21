@@ -22,7 +22,7 @@
     "react": "16.8.6",
     "react-native": "0.60.4",
     "react-native-code-push": "^5.6.1",
-    "react-native-config": "git@github.com:luggit/react-native-config.git",
+    "react-native-config": "^0.11.7",
     "react-native-fast-image": "^7.0.2",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-image-crop-picker": "^0.25.0",

@@ -1,9 +1,9 @@
 PODS:
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
-  - BVLinearGradient (2.5.4):
+  - BVLinearGradient (2.5.6):
     - React
-  - CodePush (5.6.1):
+  - CodePush (5.7.0):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.7)
     - React
@@ -124,12 +124,12 @@ PODS:
     - SDWebImageWebPCoder (~> 0.2.3)
   - RNGestureHandler (1.4.1):
     - React
-  - RNImageCropPicker (0.25.0):
+  - RNImageCropPicker (0.25.2):
     - QBImagePickerController
     - React-Core
     - React-RCTImage
     - RSKImageCropper
-  - RNLocalize (1.1.4):
+  - RNLocalize (1.2.1):
     - React
   - RNReanimated (1.2.0):
     - React
@@ -267,8 +267,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  BVLinearGradient: 8cbc5155c978f2e43098818c91d206d07aae6d30
-  CodePush: 5fead4bea79a99aefcd3841607709846796177b3
+  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
+  CodePush: d2e54ad42df82a8db65b2d23d8191b950ba945e1
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
@@ -296,8 +296,8 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   RNFastImage: 9b0c22643872bb7494c8d87bbbb66cc4c0d9e7a2
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
-  RNImageCropPicker: 0a731d984e64ee4c28bddaa7ce52262e4b80979f
-  RNLocalize: 62a949d2ec5bee0eb8f39a80a48f01e2f4f67080
+  RNImageCropPicker: f675353bbe18f66113a39b319c0aeb36655a6e4c
+  RNLocalize: f42aea3133d91d7fa3ec01284a6895019af1a83f
   RNReanimated: 1b52415c4302f198cb581282a0166690bad62c43
   RNScreens: 402a99b0a27c0c32f079cec12d3ccbd35e20cd7f
   RNShare: 48cf88cadf9ca2143cdaa557c1ec7f8808040ffc
@@ -308,6 +308,6 @@ SPEC CHECKSUMS:
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
-PODFILE CHECKSUM: a54eb1f12b478c7878a7104974b292b41a853819
+PODFILE CHECKSUM: a8e5892d57003c5e38351080cbdb04a53e15ed42
 
 COCOAPODS: 1.6.0
