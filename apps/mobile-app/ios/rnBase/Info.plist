@@ -23,7 +23,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>CodePushDeploymentKey</key>
-	<string>MY_KEY</string>
+	<string>__RN_CONFIG_CODE_PUSH_IOS_KEY</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -39,16 +39,18 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>__RN_CONFIG_APP_NAME</string>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>__RN_CONFIG_APP_NAME requires access to your camera to help you add photos to your avatar.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>__RN_CONFIG_APP_NAME requires access to your photos to help you add photos to your avatar.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>__RN_CONFIG_APP_NAME requires access to your photos to help you add photos to your avatar.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -78,8 +80,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
