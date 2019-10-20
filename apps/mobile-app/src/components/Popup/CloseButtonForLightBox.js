@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
- TouchableWithoutFeedback, Animated, View, Dimensions, StyleSheet,
+  TouchableWithoutFeedback,
+  Animated,
+  View,
+  Dimensions,
+  StyleSheet,
 } from 'react-native';
-import {
- Colors,
-} from '../../themes/index';
+import {Colors} from '../../themes/index';
 
-const { height } = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   vClose: {
     height: 61,
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const CloseButton = ({ scrollAnimated, onClose }) => {
+const CloseButton = ({scrollAnimated, onClose}) => {
   const backgroundColor = scrollAnimated
     ? scrollAnimated.interpolate({
         inputRange: [-9999, 0, height, 9999],
@@ -39,8 +41,10 @@ const CloseButton = ({ scrollAnimated, onClose }) => {
       })
     : 'rgba(0, 0, 0, 0)';
   return (
-    <TouchableWithoutFeedback onPress={onClose} style={[styles.vClose, styles.center]}>
-      <Animated.View style={[styles.vClose, styles.center, { backgroundColor }]}>
+    <TouchableWithoutFeedback
+      onPress={onClose}
+      style={[styles.vClose, styles.center]}>
+      <Animated.View style={[styles.vClose, styles.center, {backgroundColor}]}>
         <View style={styles.iconClose} />
       </Animated.View>
     </TouchableWithoutFeedback>

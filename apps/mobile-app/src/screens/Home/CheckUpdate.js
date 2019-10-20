@@ -1,9 +1,5 @@
-import React, {
- Component,
-} from 'react';
-import {
- View,
-} from 'react-native';
+import React, {Component} from 'react';
+import {View} from 'react-native';
 import CodePush from 'react-native-code-push';
 
 export default class CheckUpdate extends Component {
@@ -13,8 +9,8 @@ export default class CheckUpdate extends Component {
   }
 
   componentDidMount() {
-    !__DEV__
-      && CodePush.sync(
+    !__DEV__ &&
+      CodePush.sync(
         {
           checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
           installMode: CodePush.InstallMode.IMMEDIATE,
@@ -34,8 +30,10 @@ export default class CheckUpdate extends Component {
               break;
           }
         },
-        ({ receivedBytes, totalBytes }) => {
-          const downloadProgress = Math.round((receivedBytes / totalBytes) * 100);
+        ({receivedBytes, totalBytes}) => {
+          const downloadProgress = Math.round(
+            (receivedBytes / totalBytes) * 100,
+          );
           // this.setState({
           //   downloadProgress,
           // });

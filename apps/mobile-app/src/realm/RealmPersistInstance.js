@@ -30,7 +30,7 @@ async function withCallback(callback, func) {
 }
 
 function createRealmAccess(path = Realm.defaultPath) {
-    // eslint-disable-next-line
+  // eslint-disable-next-line
     let __realm = null;
   return async function accessRealm() {
     if (!__realm) {
@@ -47,7 +47,7 @@ function createRealmAccess(path = Realm.defaultPath) {
   };
 }
 
-export function createRealmPersistStorage({ path } = {}) {
+export function createRealmPersistStorage({path} = {}) {
   const accessRealm = createRealmAccess(path);
 
   async function accessItemInstances() {
@@ -62,7 +62,7 @@ export function createRealmPersistStorage({ path } = {}) {
       if (matches.length > 0 && matches[0]) {
         return matches[0].content;
       }
-        throw new Error(`Could not get item with key: '${key}'`);
+      throw new Error(`Could not get item with key: '${key}'`);
     });
   }
 
@@ -76,7 +76,7 @@ export function createRealmPersistStorage({ path } = {}) {
             name: key,
             content: value,
           },
-          true
+          true,
         );
       });
     });

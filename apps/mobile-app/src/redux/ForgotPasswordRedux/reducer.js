@@ -1,10 +1,6 @@
 import Immutable from 'seamless-immutable';
-import {
- Types,
-} from './actions';
-import {
- makeReducerCreator,
-} from '../../utils/reduxUtils';
+import {Types} from './actions';
+import {makeReducerCreator} from '../../utils/reduxUtils';
 
 export const INITIAL_STATE = Immutable({
   data: {},
@@ -14,7 +10,7 @@ export const INITIAL_STATE = Immutable({
   verifyToken: null,
 });
 // TODO: Forgot password
-const forgotPassword = (state, { data }) => {
+const forgotPassword = (state, {data}) => {
   return state.merge({
     resetEmail: data.email,
   });
@@ -25,13 +21,15 @@ const forgotPasswordSuccess = state => state.merge({});
 const forgotPasswordFailure = state => state.merge({});
 
 // TODO: Verify password
-const verifyPassword = (state, { data }) => state.merge({
+const verifyPassword = (state, {data}) =>
+  state.merge({
     verifyToken: data.verify_token,
   });
 
 const verifyPasswordSuccess = state => state.merge({});
 
-const verifyPasswordFailure = state => state.merge({
+const verifyPasswordFailure = state =>
+  state.merge({
     verifyToken: null,
   });
 
@@ -40,7 +38,8 @@ const resetPassword = state => {
   return state.merge({});
 };
 
-const resetPasswordSuccess = state => state.merge({
+const resetPasswordSuccess = state =>
+  state.merge({
     resetEmail: null,
     verifyToken: null,
   });

@@ -1,34 +1,22 @@
 import React from 'react';
-import {
- useDispatch,
-} from 'react-redux';
-import {
- View, StyleSheet, Dimensions,
-} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {View, StyleSheet, Dimensions} from 'react-native';
 import PropTypes from 'prop-types';
-import {
- useNavigation,
-} from 'react-navigation-hooks';
+import {useNavigation} from 'react-navigation-hooks';
 import I18n from 'i18n-js';
 import LoginActions from '../../redux/LoginRedux/actions';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import Button from '../../ui/Button';
-import {
- FacebookButton, GoogleButton,
-} from '../../ui/SocialButton';
+import {FacebookButton, GoogleButton} from '../../ui/SocialButton';
 import Text from '../../ui/Text';
 import CheckUpdate from '../Home/CheckUpdate';
-import {
- safeArea,
-} from '../../utils/Devices';
+import {safeArea} from '../../utils/Devices';
 import BackgroundImage from '../../ui/BackgroundImage';
 
 function Intro(props) {
   const dispatch = useDispatch();
 
-  const { push } = useNavigation();
+  const {push} = useNavigation();
 
   const signUp = () => {
     push('SignUp');
@@ -97,7 +85,7 @@ Intro.propTypes = {
   skipLogin: PropTypes.func,
 };
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -110,24 +98,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 15,
     paddingBottom: safeArea().paddingBottom,
-  },
-  vIntro: {
-    flex: 1,
-    width,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 30,
-  },
-  vContent: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 250,
-  },
-  introImg: {
-    width: width - 80,
-  },
-  txtIntroDes: {
-    marginTop: 15,
   },
   txtBtn: {
     color: Colors.primaryText,

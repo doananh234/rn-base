@@ -1,14 +1,8 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
- Dimensions, StyleSheet, Platform,
-} from 'react-native';
+import {Dimensions, StyleSheet, Platform} from 'react-native';
 import PopupWrapper from '@components/Popup/PopupWrapper';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import DatePicker from '../../ui/DatePicker';
 // import { dismissLightBox } from '../../navigation/navigationActions';
 
@@ -24,7 +18,7 @@ export default class DatePickerUI extends Component {
   };
 
   onClose = () => {
-    const { componentId, onClose } = this.props;
+    const {componentId, onClose} = this.props;
     onClose(this.selectedDate?.iso);
     // dismissLightBox(componentId);
   };
@@ -34,8 +28,7 @@ export default class DatePickerUI extends Component {
       <PopupWrapper
         showCloseButton={false}
         contentStyle={styles.innerRowContainer}
-        onClose={this.onClose}
-      >
+        onClose={this.onClose}>
         <DatePicker onClose={this.onClose} onDateChange={this.onDateChange} />
       </PopupWrapper>
     );
@@ -47,7 +40,6 @@ DatePickerUI.propTypes = {
   onClose: PropTypes.func,
 };
 
-const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
   innerRowContainer: {
     padding: 0,
@@ -57,18 +49,5 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
     marginBottom: 0,
     height: Platform.OS === 'ios' ? 230 : 0,
-  },
-  vRow: {
-    height: 58,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  footerSpace: {
-    height: 70,
-    position: 'absolute',
-    bottom: -70,
-    left: 0,
-    right: 0,
-    backgroundColor: Colors.default,
   },
 });

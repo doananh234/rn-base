@@ -1,24 +1,16 @@
-import React, {
-  useEffect,
-} from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {
-  ActivityIndicator, StatusBar, View,
-} from 'react-native';
-import {
-  useSelector,
-} from 'react-redux';
-import {
-  withNavigation,
-} from 'react-navigation';
+import {ActivityIndicator, StatusBar, View} from 'react-native';
+import {useSelector} from 'react-redux';
+import {withNavigation} from 'react-navigation';
 
-function AuthLoading({ navigation }) {
-  const { isLogged, isSkipLogin } = useSelector(state => state.login);
+function AuthLoading({navigation}) {
+  const {isLogged, isSkipLogin} = useSelector(state => state.login);
 
   // TODO: Fetch the token from storage then navigate to our appropriate place
   useEffect(() => {
     navigation.navigate(
-      isLogged || isSkipLogin ? 'BottomTabNavigator' : 'LaunchNavigator'
+      isLogged || isSkipLogin ? 'BottomTabNavigator' : 'LaunchNavigator',
     );
   }, [isLogged, isSkipLogin, navigation]);
 

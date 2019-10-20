@@ -19,4 +19,4 @@ const CRUDUserDonationHistoriesActions = makeCRUDActionsCreator(
  * deleteUserDonationHistories()
  * editUserDonationHistories(data)
  */
-export default { ...CRUDUserDonationHistoriesActions };
+export default {...CRUDUserDonationHistoriesActions};

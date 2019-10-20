@@ -1,34 +1,22 @@
 import React from 'react';
-import {
- Text, View, TouchableOpacity,
-} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
-import {
- Colors,
-} from '../themes';
+import {Colors} from '../themes';
 
-const Chip = ({
- text, style, onPress = () => {}, color = Colors.default,
-}) => (
+const Chip = ({text, style, onPress = () => {}, color = Colors.default}) => (
   <TouchableOpacity onPress={onPress}>
     <View
       style={[
         styles.vChipcard,
-        { backgroundColor: color, marginRight: 2, marginBottom: 5 },
-        !color
-          || (color === Colors.default && {
-            borderColor: Colors.divider,
-            borderWidth: 1,
-          }),
+        {backgroundColor: color},
+        !color || (color === Colors.default && styles.defaultBorder),
         style,
-      ]}
-    >
+      ]}>
       <Text
         style={[
           styles.txtChipcard,
-          !color || (color === Colors.default && { color: Colors.primaryText }),
-        ]}
-      >
+          !color || (color === Colors.default && {color: Colors.primaryText}),
+        ]}>
         {text}
       </Text>
     </View>
@@ -43,10 +31,15 @@ const styles = {
     minWidth: 30,
     borderRadius: 15,
     paddingHorizontal: 7.8,
-    marginRight: 5,
+    marginRight: 2,
+    marginBottom: 5,
   },
   txtChipcard: {
     color: Colors.default,
+  },
+  defaultBorder: {
+    borderColor: Colors.divider,
+    borderWidth: 1,
   },
 };
 

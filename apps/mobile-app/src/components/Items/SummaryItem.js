@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/mealplanner';
-import {
- View, StyleSheet,
-} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Text from '../../ui/Text';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 
-const SummaryItem = ({ title, value, style, backgroundColor = Colors.primary, icon }) => {
+const SummaryItem = ({
+  title,
+  value,
+  style,
+  backgroundColor = Colors.primary,
+  icon,
+}) => {
   return (
-    <View style={[styles.container, { backgroundColor }, style]}>
+    <View style={[styles.container, {backgroundColor}, style]}>
       {icon && <Icon style={styles.icon} name={icon} />}
       <Text type="title1Bold" color={Colors.default}>
         {value || 0}

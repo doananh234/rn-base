@@ -1,6 +1,4 @@
-import {
- createSwitchNavigator, createAppContainer,
-} from 'react-navigation';
+import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 import AuthLoading from 'screens/User/AuthLoading';
 import LaunchNavigator from './LaunchNavigator';
 import BottomTabNavigator from './BottomTabNavigator';
@@ -14,7 +12,7 @@ const SwitchNav = createSwitchNavigator(
   },
   {
     initialRouteName: 'AuthLoading',
-  }
+  },
 );
 
 export default createAppContainer(SwitchNav);

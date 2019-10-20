@@ -2,9 +2,7 @@ import {
   makeCRUDConstantCreator,
   makeCRUDActionsCreator,
 } from '../crudCreator/actions';
-import {
- makeActionCreator, makeConstantCreator,
-} from '../../utils/reduxUtils';
+import {makeActionCreator, makeConstantCreator} from '../../utils/reduxUtils';
 
 export const MODEL = 'donatePlaces';
 export const IGNORE_ACTIONS = [];
@@ -13,7 +11,8 @@ export const DonatePlacesTypes = {
   ...makeConstantCreator('FILTER_DONATE_PLACE'),
 };
 const CRUDDonatePlacesActions = makeCRUDActionsCreator(MODEL, IGNORE_ACTIONS);
-const filterDonatePlace = data => makeActionCreator(DonatePlacesTypes.FILTER_DONATE_PLACE, { data });
+const filterDonatePlace = data =>
+  makeActionCreator(DonatePlacesTypes.FILTER_DONATE_PLACE, {data});
 /**
  * getAllDonatePlaces({pageSize, page })
  * getByIdDonatePlaces(data)
@@ -21,4 +20,4 @@ const filterDonatePlace = data => makeActionCreator(DonatePlacesTypes.FILTER_DON
  * deleteDonatePlaces()
  * editDonatePlaces(data)
  */
-export default { ...CRUDDonatePlacesActions, filterDonatePlace };
+export default {...CRUDDonatePlacesActions, filterDonatePlace};

@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from 'i18n-js';
-import {
- View, TouchableOpacity, StyleSheet,
-} from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/mealplanner';
-import {
- Colors,
-} from '../../themes/index';
+import {Colors} from '../../themes/index';
 import Text from '../../ui/Text';
 
 const SettingItem = ({
@@ -29,10 +25,9 @@ const SettingItem = ({
             borderBottomWidth: 0,
             borderBottomColor: Colors.primaryText,
           },
-        ]}
-      >
-        <View style={[styles.vIcon, { backgroundColor }]}>
-          <Icon name={icon} style={[styles.icon, { color: iconColor }]} />
+        ]}>
+        <View style={[styles.vIcon, {backgroundColor}]}>
+          <Icon name={icon} style={[styles.icon, {color: iconColor}]} />
         </View>
         <View style={styles.content}>
           <Text type="body1SemiBold" style={styles.txtTitle}>
@@ -44,7 +39,9 @@ const SettingItem = ({
             </Text>
           )}
         </View>
-        {!unShowArrow && <Icon name="foward" size={15} color="rgba(0, 0, 0, 0.25)" />}
+        {!unShowArrow && (
+          <Icon name="foward" size={15} color="rgba(0, 0, 0, 0.25)" />
+        )}
       </View>
     </TouchableOpacity>
   );

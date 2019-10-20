@@ -1,6 +1,4 @@
-import {
- makeActionCreator, makeConstantCreator,
-} from '../../utils/reduxUtils';
+import {makeActionCreator, makeConstantCreator} from '../../utils/reduxUtils';
 
 export const LoginTypes = makeConstantCreator(
   'CLOSE_FIRST_TIME',
@@ -44,25 +42,34 @@ export const LoginTypes = makeConstantCreator(
 
 const skipLogin = () => makeActionCreator(LoginTypes.SKIP_LOGIN);
 const closeFirstTime = () => makeActionCreator(LoginTypes.CLOSE_FIRST_TIME);
-const signOut = data => makeActionCreator(LoginTypes.SIGN_OUT, { data });
-const signIn = data => makeActionCreator(LoginTypes.SIGN_IN, { data });
-const signInSuccess = (token, data) => makeActionCreator(LoginTypes.SIGN_IN_SUCCESS, { token, data });
-const signInFailure = error => makeActionCreator(LoginTypes.SIGN_IN_FAILURE, { error });
+const signOut = data => makeActionCreator(LoginTypes.SIGN_OUT, {data});
+const signIn = data => makeActionCreator(LoginTypes.SIGN_IN, {data});
+const signInSuccess = (token, data) =>
+  makeActionCreator(LoginTypes.SIGN_IN_SUCCESS, {token, data});
+const signInFailure = error =>
+  makeActionCreator(LoginTypes.SIGN_IN_FAILURE, {error});
 
-const signUp = data => makeActionCreator(LoginTypes.SIGN_UP, { data });
-const signUpSuccess = (token, data) => makeActionCreator(LoginTypes.SIGN_UP_SUCCESS, { token, data });
-const signUpFailure = error => makeActionCreator(LoginTypes.SIGN_UP_FAILURE, { error });
+const signUp = data => makeActionCreator(LoginTypes.SIGN_UP, {data});
+const signUpSuccess = (token, data) =>
+  makeActionCreator(LoginTypes.SIGN_UP_SUCCESS, {token, data});
+const signUpFailure = error =>
+  makeActionCreator(LoginTypes.SIGN_UP_FAILURE, {error});
 
-const getUser = data => makeActionCreator(LoginTypes.GET_USE, { data });
-const editUser = data => makeActionCreator(LoginTypes.EDIT_USER, { data });
-const updateUserSuccess = data => makeActionCreator(LoginTypes.UPDATE_USER_SUCCESS, { data });
-const updateUserFailure = errorCode => makeActionCreator(LoginTypes.UPDATE_USER_FAILURE, { errorCode });
+const getUser = data => makeActionCreator(LoginTypes.GET_USE, {data});
+const editUser = data => makeActionCreator(LoginTypes.EDIT_USER, {data});
+const updateUserSuccess = data =>
+  makeActionCreator(LoginTypes.UPDATE_USER_SUCCESS, {data});
+const updateUserFailure = errorCode =>
+  makeActionCreator(LoginTypes.UPDATE_USER_FAILURE, {errorCode});
 
-const changePassword = data => makeActionCreator(LoginTypes.CHANGE_PASSWORD, { data });
+const changePassword = data =>
+  makeActionCreator(LoginTypes.CHANGE_PASSWORD, {data});
 
 const fbSignIn = () => makeActionCreator(LoginTypes.FB_LOGIN);
-const fbSignInSuccess = (token, data) => makeActionCreator(LoginTypes.FB_LOGIN_SUCCESS, { token, data });
-const fbSignInFailure = errorCode => makeActionCreator(LoginTypes.FB_LOGIN_FAILURE, { errorCode });
+const fbSignInSuccess = (token, data) =>
+  makeActionCreator(LoginTypes.FB_LOGIN_SUCCESS, {token, data});
+const fbSignInFailure = errorCode =>
+  makeActionCreator(LoginTypes.FB_LOGIN_FAILURE, {errorCode});
 
 export default {
   closeFirstTime,

@@ -1,6 +1,4 @@
-import {
- post, get, patch,
-} from './utils';
+import {post, get, patch} from './utils';
 
 export async function register(data) {
   return post('/auth/signup', data);
@@ -11,7 +9,7 @@ export async function login(data) {
 }
 
 export async function loginFacebook(data) {
-  return post('/auth/facebook', { access_token: data });
+  return post('/auth/facebook', {access_token: data});
 }
 
 export async function logout() {

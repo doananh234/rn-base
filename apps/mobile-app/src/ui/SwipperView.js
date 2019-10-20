@@ -1,6 +1,4 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -9,15 +7,12 @@ import {
   TouchableOpacity,
   Animated,
   Dimensions,
+  StyleSheet,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/mealplanner';
-import {
- Colors,
-} from '../themes/index';
+import {Colors} from '../themes/index';
 import Button from './Button';
-import {
- safeArea,
-} from '../utils/Devices';
+import {safeArea} from '../utils/Devices';
 
 export default class SwipperView extends Component {
   constructor(props) {
@@ -30,7 +25,7 @@ export default class SwipperView extends Component {
   }
 
   componentDidMount() {
-    const { autoScroll } = this.props;
+    const {autoScroll} = this.props;
     autoScroll && this.intevalScroll();
   }
 
@@ -46,7 +41,7 @@ export default class SwipperView extends Component {
     }, 3000);
   };
 
-  renderPage = ({ item }) => {
+  renderPage = ({item}) => {
     return item;
   };
 
@@ -56,11 +51,13 @@ export default class SwipperView extends Component {
   };
 
   onJump = index => {
-    const { children, onChangeIndex } = this.props;
-    if (index < 0 || index >= children.length) return;
+    const {children, onChangeIndex} = this.props;
+    if (index < 0 || index >= children.length) {
+      return;
+    }
     onChangeIndex && onChangeIndex(index);
 
-    this.flatlist.current.scrollTo({ x: index * width, animated: true });
+    this.flatlist.current.scrollTo({x: index * width, animated: true});
   };
 
   adjustPageSize = () => {
@@ -70,7 +67,7 @@ export default class SwipperView extends Component {
   };
 
   renderPageNumber = () => {
-    const { children, next, btnSkip } = this.props;
+    const {children, next, btnSkip} = this.props;
     const pagingColor = [];
     const pagingRange = [];
     const pagingRadius = [];
@@ -140,7 +137,7 @@ export default class SwipperView extends Component {
           <Button
             backgroundColor={Colors.primary}
             style={styles.btnSkip}
-            textStyle={{ color: 'white' }}
+            textStyle={styles.btnText}
             onPress={() => {
               next && next();
             }}
@@ -152,8 +149,8 @@ export default class SwipperView extends Component {
   };
 
   renderFooterTitle = () => {
-    const { selectedIndex } = this.state;
-    const { children } = this.props;
+    const {selectedIndex} = this.state;
+    const {children} = this.props;
     if (children[selectedIndex].props.footerTitle) {
       return (
         <View style={styles.vTitleFooter}>
@@ -170,20 +167,14 @@ export default class SwipperView extends Component {
   };
 
   render() {
-    const {
-      showArrow,
-      children,
-      style,
-      showPagging,
-      scrollEnabled,
-    } = this.props;
-    const { selectedIndex } = this.state;
+    const {showArrow, children, style, showPagging, scrollEnabled} = this.props;
+    const {selectedIndex} = this.state;
     return (
       <View style={[styles.vFlatList, style]}>
         <ScrollView
           ref={this.flatlist}
           onScroll={Animated.event([
-            { nativeEvent: { contentOffset: { x: this.animatedPaging } } },
+            {nativeEvent: {contentOffset: {x: this.animatedPaging}}},
           ])}
           onMomentumScrollEnd={this.scrollToItem}
           style={styles.vFlatList}
@@ -199,8 +190,7 @@ export default class SwipperView extends Component {
           }}
           scrollEventThrottle={16}
           scrollEnabled={scrollEnabled}
-          getItem
-        >
+          getItem>
           {children}
         </ScrollView>
         {showArrow && (
@@ -208,8 +198,7 @@ export default class SwipperView extends Component {
             style={styles.btnBack}
             onPress={() => {
               this.onJump(selectedIndex - 1);
-            }}
-          >
+            }}>
             <View style={styles.btnBack}>
               <Icon name="left" style={styles.icon} />
             </View>
@@ -220,8 +209,7 @@ export default class SwipperView extends Component {
             style={styles.btnNext}
             onPress={() => {
               this.onJump(selectedIndex + 1);
-            }}
-          >
+            }}>
             <View style={styles.btnNext}>
               <Icon name="right" style={styles.icon} />
             </View>
@@ -249,9 +237,9 @@ SwipperView.defaultProps = {
   showPagging: true,
 };
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
-const styles = {
+const styles = StyleSheet.create({
   vFlatList: {
     flex: 1,
   },
@@ -273,12 +261,6 @@ const styles = {
     marginHorizontal: 5,
     backgroundColor: Colors.lightGray,
     bottom: safeArea().bottom + 20,
-  },
-  paggingPointAct: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: Colors.primary,
   },
   vTitleFooter: {
     alignItems: 'center',
@@ -327,4 +309,7 @@ const styles = {
     color: Colors.primaryText,
     fontSize: 30,
   },
-};
+  btnText: {
+    color: 'white',
+  },
+});

@@ -17,6 +17,6 @@ export default () => next => action => {
   }
 
   const [promise, deferred] = createExposedPromise();
-  next({ ...action, [DEFERRED]: deferred });
+  next({...action, [DEFERRED]: deferred});
   return promise;
 };

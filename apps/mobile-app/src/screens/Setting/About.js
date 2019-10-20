@@ -1,11 +1,7 @@
 import React from 'react';
-import {
- View, StyleSheet,
-} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import I18n from 'i18n-js';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import Text from '../../ui/Text';
 import BackgroundImage from '../../ui/BackgroundImage';
 
@@ -14,7 +10,11 @@ const About = () => {
     <View style={styles.container}>
       <BackgroundImage />
       <View style={[styles.container, styles.center]}>
-        <Text center type="headline" color={Colors.default} style={styles.txtTitle}>
+        <Text
+          center
+          type="headline"
+          color={Colors.default}
+          style={styles.txtTitle}>
           {I18n.t('appName')}
         </Text>
         <Text center type="body2" style={styles.text} color={Colors.default}>

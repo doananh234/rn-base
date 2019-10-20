@@ -1,6 +1,4 @@
-import {
- get,
-} from './utils';
+import {get} from './utils';
 
 export async function getGroupSummary() {
   return get('/groups/me');

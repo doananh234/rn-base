@@ -3,7 +3,7 @@ import moment from 'moment';
 import _ from 'lodash';
 import Fuse from 'fuse.js';
 import Share from 'react-native-share';
-import { Linking } from 'react-native';
+import {Linking} from 'react-native';
 // import DeviceInfo from 'react-native-device-info';
 
 export default {
@@ -199,8 +199,7 @@ export const openURL = (url, isWeb) => {
         return Linking.openURL(newUrl);
       }
     })
-    .catch(err => {
-    });
+    .catch(err => {});
 };
 
 export const shareApp = () => {
@@ -215,7 +214,7 @@ export const shareApp = () => {
 
 export const updateDataForList = (list, newData) => {
   let tmpList = [...list];
-  const index = _.findIndex(tmpList, { _id: newData._id });
+  const index = _.findIndex(tmpList, {_id: newData._id});
   if (index > -1) {
     tmpList[index] = newData;
   } else {
@@ -248,7 +247,7 @@ export const convertAppoiment = appointments => {
 
 // TODO: For Bing Map
 export const findCity = result => {
-  const { name } = result?.resourceSets[0]?.resources[0];
+  const {name} = result?.resourceSets[0]?.resources[0];
   if (name) {
     const addresses = name.split(', ');
     return `${addresses[addresses.length - 2]}, ${
@@ -259,7 +258,7 @@ export const findCity = result => {
 };
 
 export const findDetailAddress = result => {
-  const { name } = result?.resourceSets[0]?.resources[0];
+  const {name} = result?.resourceSets[0]?.resources[0];
   return name;
 };
 

@@ -1,20 +1,17 @@
 import Immutable from 'seamless-immutable';
-import {
- makeReducerCreator,
-} from '../../utils/reduxUtils';
+import {makeReducerCreator} from '../../utils/reduxUtils';
 import {
   makeCRUDReducerCreator,
   INITIAL_CRUD_STATE,
 } from '../crudCreator/reducer';
-import {
- MODEL, IGNORE_ACTIONS, DonatePlacesTypes,
-} from './actions';
+import {MODEL, IGNORE_ACTIONS, DonatePlacesTypes} from './actions';
 
 export const INITIAL_STATE = Immutable({
   ...INITIAL_CRUD_STATE,
 });
 
-const filterDonatePlace = (state, { data }) => state.merge({
+const filterDonatePlace = (state, {data}) =>
+  state.merge({
     filterText: data,
   });
 

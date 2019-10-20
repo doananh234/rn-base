@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet,
-} from 'react-native';
-import {
- Colors,
-} from '../themes';
+import {View, StyleSheet} from 'react-native';
+import {Colors} from '../themes';
 
-const Divider = ({ style }) => {
+const Divider = ({style}) => {
   return <View style={[styles.container, style]} />;
 };
 Divider.propTypes = {

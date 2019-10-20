@@ -10,9 +10,7 @@ import {
   Easing,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {
- Colors,
-} from '../themes';
+import {Colors} from '../themes';
 
 const MAX_HEIGHT = Dimensions.get('window').height * 0.8;
 
@@ -28,12 +26,12 @@ class ActionSheet extends React.Component {
   }
 
   onLayout = event => {
-    const { height } = event.nativeEvent.layout;
+    const {height} = event.nativeEvent.layout;
     this.translateY = height;
   };
 
   show = () => {
-    this.setState({ visible: true }, () => {
+    this.setState({visible: true}, () => {
       this.showSheet();
     });
   };
@@ -48,7 +46,7 @@ class ActionSheet extends React.Component {
 
   hide = () => {
     this.hideSheet(() => {
-      this.setState({ visible: false }, () => {});
+      this.setState({visible: false}, () => {});
     });
   };
 
@@ -60,37 +58,44 @@ class ActionSheet extends React.Component {
   }
 
   renderTitle() {
-    const { title } = this.props;
-    if (!title) return null;
+    const {title} = this.props;
+    if (!title) {
+      return null;
+    }
     return (
       <View style={styles.titleBox}>
-        {React.isValidElement(title) ? title : <Text style={styles.titleText}>{title}</Text>}
+        {React.isValidElement(title) ? (
+          title
+        ) : (
+          <Text style={styles.titleText}>{title}</Text>
+        )}
       </View>
     );
   }
 
   render() {
-    const { visible } = this.state;
-    const { children } = this.props;
+    const {visible} = this.state;
+    const {children} = this.props;
     return (
-      <Modal visible={visible} animationType="none" transparent onRequestClose={this.hide}>
+      <Modal
+        visible={visible}
+        animationType="none"
+        transparent
+        onRequestClose={this.hide}>
         <View style={styles.wrapper}>
           <TouchableHighlight
             underlayColor="transparent"
             style={styles.overlay}
-            onPress={this.hide}
-          >
+            onPress={this.hide}>
             <View style={styles.overlay} />
           </TouchableHighlight>
           <Animated.View
-            style={[styles.body, { transform: [{ translateY: this.sheetAnim }] }]}
-            onLayout={this.onLayout}
-          >
+            style={[styles.body, {transform: [{translateY: this.sheetAnim}]}]}
+            onLayout={this.onLayout}>
             <TouchableHighlight
               underlayColor="transparent"
               style={styles.borderBtnClose}
-              onPress={this.hide}
-            >
+              onPress={this.hide}>
               <View style={styles.btnClose} />
             </TouchableHighlight>
             <View style={styles.content}>

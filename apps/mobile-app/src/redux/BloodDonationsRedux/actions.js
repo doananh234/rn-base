@@ -16,4 +16,4 @@ const CRUDBloodDonationsActions = makeCRUDActionsCreator(MODEL, IGNORE_ACTIONS);
  * deleteBloodDonations()
  * editBloodDonations(data)
  */
-export default { ...CRUDBloodDonationsActions };
+export default {...CRUDBloodDonationsActions};

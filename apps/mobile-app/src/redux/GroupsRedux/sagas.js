@@ -1,13 +1,7 @@
-import {
- call, put, takeLatest, all,
-} from 'redux-saga/effects';
-import GroupsActions, {
- MODEL, IGNORE_ACTIONS, GroupsTypes,
-} from './actions';
+import {call, put, takeLatest, all} from 'redux-saga/effects';
+import GroupsActions, {MODEL, IGNORE_ACTIONS, GroupsTypes} from './actions';
 import rootCRUDSaga from '../crudCreator/saga';
-import {
- getGroupSummary, getPltTop, getRbcTop,
-} from '../../api/summary';
+import {getGroupSummary, getPltTop, getRbcTop} from '../../api/summary';
 // use IGNORE_SAGAS to replace "saga" or ignore "saga"
 // IGNORE_SAGAS = ['GET_ALL', 'GET_BY_ID', 'DELETE', 'EDIT', 'CREATE'];
 
@@ -27,8 +21,8 @@ export function* getGroupSummarySaga() {
     const results = {
       summaries: response[0],
       topSections: [
-        { title: 'summary.pltTop', data: response[1].results },
-        { title: 'summary.rbcTop', data: response[2].results },
+        {title: 'summary.pltTop', data: response[1].results},
+        {title: 'summary.rbcTop', data: response[2].results},
       ],
     };
     yield put(GroupsActions.getGroupSummarySuccess(results));

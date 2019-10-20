@@ -1,6 +1,4 @@
-import {
-  all,
-} from 'redux-saga/effects';
+import {all} from 'redux-saga/effects';
 import LoginSagas from './LoginRedux/sagas';
 import AppSagas from './AppRedux/sagas';
 import ForgotPasswordSagas from './ForgotPasswordRedux/sagas';

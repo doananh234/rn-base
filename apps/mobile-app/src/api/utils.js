@@ -10,7 +10,7 @@ const checkIfErrorOccurs = res => {
 
 const TIME_OUT = 10000;
 
-async function xfetch(path, headerOptions, ops = { noParse: false }) {
+async function xfetch(path, headerOptions, ops = {noParse: false}) {
   const normalFetch = fetch(path, headerOptions);
   if (ops.noParse) {
     return timeoutPromise(TIME_OUT, normalFetch);
@@ -22,7 +22,7 @@ async function xfetch(path, headerOptions, ops = { noParse: false }) {
 
   if (res.code < 300) {
     if (res.code === 204) {
-      return { success: true };
+      return {success: true};
     }
     const response = await res.res.json();
     return response;
@@ -109,7 +109,7 @@ function requestWrapper(method) {
 
     const paramsObj = {
       ...defaults,
-      headers: { ...params, ...defaults.headers },
+      headers: {...params, ...defaults.headers},
     };
     return xfetch(url, paramsObj);
   };

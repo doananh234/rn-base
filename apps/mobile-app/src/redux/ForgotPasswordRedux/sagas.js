@@ -1,22 +1,19 @@
-import {
- call, put, takeLatest,
-} from 'redux-saga/effects';
+import {call, put, takeLatest} from 'redux-saga/effects';
 // import I18n from 'i18n-js';
-import {
- forgotPassword, verifyPasswordToken, newPassword,
-} from '../../api/auth';
-import Actions, {
- Types,
-} from './actions';
+import {forgotPassword, verifyPasswordToken, newPassword} from '../../api/auth';
+import Actions, {Types} from './actions';
 // import { showModal, startStackScreen, showInAppNoti } from '../../navigation/navigationActions';
 // import { close, closeAll } from '../../navigation/navigationButtons';
-import {
- apiWrapper,
-} from '../../utils/reduxUtils';
+import {apiWrapper} from '../../utils/reduxUtils';
 
-export function* forgotPasswordWorker({ data }) {
+export function* forgotPasswordWorker({data}) {
   try {
-    const response = yield call(apiWrapper, { isShowProgress: true }, forgotPassword, data);
+    const response = yield call(
+      apiWrapper,
+      {isShowProgress: true},
+      forgotPassword,
+      data,
+    );
     if (!response || !response.success) {
       yield put(Actions.forgotPasswordFailure(response));
       // showInAppNoti({
@@ -41,9 +38,14 @@ export function* forgotPasswordWorker({ data }) {
   }
 }
 
-export function* verifyPasswordWorker({ data }) {
+export function* verifyPasswordWorker({data}) {
   try {
-    const response = yield call(apiWrapper, { isShowProgress: true }, verifyPasswordToken, data);
+    const response = yield call(
+      apiWrapper,
+      {isShowProgress: true},
+      verifyPasswordToken,
+      data,
+    );
     if (!response || !response.success) {
       yield put(Actions.verifyPasswordFailure(response));
       // showInAppNoti({
@@ -55,9 +57,9 @@ export function* verifyPasswordWorker({ data }) {
     }
     yield put(Actions.verifyPasswordSuccess(response));
     // TODO: Show reset password
-    showModal('ResetPassword', {
-      leftButtons: [closeAll()],
-    });
+    // showModal('ResetPassword', {
+    //   leftButtons: [closeAll()],
+    // });
   } catch (err) {
     // showInAppNoti({
     //   title: null,
@@ -69,9 +71,9 @@ export function* verifyPasswordWorker({ data }) {
   }
 }
 
-export function* resetPasswordWorker({ data }) {
+export function* resetPasswordWorker({data}) {
   try {
-    const { password, confirmPassword } = data;
+    const {password, confirmPassword} = data;
     if (password !== confirmPassword) {
       // showInAppNoti({
       //   title: null,
@@ -80,7 +82,12 @@ export function* resetPasswordWorker({ data }) {
       // });
       return;
     }
-    const response = yield call(apiWrapper, { isShowProgress: true }, newPassword, data);
+    const response = yield call(
+      apiWrapper,
+      {isShowProgress: true},
+      newPassword,
+      data,
+    );
     if (!response || !response.success) {
       // showInAppNoti({
       //   title: null,

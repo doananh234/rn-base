@@ -1,13 +1,7 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
- Text, Animated, TouchableHighlight, StyleSheet,
-} from 'react-native';
-import {
- Colors,
-} from '../themes/index';
+import {Text, Animated, TouchableHighlight, StyleSheet} from 'react-native';
+import {Colors} from '../themes/index';
 
 export default class ChipCard extends Component {
   constructor(props) {
@@ -16,17 +10,20 @@ export default class ChipCard extends Component {
   }
 
   onPressButton() {
-    const { onPress, data } = this.props;
+    const {onPress, data} = this.props;
     onPress && onPress(data);
   }
 
   render() {
-    const { onPress, text, cancel } = this.props;
+    const {onPress, text, cancel} = this.props;
     return (
-      <TouchableHighlight style={[styles.container]} underlayColor="transparent" onPress={onPress}>
+      <TouchableHighlight
+        style={[styles.container]}
+        underlayColor="transparent"
+        onPress={onPress}>
         <Animated.View collapsible={false} style={styles.chipContent}>
           <Text style={styles.text}>{text}</Text>
-          <Text style={[styles.text, { marginLeft: 10 }]} onPress={cancel}>
+          <Text style={[styles.text, styles.close]} onPress={cancel}>
             X
           </Text>
         </Animated.View>
@@ -64,7 +61,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: 'white',
   },
-  icon: {
-    color: '#CCCCCC',
+  close: {
+    marginLeft: 10,
   },
 });

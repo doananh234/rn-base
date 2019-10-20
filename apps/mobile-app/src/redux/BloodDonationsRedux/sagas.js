@@ -1,6 +1,4 @@
-import BloodDonationsActions, {
- MODEL, IGNORE_ACTIONS,
-} from './actions';
+import BloodDonationsActions, {MODEL, IGNORE_ACTIONS} from './actions';
 import rootCRUDSaga from '../crudCreator/saga';
 // use IGNORE_SAGAS to replace "saga" or ignore "saga"
 // IGNORE_SAGAS = ['GET_ALL', 'GET_BY_ID', 'DELETE', 'EDIT', 'CREATE'];

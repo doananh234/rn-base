@@ -61,6 +61,7 @@ const colors = {
   starColors: ['#CD1C26', '#FF7800', '#CDD614', '#5BA829', '#3F7E00'],
   rightMessageBackground: '#55b986',
   leftMessageBackground: '#eff0f0',
+  transparent: 'transparent',
 };
 
 export default colors;

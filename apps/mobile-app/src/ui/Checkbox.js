@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet,
-} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
- Colors,
-} from '../themes/index';
+import {Colors} from '../themes/index';
 import Text from './Text';
 import Touchable from './Touchable';
 
-const Checkbox = ({
- title, onPress, isChecked, children,
-}) => {
+const Checkbox = ({title, onPress, isChecked, children}) => {
   return (
     <View style={styles.row}>
       <Touchable style={styles.txtDateContainer} onPress={onPress}>
         <View style={[styles.checkbox, isChecked && styles.checked]}>
           {isChecked ? (
-            <Icon name="ios-checkmark" size={35} color={Colors.default} style={{ marginTop: -3 }} />
+            <Icon
+              name="ios-checkmark"
+              size={35}
+              color={Colors.default}
+              style={styles.checkedIcon}
+            />
           ) : null}
         </View>
       </Touchable>
-      <Text type="normal" color={Colors.primaryTextBlur} style={{ flex: 1 }}>
+      <Text type="normal" color={Colors.primaryTextBlur} style={styles.title}>
         {title}
       </Text>
       {children}
@@ -40,6 +39,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {};
 
 const styles = StyleSheet.create({
+  title: {flex: 1},
   row: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  checkedIcon: {marginTop: -3},
 });
 
 export default Checkbox;

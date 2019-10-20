@@ -1,9 +1,5 @@
-import {
-  call, put, takeLatest, take, race,
-} from 'redux-saga/effects';
-import Actions, {
- LoginTypes,
-} from './actions';
+import {call, put, takeLatest, take, race} from 'redux-saga/effects';
+import Actions, {LoginTypes} from './actions';
 import AppActions from '../AppRedux/actions';
 import {
   login,
@@ -13,9 +9,7 @@ import {
   editUser,
   loginFacebook,
 } from '../../api/auth';
-import {
- apiWrapper,
-} from '../../utils/reduxUtils';
+import {apiWrapper} from '../../utils/reduxUtils';
 
 export function* signOut() {
   try {
@@ -24,15 +18,14 @@ export function* signOut() {
       take('DELETE_DEVICE_TOKENS_FAILURE'),
     ]);
     global.token = null;
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
-export function* signUp({ data }) {
+export function* signUp({data}) {
   try {
     const response = yield call(
       apiWrapper,
-      { isShowProgress: true },
+      {isShowProgress: true},
       register,
       data,
     );
@@ -61,11 +54,11 @@ export function* signUp({ data }) {
   }
 }
 
-export function* signIn({ data }) {
+export function* signIn({data}) {
   try {
     const response = yield call(
       apiWrapper,
-      { isShowProgress: true },
+      {isShowProgress: true},
       login,
       data,
     );
@@ -81,10 +74,9 @@ export function* skipLogin() {
   yield put(AppActions.startup());
 }
 
-
 export function* getUser() {
   try {
-    const response = yield call(apiWrapper, { isShowProgress: true }, getInfo);
+    const response = yield call(apiWrapper, {isShowProgress: true}, getInfo);
     if (!response) {
       yield put(Actions.updateUserFailure(response));
       return;
@@ -95,9 +87,9 @@ export function* getUser() {
   }
 }
 
-export function* editUserSaga({ data }) {
+export function* editUserSaga({data}) {
   try {
-    const response = yield call(editUser, { ...data });
+    const response = yield call(editUser, {...data});
     if (!response || !response.success) {
       yield put(Actions.updateUserFailure(response));
       return;
@@ -108,7 +100,7 @@ export function* editUserSaga({ data }) {
   }
 }
 
-export function* changePassword({ data }) {
+export function* changePassword({data}) {
   try {
     const response = yield call(updatePassword, data);
     if (!response || !response.success) {

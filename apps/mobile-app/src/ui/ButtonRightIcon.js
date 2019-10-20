@@ -1,20 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet,
-} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
- Colors,
-} from '../themes/index';
+import {Colors} from '../themes/index';
 import Text from './Text';
 import Touchable from './Touchable';
 
-const ButtonRightIcon = ({ title, onPress, textColor }) => {
+const ButtonRightIcon = ({title, onPress, textColor}) => {
   return (
     <Touchable style={styles.txtDateContainer} onPress={onPress}>
       <View style={styles.row}>
-        <Text type="normal" color={textColor} style={{ flex: 1 }}>
+        <Text type="normal" color={textColor} style={styles.title}>
           {title}
         </Text>
         <Icon name="ios-arrow-down" size={20} color={Colors.divider} />
@@ -34,6 +30,7 @@ ButtonRightIcon.defaultProps = {
 };
 
 const styles = StyleSheet.create({
+  title: {flex: 1},
   row: {
     borderRadius: 5,
     height: 40,

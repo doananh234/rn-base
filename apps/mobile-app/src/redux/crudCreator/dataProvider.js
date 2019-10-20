@@ -1,12 +1,6 @@
-import {
- keyBy,
-} from 'lodash';
-import {
- PRIMARY_KEY,
-} from './actions';
-import {
- getValidData,
-} from '../../utils/tools';
+import {keyBy} from 'lodash';
+import {PRIMARY_KEY} from './actions';
+import {getValidData} from '../../utils/tools';
 
 export const convertRequestParams = (type, params, resource) => {
   delete params.pageSize;
@@ -40,7 +34,7 @@ export const convertResponseData = (type, response) => {
     case 'GET_BY_ID':
     case 'EDIT':
     case 'CREATE':
-      return response && response.id ? { ...response } : null;
+      return response && response.id ? {...response} : null;
     case 'DELETE':
     default:
       return response;

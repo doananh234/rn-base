@@ -1,6 +1,4 @@
-import {
- NavigationActions, StackActions,
-} from 'react-navigation';
+import {NavigationActions, StackActions} from 'react-navigation';
 
 // TODO: Stack Actions
 /**
@@ -15,10 +13,12 @@ import {
  * or in useNavigationParam hook).
  */
 export const push = (navigation, routeName, params) => {
-    navigation.dispatch(StackActions.push({
-        routeName,
-        params,
-    }));
+  navigation.dispatch(
+    StackActions.push({
+      routeName,
+      params,
+    }),
+  );
 };
 
 /**
@@ -27,11 +27,12 @@ export const push = (navigation, routeName, params) => {
  * @param {number} number - The number of screens to pop back by.
  */
 export const pop = (navigation, number = 1) => {
-    navigation.dispatch(StackActions.pop({
-        n: number,
-    }));
+  navigation.dispatch(
+    StackActions.pop({
+      n: number,
+    }),
+  );
 };
-
 
 /**
  * The popToTop action takes you back to the first screen in the stack, dismissing all the others.
@@ -39,9 +40,8 @@ export const pop = (navigation, number = 1) => {
  * @param {object} navigation - navigation get from props
  */
 export const popToTop = navigation => {
-    navigation.dispatch(StackActions.popToTop());
+  navigation.dispatch(StackActions.popToTop());
 };
-
 
 // TODO: Navigation Actions
 /**
@@ -57,12 +57,14 @@ export const popToTop = navigation => {
  * Navigate back to this route if it already exists
  */
 export const navigate = (navigation, routeName, params, action, key) => {
-    navigation.dispatch(NavigationActions.navigate({
-        routeName,
-        params,
-        action,
-        key,
-    }));
+  navigation.dispatch(
+    NavigationActions.navigate({
+      routeName,
+      params,
+      action,
+      key,
+    }),
+  );
 };
 
 /**
@@ -71,11 +73,13 @@ export const navigate = (navigation, routeName, params, action, key) => {
  * @param {string} key string or null - optional - If set,
  * navigation will go back from the given key. If null, navigation will go back anywhere.
  */
-export const back = (navigation, key) => {
-    navigation.dispatch(NavigationActions.setParams({
-        params,
-        key,
-    }));
+export const back = (navigation, key, params) => {
+  navigation.dispatch(
+    NavigationActions.setParams({
+      params,
+      key,
+    }),
+  );
 };
 
 /**
@@ -86,8 +90,10 @@ export const back = (navigation, key) => {
  * @param {*} key - string - required - Route key that should get the new params
  */
 export const setParams = (navigation, params, key) => {
-    navigation.dispatch(NavigationActions.setParams({
-        params,
-        key,
-    }));
+  navigation.dispatch(
+    NavigationActions.setParams({
+      params,
+      key,
+    }),
+  );
 };

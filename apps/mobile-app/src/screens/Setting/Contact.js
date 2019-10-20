@@ -1,17 +1,11 @@
 import React from 'react';
-import {
- View, StyleSheet, Image,
-} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import I18n from 'i18n-js';
-import {
- Colors, Images,
-} from '../../themes';
+import {Colors, Images} from '../../themes';
 import Text from '../../ui/Text';
 import Button from '../../ui/Button';
 import Container from '../../ui/Container';
-import {
- openURL,
-} from '../../utils/tools';
+import {openURL} from '../../utils/tools';
 import Divider from '../../ui/Divider';
 
 const Contact = () => {
@@ -30,11 +24,11 @@ const Contact = () => {
     },
   ];
 
-  onPressCall = phoneNumber => () => {
+  const onPressCall = phoneNumber => () => {
     openURL(`tel:${phoneNumber}`);
   };
 
-  onPressFacebook = facebookLink => () => {
+  const onPressFacebook = facebookLink => () => {
     openURL(facebookLink, true);
   };
 

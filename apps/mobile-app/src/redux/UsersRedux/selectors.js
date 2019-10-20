@@ -1,6 +1,4 @@
-import {
- createSelector,
-} from 'reselect';
+import {createSelector} from 'reselect';
 
 const getRestData = state => state.users.data;
 const getSearchKeys = state => state.users.searchKeys;

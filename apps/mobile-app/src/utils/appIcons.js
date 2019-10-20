@@ -1,9 +1,7 @@
 /* eslint-disable new-cap */
 import MealPlanner from 'react-native-vector-icons/mealplanner';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {
- Colors,
-} from '../themes';
+import {Colors} from '../themes';
 
 const replaceSuffixPattern = /--(active|big|small|very-big)/g;
 const icons = {
@@ -56,4 +54,4 @@ const iconsLoaded = new Promise(resolve => {
   });
 });
 
-export { iconsMap, iconsLoaded };
+export {iconsMap, iconsLoaded};

@@ -1,28 +1,20 @@
-import {
- call, put, takeLatest,
-} from 'redux-saga/effects';
-import {
- keyBy,
-} from 'lodash';
+import {call, put, takeLatest} from 'redux-saga/effects';
+import {keyBy} from 'lodash';
 import moment from 'moment';
-import UsersActions, {
- MODEL, IGNORE_ACTIONS, UsersTypes,
-} from './actions';
+import UsersActions, {MODEL, IGNORE_ACTIONS, UsersTypes} from './actions';
 import rootCRUDSaga from '../crudCreator/saga';
-import {
- getAllApi,
-} from '../../api/crud';
+import {getAllApi} from '../../api/crud';
 // use IGNORE_SAGAS to replace "saga" or ignore "saga"
 // IGNORE_SAGAS = ['GET_ALL', 'GET_BY_ID', 'DELETE', 'EDIT', 'CREATE'];
 
 const IGNORE_SAGAS = IGNORE_ACTIONS;
 
-export function* searchUsersSaga({ data }) {
+export function* searchUsersSaga({data}) {
   try {
     const response = yield call(getAllApi, 'users', {
       filter: JSON.stringify({
-        fullName: { $like: `${data}` },
-        continueTime: { $lte: moment().toISOString() },
+        fullName: {$like: `${data}`},
+        continueTime: {$lte: moment().toISOString()},
       }),
       limit: 10,
       offset: 0,

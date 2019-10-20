@@ -1,20 +1,10 @@
-import React, {
- Component,
-} from 'react';
-import {
- View, StyleSheet, Dimensions,
-} from 'react-native';
+import React, {Component} from 'react';
+import {View, StyleSheet, Dimensions} from 'react-native';
 import PropTypes from 'prop-types';
-import {
- bindActionCreators,
-} from 'redux';
-import {
- connect,
-} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import I18n from 'i18n-js';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import KeyboardAwareScrollView from '../../ui/KeyboardAwareScrollView';
 import InputRow from '../../ui/InputRow';
 import Button from '../../ui/Button';
@@ -50,7 +40,7 @@ class ForgotPassword extends Component {
   };
 
   confirm = () => {
-    const { resetEmail, verifyToken, resetPassword } = this.props;
+    const {resetEmail, verifyToken, resetPassword} = this.props;
     const newPassword = this.newPassword.getText();
     const confirmPassword = this.confirmPassword.getText();
     if (newPassword && confirmPassword) {
@@ -125,7 +115,7 @@ class ForgotPassword extends Component {
   }
 }
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

@@ -1,20 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet,
-} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/mealplanner';
 import Text from '../../ui/Text';
-import {
- Images, Colors,
-} from '../../themes';
+import {Images, Colors} from '../../themes';
 import SwipeableRow from './SwipeableRow';
 import Button from '../../ui/Button';
 import Touchable from '../../ui/Touchable';
 
-const HomeItem = ({ onPress, data, isFavoriteScreen }) => {
-  const { image, title, value } = data;
+const HomeItem = ({onPress, data, isFavoriteScreen}) => {
+  const {image, title, value} = data;
 
   const handlePress = () => {
     onPress(data);
@@ -23,18 +19,17 @@ const HomeItem = ({ onPress, data, isFavoriteScreen }) => {
   const content = (
     <Touchable style={styles.container} onPress={handlePress}>
       <>
-        <FastImage source={image ? { uri: image } : Images.test} style={styles.image} />
+        <FastImage
+          source={image ? {uri: image} : Images.test}
+          style={styles.image}
+        />
         <View style={styles.center}>
           <Text style={styles.title} numberOfLines={1} type="body2SemiBold">
             {title}
           </Text>
           <View style={styles.row}>
             <Icon name="fire" size={13} color={Colors.placeholderText} />
-            <Text type="semi">
-              {value}
-              {' '}
-cal
-            </Text>
+            <Text type="semi">{value} cal</Text>
           </View>
         </View>
         {isFavoriteScreen && <Icon name="love-fill" style={styles.iconLove} />}
@@ -43,11 +38,16 @@ cal
   );
   const rightButtons = [
     <Button
-      iconStyle={[styles.icon, { color: Colors.primaryText }]}
+      iconStyle={[styles.icon, {color: Colors.primaryText}]}
       style={styles.btnEdit}
       icon="edit"
     />,
-    <Button iconStyle={styles.icon} secondary style={styles.btnRemove} icon="remove" />,
+    <Button
+      iconStyle={styles.icon}
+      secondary
+      style={styles.btnRemove}
+      icon="remove"
+    />,
   ];
   return isFavoriteScreen ? (
     content
@@ -55,8 +55,7 @@ cal
     <SwipeableRow
       rightButtonWidth={60}
       rightButtonContainerStyle={styles.hiddenView}
-      rightButtons={rightButtons}
-    >
+      rightButtons={rightButtons}>
       {content}
     </SwipeableRow>
   );

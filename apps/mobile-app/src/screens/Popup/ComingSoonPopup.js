@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- View, Dimensions,
-} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import I18n from 'i18n-js';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import Text from '../../ui/Text';
 import Button from '../../ui/Button';
 import PopupWrapper from '../../components/Popup/PopupWrapper';
 // import { dismissLightBox } from '../../navigation/navigationActions';
 
-const ComingSoonPopup = ({ componentId }) => {
-  // const onClose = () => dismissLightBox(componentId);
+const ComingSoonPopup = ({componentId}) => {
+  const onClose = () => {};
   return (
     <PopupWrapper onClose={onClose}>
       <View style={styles.innerContainer}>
@@ -24,7 +20,7 @@ const ComingSoonPopup = ({ componentId }) => {
           {I18n.t('comingsoon.description')}
         </Text>
         <Button
-          textStyle={{ color: Colors.default }}
+          textStyle={{color: Colors.default}}
           style={styles.backBtn}
           buttonTitle={I18n.t('button.back')}
           onPress={onClose}
@@ -38,7 +34,7 @@ ComingSoonPopup.propTypes = {
   componentId: PropTypes.string,
 };
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const styles = {
   container: {

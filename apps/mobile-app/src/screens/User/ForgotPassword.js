@@ -1,25 +1,15 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet, Dimensions,
-} from 'react-native';
-import {
- connect,
-} from 'react-redux';
+import {View, StyleSheet, Dimensions} from 'react-native';
+import {connect} from 'react-redux';
 import I18n from 'i18n-js';
-import {
- bindActionCreators,
-} from 'redux';
+import {bindActionCreators} from 'redux';
 import InputRow from '../../ui/InputRow';
 import Button from '../../ui/Button';
 import Text from '../../ui/Text';
 import Container from '../../ui/Container';
 import Input from '../../ui/Input';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import Actions from '../../redux/ForgotPasswordRedux/actions';
 
 class ForgotPassword extends Component {
@@ -38,7 +28,7 @@ class ForgotPassword extends Component {
   };
 
   send = () => {
-    const { forgotPassword } = this.props;
+    const {forgotPassword} = this.props;
     if (this.email.current.getText()) {
       const data = {
         email: this.email.current.getText(),
@@ -101,13 +91,9 @@ class ForgotPassword extends Component {
   }
 }
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Colors.default,
-    paddingHorizontal: 20,
-  },
   description: {
     paddingTop: 40,
   },

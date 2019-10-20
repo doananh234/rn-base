@@ -1,23 +1,17 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import I18n from 'i18n-js';
-import {
- View, StyleSheet, TextInput,
-} from 'react-native';
+import {View, StyleSheet, TextInput} from 'react-native';
 import MealPlanner from 'react-native-vector-icons/mealplanner';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {
- Colors,
-} from '../themes';
+import {Colors} from '../themes';
 import tools from '../utils/tools';
 import Text from './Text';
 
 export default class Input extends Component {
   constructor(props) {
     super(props);
-    const { value, defaultValue } = props;
+    const {value, defaultValue} = props;
     this.state = {
       isValidate: true,
       value: value || defaultValue || '',
@@ -27,50 +21,50 @@ export default class Input extends Component {
   }
 
   componentDidMount() {
-    const { defaultValue, value } = this.props;
+    const {defaultValue, value} = this.props;
     if (defaultValue || value) {
       this.input.current._lastNativeText = defaultValue || value;
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { value } = this.props;
+    const {value} = this.props;
     if (`${prevProps.value}` !== `${value}`) {
       this.setValue(typeof value === 'number' ? `${value}` : value || '');
     }
   }
 
   onFocus = () => {
-    const { onFocus } = this.props;
+    const {onFocus} = this.props;
     onFocus && onFocus();
   };
 
   onBlur = () => {
-    const { validateType, onBlur } = this.props;
+    const {validateType, onBlur} = this.props;
     onBlur && onBlur();
     const isValidate = validate(
       validateType,
       this.input.current._lastNativeText,
     );
-    this.setState({ isValidate });
+    this.setState({isValidate});
     if (
-      !this.input.current._lastNativeText
-      || this.input.current._lastNativeText === ''
+      !this.input.current._lastNativeText ||
+      this.input.current._lastNativeText === ''
     ) {
-      this.setState({ isValidate });
+      this.setState({isValidate});
     }
   };
 
   setValue = text => {
-    const { onChangeText } = this.props;
-    this.setState({ value: text });
+    const {onChangeText} = this.props;
+    this.setState({value: text});
     this.input.current._lastNativeText = text;
-    this.input.current.setNativeProps({ text });
+    this.input.current.setNativeProps({text});
     onChangeText && onChangeText(text);
   };
 
   getText = () => {
-    const { isValidate } = this.state;
+    const {isValidate} = this.state;
     return isValidate ? this.input.current._lastNativeText : null;
   };
 
@@ -83,23 +77,25 @@ export default class Input extends Component {
   };
 
   onChangeText = text => {
-    const { validateType, keyboardType } = this.props;
-    const { isValidate, value } = this.state;
+    const {validateType, keyboardType} = this.props;
+    const {isValidate, value} = this.state;
     const _isValidate = validate(validateType, text);
-    isValidate !== _isValidate && this.setState({ isValidate: _isValidate });
+    isValidate !== _isValidate && this.setState({isValidate: _isValidate});
     if (checkTypeNumber(keyboardType)) {
-      if (text === '' || !text) return;
-      if (checkPhoneType(keyboardType)) {
-        !checkPhone(text) && this.setState({ isValidate, value });
+      if (text === '' || !text) {
         return;
       }
-      !checkNumber(text) && this.setState({ isValidate, value });
+      if (checkPhoneType(keyboardType)) {
+        !checkPhone(text) && this.setState({isValidate, value});
+        return;
+      }
+      !checkNumber(text) && this.setState({isValidate, value});
     }
   };
 
   toggleShowPass = () => {
-    const { isShowPass } = this.state;
-    this.setState({ isShowPass: !isShowPass });
+    const {isShowPass} = this.state;
+    this.setState({isShowPass: !isShowPass});
   };
 
   render() {
@@ -115,7 +111,7 @@ export default class Input extends Component {
       style,
       errorText,
     } = this.props;
-    const { value, isShowPass, isValidate } = this.state;
+    const {value, isShowPass, isValidate} = this.state;
     return (
       <View>
         <View style={[styles.container, style]}>
@@ -139,8 +135,8 @@ export default class Input extends Component {
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             defaultValue={defaultValue}
-            onChange={({ nativeEvent: { text } }) => {
-              this.setState({ value: text });
+            onChange={({nativeEvent: {text}}) => {
+              this.setState({value: text});
               onChangeText && onChangeText(text);
             }}
           />
@@ -223,10 +219,10 @@ const checkNumber = num => {
 
 const checkTypeNumber = e => {
   return (
-    e === 'numeric'
-    || e === 'phone-pad'
-    || e === 'number-pad'
-    || e === 'decimal-pad'
+    e === 'numeric' ||
+    e === 'phone-pad' ||
+    e === 'number-pad' ||
+    e === 'decimal-pad'
   );
 };
 

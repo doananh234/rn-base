@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/mealplanner';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {
- StyleSheet, View,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Touchable from './Touchable';
 import Text from './Text';
 import Colors from '../themes/Colors';
@@ -36,20 +34,19 @@ const Button = ({
       style={[
         styles.buttonWithText,
         center && styles.center,
-        primary && { backgroundColor: Colors.primary },
-        secondary && { backgroundColor: Colors.secondary },
-        transparent && { backgroundColor: 'transparent' },
+        primary && {backgroundColor: Colors.primary},
+        secondary && {backgroundColor: Colors.secondary},
+        transparent && {backgroundColor: Colors.transparent},
         isShadow && styles.shadow,
         style,
         disabled && styles.disabledBtt,
-      ]}
-    >
+      ]}>
       {icon ? (
         <Icon
           name={icon}
           color={iconColor || Colors.default}
           size={iconSize || 20}
-          style={[{ marginRight: 10 }, iconStyle]}
+          style={[styles.iconLeft, iconStyle]}
         />
       ) : null}
       {ionicons ? (
@@ -57,7 +54,7 @@ const Button = ({
           name={ionicons}
           color={iconColor || Colors.default}
           size={iconSize || 20}
-          style={[{ marginRight: 10 }, iconStyle]}
+          style={[styles.iconLeft, iconStyle]}
         />
       ) : null}
       {fontAwesome ? (
@@ -65,42 +62,40 @@ const Button = ({
           name={fontAwesome}
           color={iconColor || Colors.default}
           size={iconSize || 20}
-          style={[{ marginRight: 10 }, iconStyle]}
+          style={[styles.iconLeft, iconStyle]}
         />
       ) : null}
       <Text
         type="button"
         style={[
           styles.buttonText,
-          (secondary || primary) && !transparent && { color: Colors.default },
+          (secondary || primary) && !transparent && {color: Colors.default},
           textStyle,
-          disabled && { color: `${Colors.default}60` },
-        ]}
-      >
+          disabled && {color: `${Colors.default}60`},
+        ]}>
         {buttonTitle}
         {subTitle && (
           <Text
             type="body1"
             style={[
               styles.buttonText,
-              (secondary || primary)
-                && !transparent && { color: Colors.default },
+              (secondary || primary) && !transparent && {color: Colors.default},
               textStyle,
-              disabled && { color: `${Colors.default}60` },
-            ]}
-          >
+              disabled && {color: `${Colors.default}60`},
+            ]}>
             {`\n${subTitle}`}
           </Text>
         )}
       </Text>
     </View>
   );
-  if (loading || disabled) return innerView;
+  if (loading || disabled) {
+    return innerView;
+  }
   return (
     <Touchable
       style={[isShadow && styles.shadow, wrapperStyle]}
-      onPress={onPress}
-    >
+      onPress={onPress}>
       {innerView}
     </Touchable>
   );
@@ -163,4 +158,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     elevation: 4,
   },
+  iconLeft: {marginRight: 10},
 });

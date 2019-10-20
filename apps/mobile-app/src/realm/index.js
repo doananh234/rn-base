@@ -21,7 +21,7 @@ const AuthSchema = {
 };
 
 export class BaseSchema {
-  schema = { primaryKey: 'id', properties: {} };
+  schema = {primaryKey: 'id', properties: {}};
 
   constructor(name, initialData) {
     this.schema.name = name;
@@ -35,7 +35,7 @@ export class BaseSchema {
   }
 }
 
-export const realm = Realm.open({ schema: [AppSchema, AuthSchema] });
+export const realm = Realm.open({schema: [AppSchema, AuthSchema]});
 
 export const writeToRealm = (model, data) => {
   realm.write(() => {

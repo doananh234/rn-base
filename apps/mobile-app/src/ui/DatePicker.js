@@ -1,6 +1,4 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -31,15 +29,15 @@ export default class DatePicker extends Component {
   componentWillUnmount() {}
 
   onChange(data) {
-    this.setState({ ...data });
+    this.setState({...data});
   }
 
   showPicker = async () => {
-    const { mode, minuteInterval, onClose } = this.props;
-    const { date, minDate, maxDate } = this.state;
+    const {mode, minuteInterval, onClose} = this.props;
+    const {date, minDate, maxDate} = this.state;
     if (mode === 'time') {
       try {
-        const { action, hour, minute } = await TimePickerAndroid.open({
+        const {action, hour, minute} = await TimePickerAndroid.open({
           hour: 14,
           minute: 0,
           is24Hour: false, // Will display '2 PM'
@@ -55,15 +53,13 @@ export default class DatePicker extends Component {
         } else {
           this.onClose = this.onClose.bind(this);
         }
-      } catch ({ code, message }) {
+      } catch ({code, message}) {
         onClose && onClose();
         console.warn('Cannot open time picker', message);
       }
     } else {
       try {
-        const {
- action, year, month, day,
-} = await DatePickerAndroid.open({
+        const {action, year, month, day} = await DatePickerAndroid.open({
           date,
           minDate,
           maxDate,
@@ -84,24 +80,21 @@ export default class DatePicker extends Component {
           onClose && onClose();
         }
         // this.setState(newState);
-      } catch ({ code, message }) {
+      } catch ({code, message}) {
         // console.warn(`Error in example '${stateKey}': `, message);
       }
     }
   };
 
   renderDatePicker = () => {
-    const {
- onClose, minuteInterval, mode, minDate, maxDate,
-} = this.props;
-    const { date } = this.state;
+    const {onClose, minuteInterval, mode, minDate, maxDate} = this.props;
+    const {date} = this.state;
     return (
       <View>
         <TouchableHighlight
           underlayColor="transparent"
           onPress={onClose}
-          style={styles.blur}
-        >
+          style={styles.blur}>
           <View />
         </TouchableHighlight>
         {Platform.OS === 'ios' ? (
@@ -122,9 +115,9 @@ export default class DatePicker extends Component {
   };
 
   onDateChange = date => {
-    const { onDateChange, minuteInterval } = this.props;
-    const { offset } = this.state;
-    this.setState({ date });
+    const {onDateChange, minuteInterval} = this.props;
+    const {offset} = this.state;
+    this.setState({date});
     let data = {};
     if (Platform.OS === 'android') {
       data = date;
@@ -135,8 +128,8 @@ export default class DatePicker extends Component {
         day: date.getDate(),
         hour: date.getHours(),
         minute:
-          Math.floor(Number(date.getMinutes()) / minuteInterval)
-          * minuteInterval,
+          Math.floor(Number(date.getMinutes()) / minuteInterval) *
+          minuteInterval,
         offset,
         iso: date.toString(),
       };

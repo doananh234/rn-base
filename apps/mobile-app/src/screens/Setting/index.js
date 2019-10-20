@@ -1,38 +1,27 @@
-import React, {
-  Component,
-} from 'react';
-import {
-  SectionList, StyleSheet, View,
-} from 'react-native';
-import PropTypes from 'prop-types';
-import {
-  connect,
-  useSelector, useDispatch,
-} from 'react-redux';
+import React from 'react';
+import {SectionList, StyleSheet, View} from 'react-native';
+// import PropTypes from 'prop-types';
+import {useSelector, useDispatch} from 'react-redux';
 import I18n from 'i18n-js';
 
-import {
-  Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import UserInfo from './UserInfo';
 import SettingItem from '../../components/Items/SettingItem';
 import LoginActions from '../../redux/LoginRedux/actions';
 import Divider from '../../ui/Divider';
 import Button from '../../ui/Button';
 import Text from '../../ui/Text';
-import {
-  shareApp, openURL,
-} from '../../utils/tools';
+import {shareApp, openURL} from '../../utils/tools';
 
 function Setting(props) {
-  const { data: user, isLogged } = useSelector(state => state.login);
+  const {data: user, isLogged} = useSelector(state => state.login);
   const dispatch = useDispatch();
 
   const onPressPrivacy = () => {
     // showLightBox('ComingSoonPopup');
   };
 
-  const editProfile = () => { };
+  const editProfile = () => {};
 
   const share = () => {
     shareApp();
@@ -42,13 +31,13 @@ function Setting(props) {
     openURL(I18n.t('appInfo.shareAppURL'), true);
   };
 
-  const goTerms = () => { };
+  const goTerms = () => {};
 
-  const openFAQ = () => { };
+  const openFAQ = () => {};
 
-  const beComeTutor = () => { };
+  const beComeTutor = () => {};
 
-  const showChatBox = () => { };
+  const showChatBox = () => {};
 
   const openAbout = () => {
     // const { componentId } = props;
@@ -88,7 +77,7 @@ function Setting(props) {
     // });
   };
 
-  onPressSetting = (screen, title, passProps) => () => {
+  const onPressSetting = (screen, title, passProps) => () => {
     // const { componentId } = props;
     // push(componentId, screen, {
     //   title: I18n.t(title),
@@ -112,13 +101,13 @@ function Setting(props) {
     // });
   };
 
-  const renderSectionHeader = ({ section: { title } }) => (
+  const renderSectionHeader = ({section: {title}}) => (
     <Text style={styles.header} type="body3SemiBold">
       {I18n.t(title)}
     </Text>
   );
 
-  const renderItem = ({ item }) => {
+  const renderItem = ({item}) => {
     if (item.key === 'profile') {
       return (
         <View style={styles.vAccount}>
@@ -127,8 +116,8 @@ function Setting(props) {
             secondary
             onPress={getPremium}
             icon="crown"
-            iconStyle={{ color: Colors.default }}
-            textStyle={{ color: Colors.default }}
+            iconStyle={{color: Colors.default}}
+            textStyle={{color: Colors.default}}
             buttonTitle={I18n.t('moreText.account.getPremium')}
             style={styles.btnPremium}
           />
@@ -157,7 +146,6 @@ function Setting(props) {
     );
   };
 
-
   const SECTIONS_LIST = [
     {
       title: 'moreText.account.title',
@@ -185,10 +173,7 @@ function Setting(props) {
           iconColor: Colors.green,
           icon: 'love-fill',
           screen: 'favorites',
-          onPress: onPressSetting(
-            'Favourites',
-            'moreText.list.favorites'
-          ),
+          onPress: onPressSetting('Favourites', 'moreText.list.favorites'),
         },
         {
           key: 'MyOwnRecipes',
@@ -197,10 +182,7 @@ function Setting(props) {
           iconColor: Colors.red,
           icon: 'knife',
           screen: 'MyOwnRecipes',
-          onPress: onPressSetting(
-            'MyOwnRecipes',
-            'moreText.list.myOwnRecipes'
-          ),
+          onPress: onPressSetting('MyOwnRecipes', 'moreText.list.myOwnRecipes'),
         },
       ],
     },
@@ -268,7 +250,6 @@ function Setting(props) {
       />
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -308,8 +289,6 @@ const styles = StyleSheet.create({
   },
 });
 
-Setting.propTypes = {
-
-};
+Setting.propTypes = {};
 
 export default Setting;

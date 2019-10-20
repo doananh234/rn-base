@@ -9,30 +9,30 @@ import {
 import PropTypes from 'prop-types';
 import ImagePicker from 'react-native-image-crop-picker';
 import Icon from 'react-native-vector-icons/mealplanner';
-import {
- Images, Colors,
-} from '../themes/index';
+import {Images, Colors} from '../themes/index';
 
 export default class Avatar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      avatarSource: props.image ? { uri: props.image } : null,
+      avatarSource: props.image ? {uri: props.image} : null,
     };
   }
 
   componentWillReceiveProps(newProps) {
-    const { image } = this.props;
+    const {image} = this.props;
     if (image !== newProps.image) {
       this.setState({
-        avatarSource: newProps.image ? { uri: newProps.image } : null,
+        avatarSource: newProps.image ? {uri: newProps.image} : null,
       });
     }
   }
 
   selectPhotoTapped = () => {
-    const { disableSelect } = this.props;
-    if (disableSelect) return;
+    const {disableSelect} = this.props;
+    if (disableSelect) {
+      return;
+    }
     const options = {
       quality: 1.0,
       maxWidth: 300,
@@ -42,7 +42,7 @@ export default class Avatar extends React.Component {
       },
     };
     ImagePicker.showImagePicker(options, response => {
-      const { setImage } = this.props;
+      const {setImage} = this.props;
       if (response.didCancel) {
         // console.log('User cancelled photo picker');
       } else if (response.error) {
@@ -53,9 +53,9 @@ export default class Avatar extends React.Component {
         let source;
 
         if (Platform.OS === 'ios') {
-          source = { uri: response.uri.replace('file://', ''), isStatic: true };
+          source = {uri: response.uri.replace('file://', ''), isStatic: true};
         } else {
-          source = { uri: response.uri, isStatic: true };
+          source = {uri: response.uri, isStatic: true};
         }
         setImage && setImage(source);
 
@@ -67,22 +67,21 @@ export default class Avatar extends React.Component {
   };
 
   render() {
-    const { style, circle } = this.props;
-    const { avatarSource } = this.state;
+    const {style, circle} = this.props;
+    const {avatarSource} = this.state;
     return (
       <View style={[styles.container, style]}>
         <TouchableWithoutFeedback
-          style={[styles.avatar, { borderRadius: circle ? 40 : 0 }]}
+          style={[styles.avatar, circle && styles.circle]}
           underlayColor="white"
-          onPress={this.selectPhotoTapped}
-        >
+          onPress={this.selectPhotoTapped}>
           <View style={[styles.avatarContainer]}>
             <Icon name="camera" size={15} style={styles.icon} />
             <Image
               onError={() => {
-                this.setState({ avatarSource: null });
+                this.setState({avatarSource: null});
               }}
-              style={[styles.avatar, { borderRadius: circle ? 40 : 0 }]}
+              style={[styles.avatar, circle && styles.circle]}
               // defaultSource={Images.defaultUser}
               source={avatarSource || Images.primary}
             />
@@ -123,23 +122,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  vIcon: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    borderColor: Colors.primary,
-    borderWidth: StyleSheet.hairlineWidth,
-    backgroundColor: Colors.default,
-    position: 'absolute',
-    top: 5,
-    right: 5,
-  },
   icon: {
     color: Colors.secondary,
     backgroundColor: 'transparent',
     position: 'absolute',
     fontSize: 30,
   },
+  circle: {borderRadius: 40},
 });

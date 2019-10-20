@@ -1,12 +1,8 @@
 import React from 'react';
-import {
- View, TextInput, StyleSheet, Keyboard,
-} from 'react-native';
+import {View, TextInput, StyleSheet, Keyboard} from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
- Colors,
-} from '../themes';
+import {Colors} from '../themes';
 import Button from './Button';
 
 const SearchInput = ({
@@ -29,8 +25,7 @@ const SearchInput = ({
             backgroundColor: !isFocus ? unFocusBackground : Colors.lightDivider,
           },
           isShadow && styles.shadow,
-        ]}
-      >
+        ]}>
         <Icon name="md-search" size={24} style={styles.icon} />
         <TextInput
           style={styles.input}

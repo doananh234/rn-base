@@ -1,6 +1,4 @@
-import {
-  get, post, put, del,
-} from './utils';
+import {get, post, put, del} from './utils';
 
 export async function getAllApi(resource, data) {
   return get(`/${resource}`, data);

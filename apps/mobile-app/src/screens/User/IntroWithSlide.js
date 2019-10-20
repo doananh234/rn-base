@@ -1,25 +1,15 @@
-import React, {
- Component,
-} from 'react';
-import {
- View, StyleSheet, Dimensions, Image,
-} from 'react-native';
+import React, {Component} from 'react';
+import {View, StyleSheet, Dimensions, Image} from 'react-native';
 import PropTypes from 'prop-types';
-import {
- connect,
-} from 'react-redux';
+import {connect} from 'react-redux';
 import I18n from 'i18n-js';
-import {
- Colors, Images,
-} from '../../themes';
+import {Colors, Images} from '../../themes';
 import Button from '../../ui/Button';
 import Text from '../../ui/Text';
 // import { push, startWithTabs } from '../../navigation/navigationActions';
 import CheckUpdate from '../Home/CheckUpdate';
 import SwipperView from '../../ui/SwipperView';
-import {
- safeArea,
-} from '../../utils/Devices';
+import {safeArea} from '../../utils/Devices';
 
 class IntroWithSlide extends Component {
   constructor(props) {
@@ -38,7 +28,6 @@ class IntroWithSlide extends Component {
   };
 
   signIn = () => {
-    const { componentId } = this.props;
     // push(componentId, 'SignIn', {
     //   title: I18n.t('signIn'),
     // });
@@ -51,7 +40,11 @@ class IntroWithSlide extends Component {
         <Text type="title1" color={Colors.primary} center>
           {I18n.t(`intro.introTitle${data}`)}
         </Text>
-        <Text type="body1" color={Colors.secondaryText} center style={styles.txtIntroDes}>
+        <Text
+          type="body1"
+          color={Colors.secondaryText}
+          center
+          style={styles.txtIntroDes}>
           {I18n.t(`intro.introDes${data}`)}
         </Text>
       </View>
@@ -87,7 +80,9 @@ class IntroWithSlide extends Component {
       <View style={styles.container}>
         <CheckUpdate />
         <View style={styles.container}>
-          <SwipperView autoScroll>{INTROS.map(data => this.renderIntro(data))}</SwipperView>
+          <SwipperView autoScroll>
+            {INTROS.map(data => this.renderIntro(data))}
+          </SwipperView>
         </View>
         {this.renderButtonGroup()}
       </View>
@@ -95,7 +90,7 @@ class IntroWithSlide extends Component {
   }
 }
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

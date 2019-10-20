@@ -1,14 +1,10 @@
 import Immutable from 'seamless-immutable';
-import {
- makeReducerCreator,
-} from '../../utils/reduxUtils';
+import {makeReducerCreator} from '../../utils/reduxUtils';
 import {
   makeCRUDReducerCreator,
   INITIAL_CRUD_STATE,
 } from '../crudCreator/reducer';
-import {
- MODEL, IGNORE_ACTIONS, UsersTypes,
-} from './actions';
+import {MODEL, IGNORE_ACTIONS, UsersTypes} from './actions';
 
 export const INITIAL_STATE = Immutable({
   ...INITIAL_CRUD_STATE,
@@ -17,12 +13,14 @@ export const INITIAL_STATE = Immutable({
   donationHistoryIds: [],
 });
 
-const searchUsers = state => state.merge({
+const searchUsers = state =>
+  state.merge({
     searchKeys: [],
   });
 
-const searchUsersSuccess = (state, { data, searchKeys }) => state.merge({
-    data: { ...state.data, ...data },
+const searchUsersSuccess = (state, {data, searchKeys}) =>
+  state.merge({
+    data: {...state.data, ...data},
     searchKeys,
   });
 

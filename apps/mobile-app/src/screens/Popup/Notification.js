@@ -1,6 +1,4 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import {
   View,
   StyleSheet,
@@ -12,13 +10,9 @@ import {
 import PropTypes from 'prop-types';
 import Text from '../../ui/Text';
 import Touchable from '../../ui/Touchable';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 // import { dismissInAppNoti } from '../../navigation/navigationActions';
-import {
- safeArea,
-} from '../../utils/Devices';
+import {safeArea} from '../../utils/Devices';
 
 export default class Notification extends Component {
   constructor(props) {
@@ -28,13 +22,13 @@ export default class Notification extends Component {
   }
 
   componentDidMount() {
-    const { onDisplay, componentId } = this.props;
+    const {onDisplay, componentId} = this.props;
     this.toggleNotiAnim();
     onDisplay(componentId);
   }
 
   toggleNotiAnim = (isShow = true) => {
-    const { autoDismissTime, isAutoDismiss } = this.props;
+    const {autoDismissTime, isAutoDismiss} = this.props;
     const handle = InteractionManager.createInteractionHandle();
     Animated.spring(this.animation, {
       toValue: isShow ? -20 : -this.containerHeight,
@@ -45,8 +39,8 @@ export default class Notification extends Component {
         // dismissInAppNoti();
       } else {
         Vibration.vibrate();
-        isAutoDismiss
-          && setTimeout(() => {
+        isAutoDismiss &&
+          setTimeout(() => {
             this.toggleNotiAnim(false);
           }, autoDismissTime);
       }
@@ -54,30 +48,28 @@ export default class Notification extends Component {
   };
 
   render() {
-    const { title, content, type } = this.props;
+    const {title, content, type} = this.props;
     return (
       <Animated.View
         style={[
           styles.wrapperView,
           {
             backgroundColor: BACKGROUND_TYPES[type],
-            transform: [{ translateY: this.animation }],
+            transform: [{translateY: this.animation}],
           },
         ]}
         onLayout={({
           nativeEvent: {
-            layout: { height },
+            layout: {height},
           },
         }) => {
           this.containerHeight = height;
-        }}
-      >
+        }}>
         <Touchable
           style={styles.wrapperView}
           onPress={() => {
             this.toggleNotiAnim(false);
-          }}
-        >
+          }}>
           <View accessibilityTraits="plays" style={styles.container}>
             {title && (
               <Text color="white" style={styles.title}>

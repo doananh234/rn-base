@@ -1,21 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet, Dimensions,
-} from 'react-native';
+import {View, StyleSheet, Dimensions} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/mealplanner';
-import {
- Images, Colors,
-} from 'themes';
+import {Images, Colors} from 'themes';
 import Text from '../Text';
 
-const DishItem = ({ title, value, image, isInList }) => {
+const DishItem = ({title, value, image, isInList}) => {
   console.log('aaa');
   return (
     <View style={[styles.container, isInList && styles.containerInList]}>
       <FastImage
-        source={image ? { uri: image } : Images.test}
+        source={image ? {uri: image} : Images.test}
         style={[styles.image, isInList && styles.imageInList]}
       />
       <Icon name="love" style={styles.iconLove} />
@@ -24,11 +20,7 @@ const DishItem = ({ title, value, image, isInList }) => {
       </Text>
       <View style={styles.row}>
         <Icon name="fire" size={13} color={Colors.placeholderText} />
-        <Text type="semi">
-          {value}
-          {' '}
-cal
-        </Text>
+        <Text type="semi">{value} cal</Text>
       </View>
     </View>
   );
@@ -40,7 +32,7 @@ DishItem.propTypes = {
   isInList: PropTypes.bool,
 };
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 const IMAGE_WIDTH = (width - 100) / 2;
 const IMAGE_WIDTH_IN_LIST = (width - 60) / 2;
 

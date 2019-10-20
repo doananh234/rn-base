@@ -1,15 +1,9 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet, Dimensions,
-} from 'react-native';
+import {View, StyleSheet, Dimensions} from 'react-native';
 // import LottieView from 'lottie-react-native';
-import loading from '../assets/loading.json';
-import {
- Colors,
-} from '../themes';
+// import loading from '../assets/loading.json';
+import {Colors} from '../themes';
 
 class ProgressScreen extends Component {
   constructor(props) {
@@ -28,7 +22,7 @@ class ProgressScreen extends Component {
   }
 
   render() {
-    const { isFullScreen } = this.props;
+    const {isFullScreen} = this.props;
     return (
       <View style={[styles.vProgress, isFullScreen && styles.vFullScreen]}>
         {/* <LottieView
@@ -53,7 +47,7 @@ ProgressScreen.propTypes = {
 ProgressScreen.defaultProps = {
   isFullScreen: true,
 };
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   vProgress: {
@@ -73,10 +67,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  vAnimation: {
-    width: 200,
-    height: 200,
   },
 });
 

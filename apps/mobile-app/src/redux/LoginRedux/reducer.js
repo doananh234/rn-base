@@ -1,11 +1,7 @@
 import Immutable from 'seamless-immutable';
-import {
- LoginTypes,
-} from './actions';
+import {LoginTypes} from './actions';
 // import { LoginTypes as AppLoginTypes } from '../AppRedux/actions';
-import {
- makeReducerCreator,
-} from '../../utils/reduxUtils';
+import {makeReducerCreator} from '../../utils/reduxUtils';
 
 export const INITIAL_STATE = Immutable({
   data: {},
@@ -22,7 +18,8 @@ export const INITIAL_STATE = Immutable({
   isSkipLogin: false,
 });
 
-const signUp = state => state.merge({
+const signUp = state =>
+  state.merge({
     // remove in live
     error: null,
     signInType: null,
@@ -33,14 +30,16 @@ const signUp = state => state.merge({
     loading: true,
   });
 
-const signUpSuccess = (state, { data, token }) => state.merge({
+const signUpSuccess = (state, {data, token}) =>
+  state.merge({
     data,
     isLogin: true,
     token,
     loading: false,
   });
 
-const signUpFailure = (state, action) => state.merge({
+const signUpFailure = (state, action) =>
+  state.merge({
     isLogged: false,
     isLogin: false,
     error: action.error,
@@ -48,7 +47,8 @@ const signUpFailure = (state, action) => state.merge({
     loading: null,
   });
 
-const signIn = state => state.merge({
+const signIn = state =>
+  state.merge({
     error: null,
     signInType: null,
     fbToken: null,
@@ -58,7 +58,8 @@ const signIn = state => state.merge({
     token: null,
   });
 
-const signInSuccess = (state, { token, data }) => state.merge({
+const signInSuccess = (state, {token, data}) =>
+  state.merge({
     isLogged: true,
     isLogin: false,
     token,
@@ -66,7 +67,8 @@ const signInSuccess = (state, { token, data }) => state.merge({
     data,
   });
 
-const signInFailure = (state, action) => state.merge({
+const signInFailure = (state, action) =>
+  state.merge({
     isLogged: false,
     isLogin: false,
     error: action.error,
@@ -74,7 +76,8 @@ const signInFailure = (state, action) => state.merge({
     loading: false,
   });
 
-const signOut = state => state.merge({
+const signOut = state =>
+  state.merge({
     error: null,
     signInType: null,
     fbToken: null,
@@ -85,29 +88,34 @@ const signOut = state => state.merge({
     isSkipLogin: false,
   });
 
-const getUser = state => state.merge({
+const getUser = state =>
+  state.merge({
     error: null,
     isFetching: true,
   });
 
-const editUser = (state, action) => state.merge({
-    data: { ...state.data, ...action.data },
+const editUser = (state, action) =>
+  state.merge({
+    data: {...state.data, ...action.data},
     error: null,
     isFetching: true,
   });
 
-const updateUserSuccess = (state, { data }) => state.merge({
-    data: { ...data },
+const updateUserSuccess = (state, {data}) =>
+  state.merge({
+    data: {...data},
     error: null,
     isFetching: false,
   });
 
-const updateUserFailure = (state, action) => state.merge({
+const updateUserFailure = (state, action) =>
+  state.merge({
     error: action.errorCode,
     isFetching: false,
   });
 
-const fbSignIn = state => state.merge({
+const fbSignIn = state =>
+  state.merge({
     isLogin: true,
     error: null,
     isLogged: false,
@@ -115,15 +123,17 @@ const fbSignIn = state => state.merge({
     loading: true,
   });
 
-const fbSignInSuccess = (state, { token, data }) => state.merge({
-    data: { ...state.data, ...data },
+const fbSignInSuccess = (state, {token, data}) =>
+  state.merge({
+    data: {...state.data, ...data},
     isLogged: true,
     isLogin: false,
     token,
     loading: false,
   });
 
-const fbSignInFailure = (state, action) => state.merge({
+const fbSignInFailure = (state, action) =>
+  state.merge({
     isLogged: false,
     error: action.error,
     isLogin: false,

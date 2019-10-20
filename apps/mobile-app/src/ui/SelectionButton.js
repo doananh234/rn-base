@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet,
-} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Button from './Button';
 import Text from './Text';
-import {
- Colors, Fonts,
-} from '../themes';
+import {Colors, Fonts} from '../themes';
 
-const SelectionButton = ({
- style, title, onPress, value,
-}) => {
+const SelectionButton = ({style, title, onPress, value}) => {
   return (
     <View style={[styles.input, style]}>
       <Text type="body3SemiBold">{title}</Text>
@@ -47,9 +41,6 @@ const styles = StyleSheet.create({
     color: Colors.divider,
     textAlign: 'left',
     fontWeight: Fonts.fontWeight.normal,
-  },
-  content: {
-    marginTop: 20,
   },
 });
 

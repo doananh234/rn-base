@@ -1,6 +1,4 @@
-import {
- call,
-} from 'redux-saga/effects';
+import {call} from 'redux-saga/effects';
 import _ from 'lodash';
 // import { loading, clearLoading } from '../redux/AppRedux/actions';
 // import {
@@ -16,19 +14,21 @@ export function makeConstantCreator(...params) {
   return constant;
 }
 
-export const makeActionCreator = (type, params = null) => ({ type, ...params });
+export const makeActionCreator = (type, params = null) => ({type, ...params});
 
 export const makeReducerCreator = (initialState = null, handlers = {}) => (
   state = initialState,
   action,
 ) => {
-  if (!action && !action.type) return state;
+  if (!action && !action.type) {
+    return state;
+  }
   const handler = handlers[action.type];
   return (handler && handler(state, action)) || state;
 };
 
 export function* apiWrapper(
-  config = { isShowProgress: true, isShowSuccessNoti: false },
+  config = {isShowProgress: true, isShowSuccessNoti: false},
   apiFunc,
   ...params
 ) {

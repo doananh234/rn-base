@@ -5,9 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {
- StyleSheet,
-} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Touchable from './Touchable';
 import Text from './Text';
 import Colors from '../themes/Colors';
@@ -42,9 +40,9 @@ const Button = ({
       style={[
         styles.buttonWithText,
         center && styles.center,
-        primary && { backgroundColor: Colors.primary },
-        secondary && { backgroundColor: Colors.secondary },
-        transparent && { backgroundColor: 'transparent' },
+        primary && {backgroundColor: Colors.primary},
+        secondary && {backgroundColor: Colors.secondary},
+        transparent && {backgroundColor: Colors.transparent},
         isShadow && styles.shadow,
         style,
         disabled && styles.disabledBtt,
@@ -52,14 +50,13 @@ const Button = ({
       colors={[startColor, endColor]}
       start={start}
       end={end}
-      locations={[0, 1]}
-    >
+      locations={[0, 1]}>
       {icon ? (
         <Icon
           name={icon}
           color={iconColor || Colors.primary}
           size={iconSize || 25}
-          style={[{ marginRight: 10 }, iconStyle]}
+          style={[styles.leftIcon, styles.iconStyle]}
         />
       ) : null}
       {ionicons ? (
@@ -67,7 +64,7 @@ const Button = ({
           name={ionicons}
           color={iconColor || Colors.primary}
           size={iconSize || 25}
-          style={[{ marginRight: 10 }, iconStyle]}
+          style={[styles.leftIcon, styles.iconStyle]}
         />
       ) : null}
       {fontAwesome ? (
@@ -75,7 +72,7 @@ const Button = ({
           name={fontAwesome}
           color={iconColor || Colors.primary}
           size={iconSize || 25}
-          style={[{ marginRight: 10 }, iconStyle]}
+          style={[styles.leftIcon, styles.iconStyle]}
         />
       ) : null}
       {entypo ? (
@@ -83,20 +80,27 @@ const Button = ({
           name={entypo}
           color={iconColor || Colors.primary}
           size={iconSize || 25}
-          style={[{ marginRight: 10 }, iconStyle]}
+          style={[styles.leftIcon, styles.iconStyle]}
         />
       ) : null}
       <Text
         type="button"
-        style={[styles.buttonText, textStyle, disabled && { color: `${Colors.default}60` }]}
-      >
+        style={[
+          styles.buttonText,
+          textStyle,
+          disabled && {color: `${Colors.default}60`},
+        ]}>
         {buttonTitle}
       </Text>
     </LinearGradient>
   );
-  if (loading || disabled) return innerView;
+  if (loading || disabled) {
+    return innerView;
+  }
   return (
-    <Touchable style={[isShadow && styles.shadow, wrapperStyle]} onPress={onPress}>
+    <Touchable
+      style={[isShadow && styles.shadow, wrapperStyle]}
+      onPress={onPress}>
       {innerView}
     </Touchable>
   );
@@ -130,8 +134,8 @@ Button.propTypes = {
 
 Button.defaultProps = {
   center: true,
-  end: { x: 1, y: 1 },
-  start: { x: 0, y: 0 },
+  end: {x: 1, y: 1},
+  start: {x: 0, y: 0},
   startColor: Colors.lightPrimary,
   endColor: Colors.lightPrimary,
 };
@@ -167,4 +171,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     elevation: 4,
   },
+  leftIcon: {marginRight: 10},
 });

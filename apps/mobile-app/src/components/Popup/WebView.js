@@ -1,15 +1,9 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
- View, WebView, StyleSheet,
-} from 'react-native';
+import {View, WebView, StyleSheet} from 'react-native';
 import ProgressScreen from '../ProgressScreen';
 import Container from '../Container';
-import {
- safeArea,
-} from '../../utils/Devices';
+import {safeArea} from '../../utils/Devices';
 
 class WebViewUI extends Component {
   state = {
@@ -17,22 +11,22 @@ class WebViewUI extends Component {
   };
 
   onLoadStart = () => {
-    this.setState({ isLoad: true });
+    this.setState({isLoad: true});
   };
 
   onLoadEnd = () => {
-    this.setState({ isLoad: false });
+    this.setState({isLoad: false});
   };
 
   render() {
-    const { uri } = this.props;
-    const { isLoad } = this.state;
+    const {uri} = this.props;
+    const {isLoad} = this.state;
     return (
       <Container>
         <WebView
           onLoadStart={this.onLoadStart}
           onLoadEnd={this.onLoadEnd}
-          source={{ uri }}
+          source={{uri}}
           style={styles.container}
         />
         {isLoad && (

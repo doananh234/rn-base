@@ -1,6 +1,4 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -10,13 +8,9 @@ import {
   Animated,
   KeyboardAvoidingView,
 } from 'react-native';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import CloseButton from './CloseButtonForLightBox';
-import {
- safeArea,
-} from '../../utils/Devices';
+import {safeArea} from '../../utils/Devices';
 
 class PopupWrapper extends Component {
   constructor(props) {
@@ -31,7 +25,7 @@ class PopupWrapper extends Component {
   }
 
   onPreClose = () => {
-    const { onPreClose } = this.props;
+    const {onPreClose} = this.props;
     if (onPreClose) {
       onPreClose(this.onClose);
     } else {
@@ -40,7 +34,7 @@ class PopupWrapper extends Component {
   };
 
   onClose = () => {
-    const { onClose } = this.props;
+    const {onClose} = this.props;
     Animated.timing(this.animated, {
       toValue: 0,
       duration: 100,
@@ -50,7 +44,7 @@ class PopupWrapper extends Component {
   };
 
   render() {
-    const { contentStyle, showCloseButton, children } = this.props;
+    const {contentStyle, showCloseButton, children} = this.props;
     const backgroundColor = this.animated.interpolate({
       inputRange: [0, 1],
       outputRange: ['rgba(0, 0, 0, 0)', Colors.blur1],
@@ -61,14 +55,22 @@ class PopupWrapper extends Component {
     });
 
     return (
-      <Animated.View style={[styles.container, { backgroundColor }]}>
-        <KeyboardAvoidingView style={styles.container} behavior="position" enabled>
-          <Animated.View style={[styles.container, { transform: [{ translateY }] }]}>
-            <TouchableWithoutFeedback onPress={this.onPreClose} style={styles.overlay}>
+      <Animated.View style={[styles.container, {backgroundColor}]}>
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior="position"
+          enabled>
+          <Animated.View
+            style={[styles.container, {transform: [{translateY}]}]}>
+            <TouchableWithoutFeedback
+              onPress={this.onPreClose}
+              style={styles.overlay}>
               <View style={styles.overlay} />
             </TouchableWithoutFeedback>
             {showCloseButton && <CloseButton onClose={this.onPreClose} />}
-            <Animated.View style={[styles.content, contentStyle]}>{children}</Animated.View>
+            <Animated.View style={[styles.content, contentStyle]}>
+              {children}
+            </Animated.View>
           </Animated.View>
         </KeyboardAvoidingView>
       </Animated.View>
@@ -87,7 +89,7 @@ PopupWrapper.defaultProps = {
   showCloseButton: true,
 };
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

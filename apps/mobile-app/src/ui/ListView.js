@@ -1,13 +1,7 @@
-import React, {
- Component,
-} from 'react';
-import {
- unionBy,
-} from 'lodash';
+import React, {Component} from 'react';
+import {unionBy} from 'lodash';
 import PropTypes from 'prop-types';
-import {
- View, FlatList, StyleSheet,
-} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 import ProgressScreen from './ProgressScreen';
 import Divider from './Divider';
 
@@ -22,14 +16,14 @@ class ListView extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { data } = this.props;
+    const {data} = this.props;
     if (prevProps.data.length === 0 && data.length > 0) {
       this.itemRendered = [];
     }
   }
 
   onViewableItemsChanged = e => {
-    const { data, loadMore } = this.props;
+    const {data, loadMore} = this.props;
     this.itemRendered = unionBy(this.itemRendered, e.viewableItems, 'key');
     if (this.itemRendered.length > data.length - 2) {
       loadMore();
@@ -37,7 +31,7 @@ class ListView extends Component {
   };
 
   onRefresh = () => {
-    const { onRefresh } = this.props;
+    const {onRefresh} = this.props;
     this.itemRendered = [];
     onRefresh();
   };
@@ -69,7 +63,7 @@ class ListView extends Component {
   };
 
   render() {
-    const { refreshing } = this.props;
+    const {refreshing} = this.props;
     return (
       <FlatList
         style={styles.styles}
@@ -91,8 +85,6 @@ ListView.propTypes = {
   data: PropTypes.array,
 };
 
-const styles = StyleSheet.create({
-  container: {},
-});
+const styles = StyleSheet.create({});
 
 export default ListView;

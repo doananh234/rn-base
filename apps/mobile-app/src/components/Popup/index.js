@@ -1,6 +1,4 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -10,9 +8,7 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 import CloseButton from './CloseButtonForLightBox';
 
 export default class Popup extends Component {
@@ -26,7 +22,7 @@ export default class Popup extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      const { isFull } = this.props;
+      const {isFull} = this.props;
       this.scrollView.scrollTo({
         x: 0,
         y: isFull ? WINDOW_HEIGHT : WINDOW_HEIGHT * 0.6,
@@ -36,11 +32,11 @@ export default class Popup extends Component {
   }
 
   scrollToTop = () => {
-    this.scrollView.scrollTo({ x: 0, y: WINDOW_HEIGHT, animated: true });
+    this.scrollView.scrollTo({x: 0, y: WINDOW_HEIGHT, animated: true});
   };
 
   onClose = () => {
-    const { onClose } = this.props;
+    const {onClose} = this.props;
     // const { onClose, componentId } = this.props;
     // Navigation.dismissModal(componentId);
     onClose && onClose();
@@ -48,16 +44,16 @@ export default class Popup extends Component {
 
   onContentLayout = ({
     nativeEvent: {
-      layout: { height },
+      layout: {height},
     },
   }) => {
     if (height < WINDOW_HEIGHT - 64) {
-      this.setState({ footerContentHeight: WINDOW_HEIGHT - height - 70 });
+      this.setState({footerContentHeight: WINDOW_HEIGHT - height - 70});
     }
   };
 
   renderFooter() {
-    const { renderFooter, isFull } = this.props;
+    const {renderFooter, isFull} = this.props;
     const bottom = this.scrollAnimated.interpolate({
       inputRange: [
         0,
@@ -69,16 +65,15 @@ export default class Popup extends Component {
     });
     return (
       <Animated.View
-        style={[styles.footer, styles.row, { marginHorizontal: 20, bottom }]}
-      >
+        style={[styles.footer, styles.row, {marginHorizontal: 20, bottom}]}>
         {renderFooter && renderFooter()}
       </Animated.View>
     );
   }
 
   render() {
-    const { children, renderHeader } = this.props;
-    const { footerContentHeight } = this.state;
+    const {children, renderHeader} = this.props;
+    const {footerContentHeight} = this.state;
     const backgroundColor = this.scrollAnimated.interpolate({
       inputRange: [-9999, 0, WINDOW_HEIGHT, 9999],
       outputRange: [
@@ -90,11 +85,11 @@ export default class Popup extends Component {
     });
     return (
       <Animated.View style={styles.container}>
-        <View style={{ flex: 1 }}>
+        <View style={{flex: 1}}>
           <ScrollView
             decelerationRate={0.99}
             onScroll={Animated.event([
-              { nativeEvent: { contentOffset: { y: this.scrollAnimated } } },
+              {nativeEvent: {contentOffset: {y: this.scrollAnimated}}},
             ])}
             automaticallyAdjustContentInsets={false}
             bounces={false}
@@ -103,7 +98,7 @@ export default class Popup extends Component {
             }}
             onTouchEnd={() => {
               if (this.scrollAnimated._value < WINDOW_HEIGHT - 50) {
-                this.scrollView.scrollTo({ x: 0, y: 0, animated: true });
+                this.scrollView.scrollTo({x: 0, y: 0, animated: true});
                 setTimeout(() => {
                   this.onClose();
                 }, 200);
@@ -111,16 +106,12 @@ export default class Popup extends Component {
             }}
             showsVerticalScrollIndicator={false}
             scrollEventThrottle={16}
-            stickyHeaderIndices={[1]}
-          >
+            stickyHeaderIndices={[1]}>
             <TouchableWithoutFeedback
               onPress={() => {
                 this.onClose();
-              }}
-            >
-              <Animated.View
-                style={{ height: WINDOW_HEIGHT, backgroundColor }}
-              />
+              }}>
+              <Animated.View style={{height: WINDOW_HEIGHT, backgroundColor}} />
             </TouchableWithoutFeedback>
             <View>
               <CloseButton
@@ -128,18 +119,17 @@ export default class Popup extends Component {
                 onClose={this.onClose}
               />
               <View style={styles.topSperator} />
-              <View style={{ backgroundColor: 'white' }}>
+              <View style={{backgroundColor: 'white'}}>
                 {renderHeader && renderHeader()}
               </View>
             </View>
             <View
-              style={{ backgroundColor: 'white', flex: 1 }}
-              onLayout={this.onContentLayout}
-            >
+              style={{backgroundColor: 'white', flex: 1}}
+              onLayout={this.onContentLayout}>
               <View style={styles.backgroundContent} />
               {children}
             </View>
-            <View style={{ height: footerContentHeight, zIndex: -99 }} />
+            <View style={{height: footerContentHeight, zIndex: -99}} />
           </ScrollView>
         </View>
         {this.renderFooter()}
@@ -159,7 +149,7 @@ Popup.propTypes = {
 
 Popup.defaultProps = {};
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 const WINDOW_HEIGHT = height;
 
 const styles = StyleSheet.create({

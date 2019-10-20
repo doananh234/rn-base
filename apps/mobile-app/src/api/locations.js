@@ -1,6 +1,6 @@
 import config from '../config/AppSetting';
 
-const { BING_MAPS_KEY } = config;
+const {BING_MAPS_KEY} = config;
 
 export const getNearbyLocation = (latitude, longitude) => {
   return fetch({
@@ -19,8 +19,7 @@ export const getGeocode = address => {
     .then(response => {
       return response.json();
     })
-    .catch(err => {
-    });
+    .catch(err => {});
 };
 
 export const getPlace = key => {
@@ -30,13 +29,9 @@ export const getPlace = key => {
 };
 
 export const getDriveTime = (currentLocation, result) => {
-  const url = `http://maps.googleapis.com/maps/api/distancematrix/json?origins=${
-    currentLocation.latitude
-  },${currentLocation.longitude}&destinations=${result.latitude},${
-    result.longitude
-  }&sensor=false&mode=driving`;
+  const url = `http://maps.googleapis.com/maps/api/distancematrix/json?origins=${currentLocation.latitude},${currentLocation.longitude}&destinations=${result.latitude},${result.longitude}&sensor=false&mode=driving`;
 
-  return fetch({ method: 'GET', url }).then(response => response.json());
+  return fetch({method: 'GET', url}).then(response => response.json());
 };
 
 export const getArea = (lat, lng) => {
@@ -48,6 +43,5 @@ export const getArea = (lat, lng) => {
     .then(response => {
       return response.json();
     })
-    .catch(err => {
-    });
+    .catch(err => {});
 };

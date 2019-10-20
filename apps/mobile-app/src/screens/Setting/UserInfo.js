@@ -8,19 +8,17 @@ import {
   Platform,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {
- Colors, Images,
-} from '../../themes';
+import {Colors, Images} from '../../themes';
 import Text from '../../ui/Text';
 
-const UserInfo = ({ user, onPress }) => {
-  const { first_name, last_name, avatar } = user;
+const UserInfo = ({user, onPress}) => {
+  const {first_name, last_name, avatar} = user;
   return (
     <TouchableHighlight underlayColor="transparent" onPress={() => onPress()}>
       <View style={styles.content}>
         <Image
           style={styles.avatar}
-          source={avatar ? { uri: avatar } : Images.defaultUser}
+          source={avatar ? {uri: avatar} : Images.defaultUser}
         />
         <View style={styles.vRight}>
           <Text type="headline" color={Colors.primaryText}>
@@ -37,7 +35,7 @@ UserInfo.propTypes = {
   onPress: PropTypes.func,
 };
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 const styles = {
   content: {
     alignItems: 'center',

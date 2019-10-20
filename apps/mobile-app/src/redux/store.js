@@ -1,24 +1,20 @@
 import _ from 'lodash';
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
 import {
-  createStore, applyMiddleware, compose, combineReducers,
-} from 'redux';
-import {
-  persistReducer, persistStore,
-  REHYDRATE, PURGE, persistCombineReducers,
+  persistReducer,
+  persistStore,
+  REHYDRATE,
+  PURGE,
+  persistCombineReducers,
 } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
-import {
-  createLogger,
-} from 'redux-logger';
+import {createLogger} from 'redux-logger';
 
 import rootReducer from './reducers';
 import Config from '../config/DebugSettings';
 import rootSaga from './sagas';
 import deferredMiddleware from './ExposedPromiseMiddleware';
-import {
-  REDUX_PERSIST,
-} from '../realm/persistRealm';
-
+import {REDUX_PERSIST} from '../realm/persistRealm';
 
 export default onComplete => {
   /* ------------- Redux Configuration ------------- */
@@ -45,7 +41,8 @@ export default onComplete => {
     // silence these saga-based messages
     // create the logger
     const logger = createLogger({
-      predicate: (getState, { type }) => USE_LOGGING && !_.includes(SAGA_LOGGING_BLACKLIST, type),
+      predicate: (getState, {type}) =>
+        USE_LOGGING && !_.includes(SAGA_LOGGING_BLACKLIST, type),
     });
     middleware.push(logger);
   }
@@ -58,7 +55,7 @@ export default onComplete => {
 
   // TODO: Callback
   onComplete(store);
-  const persistor = persistStore(store, null, () => { });
+  const persistor = persistStore(store, null, () => {});
   sagaMiddleware.run(rootSaga);
-  return { store, persistor };
+  return {store, persistor};
 };

@@ -1,20 +1,17 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
- View, Text, TouchableWithoutFeedback, StyleSheet,
-} from 'react-native';
+import {View, Text, TouchableWithoutFeedback, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
- Colors,
-} from '../themes/index';
+import {Colors} from '../themes/index';
 
-const Radio = ({ selected, text, onPress }) => {
+const Radio = ({selected, text, onPress}) => {
   return (
     <TouchableWithoutFeedback onPress={() => onPress()}>
       <View style={styles.row}>
-        <Icon style={styles.icon} name={selected ? 'md-radio-button-on' : 'md-radio-button-off'} />
+        <Icon
+          style={styles.icon}
+          name={selected ? 'md-radio-button-on' : 'md-radio-button-off'}
+        />
         <Text style={styles.text}>{text}</Text>
       </View>
     </TouchableWithoutFeedback>
@@ -36,14 +33,14 @@ class RadiosGroup extends Component {
   }
 
   onChange = e => {
-    const { onChange } = this.props;
-    this.setState({ selected: e });
+    const {onChange} = this.props;
+    this.setState({selected: e});
     onChange && onChange(e);
   };
 
   render() {
-    const { data } = this.props;
-    const { selected } = this.state;
+    const {data} = this.props;
+    const {selected} = this.state;
     return (
       <View style={styles.container}>
         {data.map((item, index) => (

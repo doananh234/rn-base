@@ -1,15 +1,10 @@
 import React from 'react';
-import {
- StyleSheet, View,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import MealPlanner from 'react-native-vector-icons/mealplanner';
-import Button from './Button';
-import {
- Colors,
-} from '../themes';
+import {Colors} from '../themes';
 import Touchable from './Touchable';
 
-export const GoogleButton = ({ onPress }) => {
+export const GoogleButton = ({onPress}) => {
   return (
     <Touchable onPress={onPress}>
       <View style={[styles.container, styles.google]}>
@@ -19,7 +14,7 @@ export const GoogleButton = ({ onPress }) => {
   );
 };
 
-export const FacebookButton = ({ onPress }) => {
+export const FacebookButton = ({onPress}) => {
   return (
     <Touchable onPress={onPress}>
       <View style={[styles.container, styles.facebook]}>
@@ -45,9 +40,5 @@ const styles = StyleSheet.create({
   },
   facebook: {
     backgroundColor: Colors.facebook,
-  },
-  icon: {
-    color: Colors.default,
-    marginRight: 0,
   },
 });

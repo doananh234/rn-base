@@ -1,15 +1,15 @@
 import _ from 'lodash';
-import {
- makeActionName,
-} from '../../utils/textUtils';
-import {
- makeActionCreator,
-} from '../../utils/reduxUtils';
-import {
- DEFERRED,
-} from '../ExposedPromiseMiddleware';
+import {makeActionName} from '../../utils/textUtils';
+import {makeActionCreator} from '../../utils/reduxUtils';
+import {DEFERRED} from '../ExposedPromiseMiddleware';
 
-export const CRUD_ACTIONS = ['GET_ALL', 'GET_BY_ID', 'DELETE', 'EDIT', 'CREATE'];
+export const CRUD_ACTIONS = [
+  'GET_ALL',
+  'GET_BY_ID',
+  'DELETE',
+  'EDIT',
+  'CREATE',
+];
 export const ACTIONS_STATE = ['', 'SUCCESS', 'FAILURE'];
 export const PRIMARY_KEY = 'id';
 
@@ -31,7 +31,8 @@ export const makeCRUDActionsCreator = (resource, ignoreActions = []) => {
   const constants = makeCRUDConstantCreator(resource, ignoreActions);
   _.values(constants).forEach(type => {
     const actionName = makeActionName(type);
-    actions[actionName] = (data, options) => makeActionCreator(type, { data, options, [DEFERRED]: true });
+    actions[actionName] = (data, options) =>
+      makeActionCreator(type, {data, options, [DEFERRED]: true});
   });
   return actions;
 };

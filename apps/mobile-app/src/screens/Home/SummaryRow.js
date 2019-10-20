@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from 'i18n-js';
-import {
- StyleSheet, Dimensions, ScrollView,
-} from 'react-native';
+import {StyleSheet, Dimensions, ScrollView} from 'react-native';
 import SummaryItem from '../../components/Items/SummaryItem';
-import {
- Colors,
-} from '../../themes';
+import {Colors} from '../../themes';
 
-const SummaryRow = ({ summaries }) => {
+const SummaryRow = ({summaries}) => {
   const SUMMARIES = [
     {
       icon: 'ic-all-member',
@@ -43,10 +39,9 @@ const SummaryRow = ({ summaries }) => {
   return (
     <ScrollView
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ paddingRight: 20 }}
+      contentContainerStyle={{paddingRight: 20}}
       horizontal
-      style={styles.summaryRow}
-    >
+      style={styles.summaryRow}>
       {SUMMARIES.map(data => (
         <SummaryItem style={styles.summaryItem} key={data.key} {...data} />
       ))}
@@ -57,7 +52,7 @@ SummaryRow.propTypes = {
   summaries: PropTypes.object,
 };
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   summaryRow: {

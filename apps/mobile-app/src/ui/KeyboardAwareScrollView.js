@@ -1,25 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
- View, StyleSheet, Keyboard, TouchableWithoutFeedback,
+  View,
+  StyleSheet,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from 'react-native';
-import {
- KeyboardAwareScrollView,
-} from 'react-native-keyboard-aware-scroll-view';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const KeyboardAwareScrollViewUI = ({
- children, center, contentContainerStyle, style,
+  children,
+  center,
+  contentContainerStyle,
+  style,
 }) => {
   return (
     <KeyboardAwareScrollView
       keyboardShouldPersistTaps="always"
-      contentContainerStyle={[center && styles.center, styles.content, contentContainerStyle]}
+      contentContainerStyle={[
+        center && styles.center,
+        styles.content,
+        contentContainerStyle,
+      ]}
       style={style}
       showsVerticalScrollIndicator={false}
-      showsHorizontalScrollIndicator={false}
-    >
+      showsHorizontalScrollIndicator={false}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={{ flex: 1 }}>{children}</View>
+        <View style={styles.flex}>{children}</View>
       </TouchableWithoutFeedback>
     </KeyboardAwareScrollView>
   );
@@ -39,6 +46,9 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingBottom: 60,
+  },
+  flex: {
+    flex: 1,
   },
 });
 

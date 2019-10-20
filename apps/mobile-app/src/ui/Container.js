@@ -1,23 +1,13 @@
-import React, {
- PureComponent,
-} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import {
- View, StyleSheet, Dimensions, Platform,
-} from 'react-native';
-import {
- Colors,
-} from '../themes';
+import {View, StyleSheet, Dimensions, Platform} from 'react-native';
+import {Colors} from '../themes';
 import ProgressScreen from './ProgressScreen';
-import {
- safeArea,
-} from '../utils/Devices';
+import {safeArea} from '../utils/Devices';
 
 export default class Container extends PureComponent {
   render() {
-    const {
- style, children, loading, largeTitle,
-} = this.props;
+    const {style, children, loading, largeTitle} = this.props;
     return (
       <View style={[styles.container, largeTitle && styles.largeTitle, style]}>
         {children}
@@ -34,7 +24,7 @@ Container.propTypes = {
   largeTitle: PropTypes.bool,
 };
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

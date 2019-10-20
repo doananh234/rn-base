@@ -1,16 +1,8 @@
-import React, {
- Component,
-} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {
- View, Text, TextInput, StyleSheet, Platform,
-} from 'react-native';
-import {
- Colors,
-} from '../themes/index';
-import {
- size, type,
-} from '../themes/Fonts';
+import {View, Text, TextInput, StyleSheet, Platform} from 'react-native';
+import {Colors} from '../themes/index';
+import {size, type} from '../themes/Fonts';
 
 class CodeInput extends Component {
   static propTypes = {
@@ -45,8 +37,8 @@ class CodeInput extends Component {
   };
 
   renderInput = index => {
-    const { numberOfDigit, secureTextEntry } = this.props;
-    const { currentIndex } = this.state;
+    const {numberOfDigit, secureTextEntry} = this.props;
+    const {currentIndex} = this.state;
     return (
       <TextInput
         key={index}
@@ -54,7 +46,8 @@ class CodeInput extends Component {
           styles.cel,
           styles.text,
           {
-            borderBottomColor: currentIndex === index ? Colors.primary : Colors.divider,
+            borderBottomColor:
+              currentIndex === index ? Colors.primary : Colors.divider,
           },
         ]}
         ref={ref => {
@@ -64,17 +57,20 @@ class CodeInput extends Component {
         keyboardType={Platform.OS === 'android' ? 'numeric' : 'number-pad'}
         underlineColorAndroid="transparent"
         secureTextEntry={secureTextEntry}
-        onFocus={() => this.setState({ currentIndex: index })}
+        onFocus={() => this.setState({currentIndex: index})}
         onKeyPress={e => {
           if (
-            (!this.inputRefs[index]._lastNativeText
-              || this.inputRefs[index]._lastNativeText.length < 1)
-            && e.nativeEvent.key === 'Backspace'
+            (!this.inputRefs[index]._lastNativeText ||
+              this.inputRefs[index]._lastNativeText.length < 1) &&
+            e.nativeEvent.key === 'Backspace'
           ) {
             index !== 0 && this.focusInput(index - 1);
             return;
           }
-          if (e.nativeEvent.key !== 'Backspace' && index + 1 !== numberOfDigit) {
+          if (
+            e.nativeEvent.key !== 'Backspace' &&
+            index + 1 !== numberOfDigit
+          ) {
             this.focusInput(index + 1);
           }
         }}
@@ -83,7 +79,7 @@ class CodeInput extends Component {
   };
 
   render() {
-    const { numberOfDigit, prefix, style } = this.props;
+    const {numberOfDigit, prefix, style} = this.props;
     const inputCodeComponents = [];
     for (let i = 0; i < numberOfDigit; i += 1) {
       inputCodeComponents.push(this.renderInput(i));

@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- StyleSheet, Dimensions,
-} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {
- Images,
-} from '../themes';
+import {Images} from '../themes';
 
-const BackgroundImage = ({ imageName }) => {
-  return <FastImage resizeMode="cover" style={styles.container} source={Images[imageName]} />;
+const BackgroundImage = ({imageName}) => {
+  return (
+    <FastImage
+      resizeMode="cover"
+      style={styles.container}
+      source={Images[imageName]}
+    />
+  );
 };
 
 BackgroundImage.propTypes = {
   imageName: PropTypes.any,
 };
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

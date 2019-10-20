@@ -1,28 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- StyleSheet, Text as RNText,
-} from 'react-native';
-import {
- Fonts, Colors,
-} from '../themes';
+import {StyleSheet, Text as RNText} from 'react-native';
+import {Fonts, Colors} from '../themes';
 
 const Text = props => {
-  const {
- type, color, center, underLine, style, children,
-} = props;
+  const {type, color, center, underLine, style, children} = props;
   return (
     <RNText
       {...props}
       style={[
         styles.normal,
         styles[type],
-        color && { color },
+        color && {color},
         center && styles.center,
         underLine && styles.txtUnderline,
         style,
-      ]}
-    >
+      ]}>
       {children}
     </RNText>
   );
