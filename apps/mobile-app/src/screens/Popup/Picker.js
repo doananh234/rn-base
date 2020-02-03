@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
-import {Colors} from '../../themes';
+import {Colors} from 'themes';
 import {safeArea} from '../../utils/Devices';
 import PopupWrapper from '../../components/Popup/PopupWrapper';
-import Text from '../../ui/Text';
+import Text from 'uikit/src/Text';
 
 export default class PopupItemEvent extends Component {
   constructor(props) {

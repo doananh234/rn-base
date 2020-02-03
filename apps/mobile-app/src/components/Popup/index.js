@@ -8,7 +8,7 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import {Colors} from '../../themes';
+import {Colors} from 'themes';
 import CloseButton from './CloseButtonForLightBox';
 
 export default class Popup extends Component {

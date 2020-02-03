@@ -8,9 +8,9 @@ import {
   Vibration,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import Text from '../../ui/Text';
-import Touchable from '../../ui/Touchable';
-import {Colors} from '../../themes';
+import Text from 'uikit/src/Text';
+import Touchable from 'uikit/src/Touchable';
+import {Colors} from 'themes';
 // import { dismissInAppNoti } from '../../navigation/navigationActions';
 import {safeArea} from '../../utils/Devices';
 

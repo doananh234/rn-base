@@ -38,9 +38,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "rnBase.app"
-               BlueprintName = "rnBase"
-               ReferencedContainer = "container:rnBase.xcodeproj">
+               BuildableName = "rnbase.app"
+               BlueprintName = "rnbase"
+               ReferencedContainer = "container:rnbase.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -52,9 +52,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "rnBaseTests.xctest"
-               BlueprintName = "rnBaseTests"
-               ReferencedContainer = "container:rnBase.xcodeproj">
+               BuildableName = "rnbaseTests.xctest"
+               BlueprintName = "rnbaseTests"
+               ReferencedContainer = "container:rnbase.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -64,29 +64,27 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "rnbase.app"
+            BlueprintName = "rnbase"
+            ReferencedContainer = "container:rnbase.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "rnBaseTests.xctest"
-               BlueprintName = "rnBaseTests"
-               ReferencedContainer = "container:rnBase.xcodeproj">
+               BuildableName = "rnbaseTests.xctest"
+               BlueprintName = "rnbaseTests"
+               ReferencedContainer = "container:rnbase.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rnBase.app"
-            BlueprintName = "rnBase"
-            ReferencedContainer = "container:rnBase.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -103,13 +101,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rnBase.app"
-            BlueprintName = "rnBase"
-            ReferencedContainer = "container:rnBase.xcodeproj">
+            BuildableName = "rnbase.app"
+            BlueprintName = "rnbase"
+            ReferencedContainer = "container:rnbase.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -122,9 +118,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rnBase.app"
-            BlueprintName = "rnBase"
-            ReferencedContainer = "container:rnBase.xcodeproj">
+            BuildableName = "rnbase.app"
+            BlueprintName = "rnbase"
+            ReferencedContainer = "container:rnbase.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

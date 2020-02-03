@@ -1,33 +1,31 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import { useDispatch } from 'react-redux';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
-import {useNavigation} from 'react-navigation-hooks';
 import I18n from 'i18n-js';
-import LoginActions from '../../redux/LoginRedux/actions';
-import {Colors} from '../../themes';
-import Button from '../../ui/Button';
-import {FacebookButton, GoogleButton} from '../../ui/SocialButton';
-import Text from '../../ui/Text';
+import { push } from 'navigation/navigationActions';
+import { skipLogin } from '@redux/AuthRedux/actions';
+import { Colors } from 'themes';
+import Button from 'uikit/src/Button';
+import { FacebookButton, GoogleButton } from 'uikit/src/SocialButton';
+import Text from 'uikit/src/Text';
+import BackgroundImage from 'uikit/src/BackgroundImage';
 import CheckUpdate from '../Home/CheckUpdate';
-import {safeArea} from '../../utils/Devices';
-import BackgroundImage from '../../ui/BackgroundImage';
+import { safeArea } from '../../utils/Devices';
 
-function Intro(props) {
+function Intro({ componentId }) {
   const dispatch = useDispatch();
 
-  const {push} = useNavigation();
-
   const signUp = () => {
-    push('SignUp');
+    push(componentId, 'SignUp');
   };
 
   const skip = () => {
-    dispatch(LoginActions.skipLogin());
+    dispatch(skipLogin());
   };
 
   const signIn = () => {
-    push('SignIn', {});
+    push(componentId, 'SignIn', {});
   };
 
   const facebookSignIn = () => {
@@ -85,7 +83,7 @@ Intro.propTypes = {
   skipLogin: PropTypes.func,
 };
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

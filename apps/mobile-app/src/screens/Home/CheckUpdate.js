@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import CodePush from 'react-native-code-push';
 
 export default class CheckUpdate extends Component {
@@ -30,7 +30,7 @@ export default class CheckUpdate extends Component {
               break;
           }
         },
-        ({receivedBytes, totalBytes}) => {
+        ({ receivedBytes, totalBytes }) => {
           const downloadProgress = Math.round(
             (receivedBytes / totalBytes) * 100,
           );

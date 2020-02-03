@@ -1,27 +1,27 @@
 /* eslint no-alert: 0 */
-import React, {useCallback} from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, ScrollView, FlatList} from 'react-native';
-import {useNavigation} from 'react-navigation-hooks';
-import HomeItem from '../../components/Items/HomeItem';
-import Divider from '../../ui/Divider';
-import EmptyView from '../../ui/EmptyView';
+import { StyleSheet, ScrollView, FlatList } from 'react-native';
+import HomeItem from 'components/Items/HomeItem';
+import Divider from 'uikit/src/Divider';
+import EmptyView from 'uikit/src/EmptyView';
+import { Colors } from 'themes';
+import { push } from 'navigation/navigationActions';
 import CheckUpdate from './CheckUpdate';
-import {Colors} from '../../themes';
 import SummaryRow from './SummaryRow';
 // import { push } from '../../navigation/actions';
 
-function Home() {
-  const {push} = useNavigation();
-
+function Home({ componentId }) {
   const onPressItem = useCallback(
     item => {
-      push('Detail', item);
+      push(componentId, 'Detail', { passProps: { item } });
     },
-    [push],
+    [componentId],
   );
 
-  const renderItem = ({item}) => <HomeItem data={item} onPress={onPressItem} />;
+  const renderItem = ({ item }) => (
+    <HomeItem data={item} onPress={onPressItem} />
+  );
 
   const DATA = [
     {

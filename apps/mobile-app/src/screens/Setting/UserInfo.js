@@ -8,8 +8,8 @@ import {
   Platform,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {Colors, Images} from '../../themes';
-import Text from '../../ui/Text';
+import {Colors, Images} from 'themes';
+import Text from 'uikit/src/Text';
 
 const UserInfo = ({user, onPress}) => {
   const {first_name, last_name, avatar} = user;

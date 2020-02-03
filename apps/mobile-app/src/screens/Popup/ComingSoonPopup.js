@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View, Dimensions} from 'react-native';
 import I18n from 'i18n-js';
-import {Colors} from '../../themes';
-import Text from '../../ui/Text';
-import Button from '../../ui/Button';
+import {Colors} from 'themes';
+import Text from 'uikit/src/Text';
+import Button from 'uikit/src/Button';
 import PopupWrapper from '../../components/Popup/PopupWrapper';
 // import { dismissLightBox } from '../../navigation/navigationActions';
 

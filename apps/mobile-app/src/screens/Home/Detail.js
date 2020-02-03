@@ -1,13 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {useNavigationParam} from 'react-navigation-hooks';
+import { View, Text } from 'react-native';
 
 function Detail() {
-  const value = useNavigationParam('value');
-  const title = useNavigationParam('title');
+  const value = '';
+  const title = '';
 
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Detail Screen</Text>
       <Text>{title}</Text>
       <Text>{value}</Text>

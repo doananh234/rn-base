@@ -2,18 +2,25 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@components": ["./src/components"],
+      "components/*": ["./src/components/*"],
+      "components": ["./src/components"],
+      // "uikit/*": ["./src/uikit/*"],
+      // "uikit": ["./src/uikit"],
       "screens": ["./src/screens"],
       "screens/*": ["./src/screens/*"],
-      "@constants": ["./src/constants"],
-      "@containers": ["./src/containers"],
-      "@containers/*": ["./src/containers/*"],
-      "@navigation": ["./src/navigation"],
-      "@navigation/*": ["./src/navigation/*"],
-      "@themes": ["./src/themes"],
-      "@utils": ["./src/utils"],
-      "@utils/*": ["./src/utils/*"]
+      "constants": ["./src/constants"],
+      "containers": ["./src/containers"],
+      "containers/*": ["./src/containers/*"],
+      "navigation": ["./src/navigation"],
+      "navigation/*": ["./src/navigation/*"],
+      "themes": ["./src/themes"],
+      "themes/*": ["./src/themes/*"],
+      "utils": ["./src/utils"],
+      "utils/*": ["./src/utils/*"],
+      "assets": ["./src/assets"],
+      "assets/*": ["./src/assets/*"],
+      "@redux": ["./src/@redux"],
+      "@redux/*": ["./src/@redux/*"]
     }
   },
   "exclude": ["node_modules"]

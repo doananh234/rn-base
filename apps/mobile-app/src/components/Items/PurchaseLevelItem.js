@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
-import {View, StyleSheet} from 'react-native';
-import Text from '../Text';
-import Colors from '../../themes/Colors';
-import Touchable from '../Touchable';
+import { View, StyleSheet } from 'react-native';
+import Text from 'uikit/src/Text';
+import Colors from 'themes/Colors';
+import Touchable from 'uikit/src/Touchable';
 
 const SUBSCRIPTION_PERIOD = {
   P1W: 'Week',
@@ -16,21 +16,22 @@ const getSubscriptionTrialPeriodDay = product => {
   return product.subscriptionFreeTrialPeriod.replace('P', '').replace('D', '');
 };
 
-const PurchaseLevelItem = ({item, onPress, isSelected, index}) => {
+const PurchaseLevelItem = ({ item, onPress, isSelected, index }) => {
   return (
     <Touchable onPress={onPress}>
       <View
         style={[
           styles.container,
           isSelected && styles.shadow,
-          index === 0 && {marginLeft: 30},
-          index === 2 && {marginRight: 30},
-        ]}>
+          index === 0 && { marginLeft: 30 },
+          index === 2 && { marginRight: 30 },
+        ]}
+      >
         {isSelected && (
           <LinearGradient
             colors={['rgb(159,172,230)', 'rgb(116,235,213)']}
-            end={{x: 1, y: 0}}
-            start={{x: 0, y: 1}}
+            end={{ x: 1, y: 0 }}
+            start={{ x: 0, y: 1 }}
             locations={[0, 1]}
             style={styles.selected}
           />
@@ -44,7 +45,7 @@ const PurchaseLevelItem = ({item, onPress, isSelected, index}) => {
         <Text color={isSelected ? Colors.default : Colors.primaryText}>
           Free trial {getSubscriptionTrialPeriodDay(item)} days
         </Text>
-        <View style={{flex: 1}} />
+        <View style={{ flex: 1 }} />
         <Text color={isSelected ? Colors.default : Colors.primaryText}>
           After trial, then{' '}
           <Text color={isSelected ? Colors.default : Colors.primaryText}>

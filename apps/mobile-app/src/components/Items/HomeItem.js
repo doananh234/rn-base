@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {View, StyleSheet} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/mealplanner';
-import Text from '../../ui/Text';
-import {Images, Colors} from '../../themes';
+import Text from 'uikit/src/Text';
+import {Images, Colors} from 'themes';
 import SwipeableRow from './SwipeableRow';
-import Button from '../../ui/Button';
-import Touchable from '../../ui/Touchable';
+import Button from 'uikit/src/Button';
+import Touchable from 'uikit/src/Touchable';
 
 const HomeItem = ({onPress, data, isFavoriteScreen}) => {
   const {image, title, value} = data;

@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import {View, StyleSheet, Dimensions} from 'react-native';
 import {connect} from 'react-redux';
 import I18n from 'i18n-js';
-import {Colors} from '../../themes';
-import KeyboardAwareScrollView from '../../ui/KeyboardAwareScrollView';
-import Text from '../../ui/Text';
-import Button from '../../ui/Button';
-import Avatar from '../../ui/Avatar';
-import LoginActions from '../../redux/LoginRedux/actions';
-import Container from '../../ui/Container';
-import Input from '../../ui/Input';
-import Divider from '../../ui/Divider';
-import {FacebookButton, GoogleButton} from '../../ui/SocialButton';
+import {Colors} from 'themes';
+import KeyboardAwareScrollView from 'uikit/src/Form/KeyboardAwareScrollView';
+import Text from 'uikit/src/Text';
+import Button from 'uikit/src/Button';
+import Avatar from 'uikit/src/Avatar';
+import LoginActions from '@redux/AuthRedux/actions';
+import Container from 'uikit/src/Container';
+import Input from 'uikit/src/Input';
+import Divider from 'uikit/src/Divider';
+import {FacebookButton, GoogleButton} from 'uikit/src/SocialButton';
 // import { push, pop } from '../../navigation/navigationActions';
 // import { signUp as btnSignUp } from '../../navigation/navigationButtons';
 
@@ -262,8 +262,8 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    user: state.login.data,
-    token: state.login.token,
+    user: state.auth.data,
+    token: state.auth.token,
   };
 }
 

@@ -8,7 +8,7 @@ import {
   Animated,
   KeyboardAvoidingView,
 } from 'react-native';
-import {Colors} from '../../themes';
+import {Colors} from 'themes';
 import CloseButton from './CloseButtonForLightBox';
 import {safeArea} from '../../utils/Devices';
 

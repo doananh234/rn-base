@@ -1,44 +1,49 @@
-import React from 'react';
-import {Text} from 'react-native';
-import {PersistGate} from 'redux-persist/es/integration/react';
-
-import {Provider} from 'react-redux';
-import {useScreens} from 'react-native-screens';
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from 'navigation/screens';
+import { iconsLoaded } from 'utils/appIcons';
+import { onNavigatorEvent } from 'navigation/navigationActions/handleNavButtonOnPress';
+import configureStore from '@redux/store';
+import 'themes/Images';
+import 'utils/Devices';
+import { startup } from '@redux/AppRedux/slice';
 import configI18n from './i18n/index';
-import configureStore from './redux/store';
-import './themes/Images';
-import AppNavigation from './navigation/AppNavigation';
-import {setNavigator} from './navigation/NavigatorService';
 
-// TODO: Enable screens support before any of your navigation screen renders
-useScreens();
-
-const {persistor, store} = configureStore(stored => {
-  configI18n(stored);
-});
-
-const Loading = () => <Text>Loading</Text>;
-
-export default function Setup() {
-  const onBeforeLift = () => {
-    // take some action before the gate lifts
+const App = () => {
+  const loadStore = async () => {
+    return new Promise(resolve => {
+      configureStore((store, persistor) => {
+        configI18n(store);
+        registerScreens(store, persistor);
+        resolve(store, persistor);
+      });
+    });
+  };
+  const loadIntial = () => {
+    return Promise.all([loadStore(), iconsLoaded])
+      .then(response => {
+        const store = response[0];
+        const { token } = store.getState().auth;
+        global.token = token;
+        store.dispatch(startup());
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
-  return (
-    <Provider store={store}>
-      <PersistGate
-        loading={<Loading />}
-        onBeforeLift={onBeforeLift}
-        persistor={persistor}>
-        <AppNavigation
-          ref={nav => {
-            // TODO: Setup navigator to use react-navigation in saga
-            // eslint-disable-next-line max-len
-            // Notice: useRef & setNavigator in useEffect not work with PersistGate
-            setNavigator(nav);
-          }}
-        />
-      </PersistGate>
-    </Provider>
+  Navigation.events().registerAppLaunchedListener(async () => {
+    try {
+      await loadIntial();
+    } catch (error) {
+      //
+    }
+  });
+
+  Navigation.events().registerNavigationButtonPressedListener(
+    ({ buttonId, componentId }) => {
+      onNavigatorEvent(buttonId, componentId);
+    },
   );
-}
+};
+
+export default App;

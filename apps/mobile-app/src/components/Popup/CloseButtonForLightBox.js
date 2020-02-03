@@ -7,7 +7,7 @@ import {
   Dimensions,
   StyleSheet,
 } from 'react-native';
-import {Colors} from '../../themes/index';
+import {Colors} from 'themes/index';
 
 const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({

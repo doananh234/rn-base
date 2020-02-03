@@ -1,14 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import I18n from 'i18n-js';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 // import InAppBilling from 'react-native-billing';
-import {ScrollView, View, Dimensions, StyleSheet, FlatList} from 'react-native';
-import Text from '../../ui/Text';
-import AppActions from '../../redux/AppRedux/actions';
-import {Colors} from '../../themes';
-import Button from '../../ui/Button';
-import {size, fontWeight} from '../../themes/Fonts';
+import {
+  ScrollView,
+  View,
+  Dimensions,
+  StyleSheet,
+  FlatList,
+} from 'react-native';
+import Text from 'uikit/src/Text';
+import { Colors } from 'themes';
+import Button from 'uikit/src/Button';
+import { fontWeight } from 'themes/Fonts';
+import BackgroundImage from 'uikit/src/BackgroundImage';
 import PurchaseServiceItem from '../../components/Items/PurchaseServiceItem';
 import PurchaseLevelItem from '../../components/Items/PurchaseLevelItem';
 // import {
@@ -17,7 +23,6 @@ import PurchaseLevelItem from '../../components/Items/PurchaseLevelItem';
 //   subscribe,
 //   restoreSubcription,
 // } from '../../utils/IAPUtils';
-import BackgroundImage from '../../ui/BackgroundImage';
 // import { push } from '../../navigation/navigationActions';
 
 class Purchase extends Component {
@@ -32,11 +37,11 @@ class Purchase extends Component {
   }
 
   onPress = (item, index) => {
-    this.setState({selected: index});
+    this.setState({ selected: index });
   };
 
   openWebView = (title, passProps) => () => {
-    const {componentId} = this.props;
+    const { componentId } = this.props;
     // push(componentId, 'WebView', {
     //   title: I18n.t(title),
     //   passProps,
@@ -81,11 +86,11 @@ class Purchase extends Component {
     // }
   };
 
-  renderItem = ({item, index}) => {
+  renderItem = ({ item, index }) => {
     return <PurchaseServiceItem item={item} />;
   };
 
-  renderPurchaseLevelItem = ({item, index}) => {
+  renderPurchaseLevelItem = ({ item, index }) => {
     return (
       <PurchaseLevelItem
         onPress={() => this.onPress(item, index)}
@@ -97,13 +102,14 @@ class Purchase extends Component {
   };
 
   render() {
-    const {iapList} = this.state;
+    const { iapList } = this.state;
     return (
       <View style={styles.container}>
         <BackgroundImage imageName="iapBackground" />
         <ScrollView
           style={styles.container}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.vHeader}>
             <Text center type="title2Bold" color={Colors.primary}>
               {I18n.t('purchase.goPremium')}
@@ -120,14 +126,14 @@ class Purchase extends Component {
           <Button
             secondary
             onPress={this.onPurchase}
-            buttonTitle={I18n.t('purchase.freeTrial', {price: '3.99'})}
+            buttonTitle={I18n.t('purchase.freeTrial', { price: '3.99' })}
             style={styles.buttonTrial}
           />
           <Button
             transparent
             onPress={this.onPurchase}
             buttonTitle={I18n.t('button.continue').toUpperCase()}
-            subTitle={I18n.t('purchase.continuePrice', {price: '9.99'})}
+            subTitle={I18n.t('purchase.continuePrice', { price: '9.99' })}
             style={styles.button}
           />
           <View style={styles.vBottom}>
@@ -138,7 +144,8 @@ class Purchase extends Component {
               style={styles.txtRestore}
               center
               underline
-              color={Colors.gray}>
+              color={Colors.gray}
+            >
               {I18n.t('moreText.legal.privacy')}
             </Text>
             <Text
@@ -146,7 +153,8 @@ class Purchase extends Component {
               style={styles.txtRestore}
               center
               underline
-              color={Colors.gray}>
+              color={Colors.gray}
+            >
               {I18n.t('button.restore')}
             </Text>
             <Text
@@ -156,7 +164,8 @@ class Purchase extends Component {
               style={styles.txtRestore}
               center
               underline
-              color={Colors.gray}>
+              color={Colors.gray}
+            >
               {I18n.t('moreText.legal.terms')}
             </Text>
           </View>
@@ -171,7 +180,7 @@ class Purchase extends Component {
 Purchase.propTypes = {
   componentId: PropTypes.string,
 };
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -214,11 +223,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setPremium: data => dispatch(AppActions.setPremium(data)),
+    setPremium: () => {},
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Purchase);
+export default connect(mapStateToProps, mapDispatchToProps)(Purchase);

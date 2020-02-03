@@ -3,12 +3,12 @@ import {View, StyleSheet, Dimensions, Image} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import I18n from 'i18n-js';
-import {Colors, Images} from '../../themes';
-import Button from '../../ui/Button';
-import Text from '../../ui/Text';
+import {Colors, Images} from 'themes';
+import Button from 'uikit/src/Button';
+import Text from 'uikit/src/Text';
 // import { push, startWithTabs } from '../../navigation/navigationActions';
 import CheckUpdate from '../Home/CheckUpdate';
-import SwipperView from '../../ui/SwipperView';
+import SwipperView from 'uikit/src/SwipperView';
 import {safeArea} from '../../utils/Devices';
 
 class IntroWithSlide extends Component {

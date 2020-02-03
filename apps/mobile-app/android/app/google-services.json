@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "572173935065",
+    "firebase_url": "https://tahitiexpress.firebaseio.com",
+    "project_id": "tahitiexpress",
+    "storage_bucket": "tahitiexpress.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:572173935065:android:04e3c13c7d6ff16e8139c8",
+        "android_client_info": {
+          "package_name": "com.tahitifoodexpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "572173935065-sg2fklojek9u8neu0teb5hoqq4jhbrtv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tahitifoodexpress",
+            "certificate_hash": "a1182bbb2e04e448cfb843db4ba1140ea442b7dc"
+          }
+        },
+        {
+          "client_id": "572173935065-jr60s135hjuvveoaovo9dbq5m9a8289n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgZdbIxfo5_sxVvLkV4LrUpwvPVnqP-LA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "572173935065-jr60s135hjuvveoaovo9dbq5m9a8289n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

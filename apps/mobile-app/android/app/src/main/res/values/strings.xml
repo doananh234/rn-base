@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">rnBase</string>
+    <string name="app_name">rnbase</string>
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyDdoQLY67m5kdoW-MPib8VuAJmDoRAEnGs</string>
 </resources>

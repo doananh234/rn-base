@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Dimensions, StyleSheet, Platform} from 'react-native';
 import PopupWrapper from '@components/Popup/PopupWrapper';
-import {Colors} from '../../themes';
-import DatePicker from '../../ui/DatePicker';
+import {Colors} from 'themes';
+import DatePicker from 'uikit/src/DatePicker';
 // import { dismissLightBox } from '../../navigation/navigationActions';
 
 export default class DatePickerUI extends Component {

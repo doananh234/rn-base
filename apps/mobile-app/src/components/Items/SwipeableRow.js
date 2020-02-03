@@ -180,7 +180,8 @@ export default class SwipeableRow extends PureComponent {
     rightButtonsOpen: false,
   };
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     const { onPanAnimatedValueRef, onRef } = this.props;
 
     onRef(this);
@@ -259,7 +260,11 @@ export default class SwipeableRow extends PureComponent {
       duration: 250,
       easing: Easing.elastic(0.5),
     }).start(() =>
-      this.recenter(swipeReleaseAnimationFn, swipeReleaseAnimationConfig, () => onDone && onDone()),
+      this.recenter(
+        swipeReleaseAnimationFn,
+        swipeReleaseAnimationConfig,
+        () => onDone && onDone(),
+      ),
     );
   };
 
@@ -282,9 +287,11 @@ export default class SwipeableRow extends PureComponent {
     const gestureStartX = gestureState.moveX - gestureState.dx;
     return (
       Math.abs(gestureState.dx) > swipeStartMinDistance &&
-      (swipeStartMinLeftEdgeClearance === 0 || gestureStartX >= swipeStartMinLeftEdgeClearance) &&
+      (swipeStartMinLeftEdgeClearance === 0 ||
+        gestureStartX >= swipeStartMinLeftEdgeClearance) &&
       (swipeStartMinRightEdgeClearance === 0 ||
-        gestureStartX <= Dimensions.get('window').width - swipeStartMinRightEdgeClearance)
+        gestureStartX <=
+          Dimensions.get('window').width - swipeStartMinRightEdgeClearance)
     );
   };
 
@@ -342,22 +349,38 @@ export default class SwipeableRow extends PureComponent {
     this._handlePan(event, gestureState);
     onSwipeMove(event, gestureState, this);
 
-    if (!leftActionActivated && canSwipeRight && x >= leftActionActivationDistance) {
+    if (
+      !leftActionActivated &&
+      canSwipeRight &&
+      x >= leftActionActivationDistance
+    ) {
       nextLeftActionActivated = true;
       onLeftActionActivate(event, gestureState, this);
     }
 
-    if (leftActionActivated && canSwipeRight && x < leftActionActivationDistance) {
+    if (
+      leftActionActivated &&
+      canSwipeRight &&
+      x < leftActionActivationDistance
+    ) {
       nextLeftActionActivated = false;
       onLeftActionDeactivate(event, gestureState, this);
     }
 
-    if (!rightActionActivated && canSwipeLeft && x <= -rightActionActivationDistance) {
+    if (
+      !rightActionActivated &&
+      canSwipeLeft &&
+      x <= -rightActionActivationDistance
+    ) {
       nextRightActionActivated = true;
       onRightActionActivate(event, gestureState, this);
     }
 
-    if (rightActionActivated && canSwipeLeft && x > -rightActionActivationDistance) {
+    if (
+      rightActionActivated &&
+      canSwipeLeft &&
+      x > -rightActionActivationDistance
+    ) {
       nextRightActionActivated = false;
       onRightActionDeactivate(event, gestureState, this);
     }
@@ -587,7 +610,11 @@ export default class SwipeableRow extends PureComponent {
       return leftButtonsOpenReleaseAnimationFn;
     }
 
-    if (!leftButtonsActivated && leftButtonsOpen && leftButtonsCloseReleaseAnimationFn) {
+    if (
+      !leftButtonsActivated &&
+      leftButtonsOpen &&
+      leftButtonsCloseReleaseAnimationFn
+    ) {
       return leftButtonsCloseReleaseAnimationFn;
     }
 
@@ -595,7 +622,11 @@ export default class SwipeableRow extends PureComponent {
       return rightButtonsOpenReleaseAnimationFn;
     }
 
-    if (!rightButtonsActivated && rightButtonsOpen && rightButtonsCloseReleaseAnimationFn) {
+    if (
+      !rightButtonsActivated &&
+      rightButtonsOpen &&
+      rightButtonsCloseReleaseAnimationFn
+    ) {
       return rightButtonsCloseReleaseAnimationFn;
     }
 
@@ -655,11 +686,19 @@ export default class SwipeableRow extends PureComponent {
       };
     }
 
-    if (!leftButtonsActivated && leftButtonsOpen && leftButtonsCloseReleaseAnimationConfig) {
+    if (
+      !leftButtonsActivated &&
+      leftButtonsOpen &&
+      leftButtonsCloseReleaseAnimationConfig
+    ) {
       return leftButtonsCloseReleaseAnimationConfig;
     }
 
-    if (!rightButtonsActivated && rightButtonsOpen && rightButtonsCloseReleaseAnimationConfig) {
+    if (
+      !rightButtonsActivated &&
+      rightButtonsOpen &&
+      rightButtonsCloseReleaseAnimationConfig
+    ) {
       return rightButtonsCloseReleaseAnimationConfig;
     }
 
@@ -741,15 +780,27 @@ export default class SwipeableRow extends PureComponent {
         {...props}
       >
         {canSwipeRight && (
-          <Animated.View style={[{ transform, marginLeft: -width, width }, leftContainerStyle]}>
+          <Animated.View
+            style={[
+              { transform, marginLeft: -width, width },
+              leftContainerStyle,
+            ]}
+          >
             {leftContent || this._renderButtons(leftButtons, true)}
           </Animated.View>
         )}
-        <Animated.View style={[{ transform }, styles.content, contentContainerStyle]}>
+        <Animated.View
+          style={[{ transform }, styles.content, contentContainerStyle]}
+        >
           {children}
         </Animated.View>
         {canSwipeLeft && (
-          <Animated.View style={[{ transform, marginRight: -width, width }, rightContainerStyle]}>
+          <Animated.View
+            style={[
+              { transform, marginRight: -width, width },
+              rightContainerStyle,
+            ]}
+          >
             {rightContent || this._renderButtons(rightButtons, false)}
           </Animated.View>
         )}

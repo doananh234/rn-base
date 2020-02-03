@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import I18n from 'i18n-js';
-import {Colors, Images} from '../../themes';
-import Text from '../../ui/Text';
-import Button from '../../ui/Button';
-import Container from '../../ui/Container';
+import {Colors, Images} from 'themes';
+import Text from 'uikit/src/Text';
+import Button from 'uikit/src/Button';
+import Container from 'uikit/src/Container';
 import {openURL} from '../../utils/tools';
-import Divider from '../../ui/Divider';
+import Divider from 'uikit/src/Divider';
 
 const Contact = () => {
   const CONTACTS = [

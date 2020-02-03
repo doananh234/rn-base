@@ -7,5 +7,11 @@ module.exports = {
         legacy: true,
       },
     ],
+    [
+      'module-resolver',
+      {
+        root: ['./src'],
+      },
+    ],
   ],
 };

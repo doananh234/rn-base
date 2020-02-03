@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/mealplanner';
 import {View, StyleSheet} from 'react-native';
-import Text from '../../ui/Text';
-import {Colors} from '../../themes';
+import Text from 'uikit/src/Text';
+import {Colors} from 'themes';
 
 const SummaryItem = ({
   title,

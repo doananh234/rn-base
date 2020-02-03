@@ -1,24 +1,22 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import I18n from 'i18n-js';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/mealplanner';
-import {useNavigation} from 'react-navigation-hooks';
-import {useDispatch, useSelector} from 'react-redux';
-import {Colors} from '../../themes';
-import KeyboardAwareScrollViewUI from '../../ui/KeyboardAwareScrollView';
-import Button from '../../ui/Button';
-import Container from '../../ui/Container';
-import Text from '../../ui/Text';
-import Divider from '../../ui/Divider';
-import {FacebookButton, GoogleButton} from '../../ui/SocialButton';
-import Touchable from '../../ui/Touchable';
-import Input from '../../ui/Input';
-import LoginActions from '../../redux/LoginRedux/actions';
+import { useDispatch } from 'react-redux';
+import { Colors } from 'themes';
+import KeyboardAwareScrollViewUI from 'uikit/src/Form/KeyboardAwareScrollView';
+import Button from 'uikit/src/Button';
+import Container from 'uikit/src/Container';
+import Text from 'uikit/src/Text';
+import Divider from 'uikit/src/Divider';
+import { FacebookButton, GoogleButton } from 'uikit/src/SocialButton';
+import Touchable from 'uikit/src/Touchable';
+import Input from 'uikit/src/Input';
+import LoginActions from '@redux/AuthRedux/actions';
 
 const SignIn = React.memo(() => {
-  // const isLogged = useSelector(state => state.login.isLogged);
-  // const {navigate} = useNavigation();
+  // const isLogged = useSelector(state => state.auth.isLogged);
 
   // TODO: Hooks
   const email = useRef();
@@ -94,7 +92,8 @@ const SignIn = React.memo(() => {
           type="body3SemiBold"
           onPress={forgotPass}
           style={styles.txtForgotPass}
-          color={Colors.primaryText}>
+          color={Colors.primaryText}
+        >
           {`${I18n.t('userInfo.password.forgotPassword')} `}
         </Text>
         <View style={styles.row}>
@@ -130,7 +129,7 @@ SignIn.propTypes = {
   isFromSignUp: PropTypes.bool,
 };
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   vInput: {
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
   },
 });
 
-SignIn.navigationOptions = ({navigation}) => {
+SignIn.navigationOptions = ({ navigation }) => {
   const onShowSignUp = () => {
     navigation.push('SignUp');
   };
@@ -179,8 +178,8 @@ SignIn.navigationOptions = ({navigation}) => {
     title: I18n.t('intro.signIn'),
     headerRight: (
       <Touchable onPress={onShowSignUp}>
-        <View style={{marginRight: 20}}>
-          <Text style={{color: Colors.whiteSmoke}}>Sign Up</Text>
+        <View style={{ marginRight: 20 }}>
+          <Text style={{ color: Colors.whiteSmoke }}>Sign Up</Text>
         </View>
       </Touchable>
     ),
@@ -193,7 +192,7 @@ SignIn.navigationOptions = ({navigation}) => {
           name="back"
           size={20}
           color={Colors.whiteSmoke}
-          style={{marginLeft: 20}}
+          style={{ marginLeft: 20 }}
         />
       </Touchable>
     ),

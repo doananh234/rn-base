@@ -1,20 +1,21 @@
 import React from 'react';
-import {SectionList, StyleSheet, View} from 'react-native';
+import { SectionList, StyleSheet, View } from 'react-native';
 // import PropTypes from 'prop-types';
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import I18n from 'i18n-js';
 
-import {Colors} from '../../themes';
-import UserInfo from './UserInfo';
+import { Colors } from 'themes';
+import LoginActions from '@redux/AuthRedux/actions';
+import Divider from 'uikit/src/Divider';
+import Button from 'uikit/src/Button';
+import Text from 'uikit/src/Text';
+import { showModal } from 'navigation/navigationActions';
 import SettingItem from '../../components/Items/SettingItem';
-import LoginActions from '../../redux/LoginRedux/actions';
-import Divider from '../../ui/Divider';
-import Button from '../../ui/Button';
-import Text from '../../ui/Text';
-import {shareApp, openURL} from '../../utils/tools';
+import UserInfo from './UserInfo';
+import { shareApp, openURL } from '../../utils/tools';
 
 function Setting(props) {
-  const {data: user, isLogged} = useSelector(state => state.login);
+  const { data: user, isLogged } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   const onPressPrivacy = () => {
@@ -91,23 +92,23 @@ function Setting(props) {
   };
 
   const getPremium = () => {
-    // showModal('Purchase', {
-    //   topBar: {
-    //     background: {
-    //       color: 'transparent',
-    //     },
-    //     drawBehind: true,
-    //   },
-    // });
+    showModal('Purchase', {
+      topBar: {
+        background: {
+          color: 'transparent',
+        },
+        drawBehind: true,
+      },
+    });
   };
 
-  const renderSectionHeader = ({section: {title}}) => (
+  const renderSectionHeader = ({ section: { title } }) => (
     <Text style={styles.header} type="body3SemiBold">
       {I18n.t(title)}
     </Text>
   );
 
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }) => {
     if (item.key === 'profile') {
       return (
         <View style={styles.vAccount}>
@@ -116,8 +117,8 @@ function Setting(props) {
             secondary
             onPress={getPremium}
             icon="crown"
-            iconStyle={{color: Colors.default}}
-            textStyle={{color: Colors.default}}
+            iconStyle={{ color: Colors.default }}
+            textStyle={{ color: Colors.default }}
             buttonTitle={I18n.t('moreText.account.getPremium')}
             style={styles.btnPremium}
           />

@@ -1,10 +1,13 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb"],
+  "extends": ["eslint:recommended", "airbnb", "prettier"],
   "plugins": ["react", "jsx-a11y", "react-native", "react-hooks"],
   "rules": {
-    "react/prop-types": ["error", { "ignore": ["navigation"] }],
-    "import/no-unresolved": 0,
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["state"] }
+    ],
+    "react/prop-types": ["error", { "ignore": ["componentId"] }],
     "no-return-assign": 0,
     "padded-blocks": 0,
     "max-len": ["error", 80],
@@ -15,16 +18,15 @@
         "avoidEscape": true
       }
     ],
-    "object-curly-spacing": 0,
+    // "object-curly-spacing": 0,
     "new-cap": 0,
     "no-underscore-dangle": 0,
-    "import/no-duplicates": 2,
-    "react/sort-comp": 0,
-    "react/no-array-index-key": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-fragments": 0,
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "packageDir": ["./", "./apps/mobile-app", "./packages/uxkit"]
+        "packageDir": ["./", "./apps/mobile-app", "./packages/uikit/"]
       }
     ],
     "react-native/no-unused-styles": 2,
@@ -44,10 +46,6 @@
     "func-names": ["error", "never"],
     "import/prefer-default-export": 0,
     "class-methods-use-this": 0,
-    // "space-before-function-paren": [
-    //   "error",
-    //   { "anonymous": "never", "named": "never", "asyncArrow": "never" }
-    // ],
     "no-throw-literal": 0,
     "no-undef": 0,
     "no-confusing-arrow": 0,
@@ -56,7 +54,10 @@
     "no-mixed-operators": [
       "error",
       {
-        "groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]
+        "groups": [
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["&&", "||"]
+        ]
       }
     ],
     "no-unused-expressions": [
@@ -77,10 +78,6 @@
         "functions": "ignore"
       }
     ],
-    "object-curly-newline": [
-      "error",
-      { "ImportDeclaration": "always", "ExportDeclaration": "never" }
-    ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },
@@ -93,6 +90,30 @@
     },
     "import/resolver": {
       "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "alias": {
+        "map": [
+          ["uikit", "./packages/uikit"],
+          ["uikit/*", "./packages/uikit/*"],
+          ["components", "./apps/mobile-app/src/components"],
+          ["components/*", "./apps/mobile-app/src/components/*"],
+          ["screens", "./apps/mobile-app/src/screens"],
+          ["screens/*", "./apps/mobile-app/src/screens/*"],
+          ["constants", "./apps/mobile-app/src/constants"],
+          ["containers", "./apps/mobile-app/src/containers"],
+          ["containers/*", "./apps/mobile-app/src/containers/*"],
+          ["navigation", "./apps/mobile-app/src/navigation"],
+          ["navigation/*", "./apps/mobile-app/src/navigation/*"],
+          ["themes", "./apps/mobile-app/src/themes"],
+          ["utils", "./apps/mobile-app/src/utils"],
+          ["utils/*", "./apps/mobile-app/src/utils/*"],
+          ["@redux", "./apps/mobile-app/src/@redux"],
+          ["@redux/*", "./apps/mobile-app/src/@redux/*"],
+          ["assets", "./apps/mobile-app/src/assets"],
+          ["assets/*", "./apps/mobile-app/src/assets/*"],
+          ["assets/img/*", "./apps/mobile-app/src/assets/img/*"]
+        ],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }

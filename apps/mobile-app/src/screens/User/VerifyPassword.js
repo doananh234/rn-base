@@ -4,13 +4,13 @@ import {View, StyleSheet, Dimensions} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import I18n from 'i18n-js';
-import {Colors} from '../../themes';
-import KeyboardAwareScrollView from '../../ui/KeyboardAwareScrollView';
-import CodeInput from '../../ui/CodeInput';
-import Button from '../../ui/Button';
-import Text from '../../ui/Text';
-import Actions from '../../redux/ForgotPasswordRedux/actions';
-import Container from '../../ui/Container';
+import {Colors} from 'themes';
+import KeyboardAwareScrollView from 'uikit/src/Form/KeyboardAwareScrollView';
+import CodeInput from 'uikit/src/CodeInput';
+import Button from 'uikit/src/Button';
+import Text from 'uikit/src/Text';
+import Actions from '@redux/ForgotPasswordRedux/actions';
+import Container from 'uikit/src/Container';
 
 class VerifyPassword extends Component {
   static propTypes = {

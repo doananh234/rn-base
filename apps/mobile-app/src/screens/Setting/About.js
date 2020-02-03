@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import I18n from 'i18n-js';
-import {Colors} from '../../themes';
-import Text from '../../ui/Text';
-import BackgroundImage from '../../ui/BackgroundImage';
+import {Colors} from 'themes';
+import Text from 'uikit/src/Text';
+import BackgroundImage from 'uikit/src/BackgroundImage';
 
 const About = () => {
   return (
