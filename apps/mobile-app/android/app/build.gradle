@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+
 project.ext.envConfigFiles = [
         debug: ".env.dev",
         release: ".env",
@@ -22,7 +23,9 @@ import com.android.build.OutputFile
  *   // the name of the generated asset file containing your JS bundle
  *   bundleAssetName: "index.android.bundle",
  *
- *   // the entry file for bundle generation
+ *   // the entry file for bundle generation. If none specified and
+ *   // "index.android.js" exists, it will be used. Otherwise "index.js" is
+ *   // default. Can be overridden with ENTRY_FILE environment variable.
  *   entryFile: "index.android.js",
  *
  *   // https://facebook.github.io/react-native/docs/performance#enable-the-ram-format
@@ -136,12 +139,13 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rnbase"
+        applicationId "com.book"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        missingDimensionStrategy "RNN.reactNativeVersion", "reactNative60"
+        multiDexEnabled true
+        missingDimensionStrategy "RNN.reactNativeVersion", "reactNative62"
     }
     splits {
         abi {
@@ -174,12 +178,10 @@ android {
                 keyPassword project.env.get("ANDROID_KEY_PASSWORD")
             }
         }
-
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
-            buildConfigField "String", "CODEPUSH_KEY", "\"${project.env.get("CODE_PUSH_ANDROID_KEY")}\""
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -187,9 +189,16 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             buildConfigField "String", "CODEPUSH_KEY", "\"${project.env.get("CODE_PUSH_ANDROID_KEY")}\""
-            signingConfig signingConfigs.release
         }
     }
+
+    packagingOptions {
+        pickFirst "lib/armeabi-v7a/libc++_shared.so"
+        pickFirst "lib/arm64-v8a/libc++_shared.so"
+        pickFirst "lib/x86/libc++_shared.so"
+        pickFirst "lib/x86_64/libc++_shared.so"
+    }
+
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -208,10 +217,22 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    //noinspection GradleDynamicVersion
+    implementation 'androidx.multidex:multidex:2.0.0'
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
-    implementation project(':react-native-navigation')
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
+      exclude group:'com.facebook.fbjni'
+    }
+
+    debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
+        exclude group:'com.facebook.flipper'
+    }
+
+    debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
+        exclude group:'com.facebook.flipper'
+    }
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
@@ -228,6 +249,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
-//apply plugin: 'com.google.gms.google-services'
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
