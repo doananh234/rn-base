@@ -10,7 +10,7 @@ import Text from 'uikit/src/Text';
 import Container from 'uikit/src/Container';
 import Input from 'uikit/src/Input';
 import {Colors} from 'themes';
-import Actions from '@redux/ForgotPasswordRedux/actions';
+import Actions from '@redux/forgotPassword/actions';
 
 class ForgotPassword extends Component {
   static propTypes = {

@@ -1,13 +1,11 @@
-import auth from './AuthRedux/slice';
-import password from './ForgotPasswordRedux/slice';
-import app from './AppRedux/slice';
-import series from './SeriesRedux/slice';
-import filter from './FilterRedux/slice';
+import auth from './auth/slice';
+// import here
+import config from './config/slice';
+import app from './app/slice';
 
 export default {
-  app,
-  password,
   auth,
-  series,
-  filter,
+  config,
+  app,
+  // add reducer here
 };

@@ -9,7 +9,7 @@ import KeyboardAwareScrollView from 'uikit/src/Form/KeyboardAwareScrollView';
 import CodeInput from 'uikit/src/CodeInput';
 import Button from 'uikit/src/Button';
 import Text from 'uikit/src/Text';
-import Actions from '@redux/ForgotPasswordRedux/actions';
+import Actions from '@redux/forgotPassword/actions';
 import Container from 'uikit/src/Container';
 
 class VerifyPassword extends Component {

@@ -1,3 +1,3 @@
 export { makeCRUDSlice } from './slice';
-export { makeCRUDSaga } from './saga';
+export { makeActions } from './actions';
 export CRUDSelectors, { crudSelectors } from './selectors';

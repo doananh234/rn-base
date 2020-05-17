@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, StyleSheet} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/mealplanner';
 import Text from 'uikit/src/Text';
-import {Images, Colors} from 'themes';
-import SwipeableRow from './SwipeableRow';
+import { Images, Colors } from 'themes';
 import Button from 'uikit/src/Button';
 import Touchable from 'uikit/src/Touchable';
+import SwipeableRow from './SwipeableRow';
 
-const HomeItem = ({onPress, data, isFavoriteScreen}) => {
-  const {image, title, value} = data;
+const HomeItem = ({ onPress, data, isFavoriteScreen }) => {
+  const { image, title, value } = data;
 
   const handlePress = () => {
     onPress(data);
@@ -20,7 +20,7 @@ const HomeItem = ({onPress, data, isFavoriteScreen}) => {
     <Touchable style={styles.container} onPress={handlePress}>
       <>
         <FastImage
-          source={image ? {uri: image} : Images.test}
+          source={image ? { uri: image } : Images.test}
           style={styles.image}
         />
         <View style={styles.center}>
@@ -38,7 +38,7 @@ const HomeItem = ({onPress, data, isFavoriteScreen}) => {
   );
   const rightButtons = [
     <Button
-      iconStyle={[styles.icon, {color: Colors.primaryText}]}
+      iconStyle={[styles.icon, { color: Colors.primaryText }]}
       style={styles.btnEdit}
       icon="edit"
     />,
@@ -55,7 +55,8 @@ const HomeItem = ({onPress, data, isFavoriteScreen}) => {
     <SwipeableRow
       rightButtonWidth={60}
       rightButtonContainerStyle={styles.hiddenView}
-      rightButtons={rightButtons}>
+      rightButtons={rightButtons}
+    >
       {content}
     </SwipeableRow>
   );

@@ -55,7 +55,7 @@ target 'book' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
-
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
   target 'bookTests' do
     inherit! :complete
     # Pods for testing
@@ -85,11 +85,3 @@ target 'book' do
   end
 end
 
-target 'book-tvOS' do
-  # Pods for book-tvOS
-
-  target 'book-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end

@@ -5,7 +5,7 @@ import { onNavigatorEvent } from 'navigation/navigationActions/handleNavButtonOn
 import configureStore from '@redux/store';
 import 'themes/Images';
 import 'utils/Devices';
-import { startup } from '@redux/AppRedux/slice';
+import { startup } from '@redux/app/slice';
 import configI18n from './i18n/index';
 
 const App = () => {

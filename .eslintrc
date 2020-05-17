@@ -106,13 +106,16 @@
           ["navigation", "./apps/mobile-app/src/navigation"],
           ["navigation/*", "./apps/mobile-app/src/navigation/*"],
           ["themes", "./apps/mobile-app/src/themes"],
+          ["themes/*", "./apps/mobile-app/src/themes/*"],
           ["utils", "./apps/mobile-app/src/utils"],
           ["utils/*", "./apps/mobile-app/src/utils/*"],
           ["@redux", "./apps/mobile-app/src/@redux"],
           ["@redux/*", "./apps/mobile-app/src/@redux/*"],
           ["assets", "./apps/mobile-app/src/assets"],
           ["assets/*", "./apps/mobile-app/src/assets/*"],
-          ["assets/img/*", "./apps/mobile-app/src/assets/img/*"]
+          ["assets/img/*", "./apps/mobile-app/src/assets/img/*"],
+          ["api", "./apps/mobile-app/src/api"],
+          ["api/*", "./apps/mobile-app/src/api/*"]
         ],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }

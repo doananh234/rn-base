@@ -1,6 +1,6 @@
-import {call} from 'redux-saga/effects';
+import { call } from 'redux-saga/effects';
 import _ from 'lodash';
-// import { loading, clearLoading } from '../redux/AppRedux/actions';
+// import { loading, clearLoading } from '../redux/app/actions';
 // import {
 //   dismissInAppNoti,
 //   showProgress,
@@ -14,7 +14,7 @@ export function makeConstantCreator(...params) {
   return constant;
 }
 
-export const makeActionCreator = (type, params = null) => ({type, ...params});
+export const makeActionCreator = (type, params = null) => ({ type, ...params });
 
 export const makeReducerCreator = (initialState = null, handlers = {}) => (
   state = initialState,
@@ -27,25 +27,43 @@ export const makeReducerCreator = (initialState = null, handlers = {}) => (
   return (handler && handler(state, action)) || state;
 };
 
-export function* apiWrapper(
-  config = {isShowProgress: true, isShowSuccessNoti: false},
-  apiFunc,
-  ...params
+// export function* apiWrapper(
+//   config = {isShowProgress: true, isShowSuccessNoti: false},
+//   apiFunc,
+//   ...params
+// ) {
+//   try {
+//     // dismissInAppNoti();
+//     if (config.isShowProgress) {
+//       // showProgress();
+//       // yield put(loading());
+//     }
+//     const response = yield call(apiFunc, ...params);
+//     // yield put(clearLoading());
+//     // showProgress(false);
+//     return response;
+//   } catch (error) {
+//     // showProgress(false);
+//     // yield put(clearLoading());
+//     return error;
+//   }
+// }
+
+export async function apiWrapper(
+  options = { isShowLoading: true, isShowSuccess: false },
+  apiFunction,
+  ...payload
 ) {
   try {
-    // dismissInAppNoti();
-    if (config.isShowProgress) {
-      // showProgress();
-      // yield put(loading());
-    }
-    const response = yield call(apiFunc, ...params);
-    // yield put(clearLoading());
-    // showProgress(false);
+    const response = await apiFunction(...payload);
     return response;
   } catch (error) {
-    // showProgress(false);
-    // yield put(clearLoading());
-    return error;
+    // eslint-disable-next-line
+    if (error?.response?.status == 401) {
+      // window.location = '/login';
+    }
+
+    throw new Error(error);
   }
 }
 

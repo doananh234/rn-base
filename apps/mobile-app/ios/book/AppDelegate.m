@@ -45,37 +45,39 @@ static void InitializeFlipper(UIApplication *application) {
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
 #if DEBUG
-  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+   NSURL *jsUrl = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+   [[RCTBundleURLProvider sharedSettings] setJsLocation:jsUrl.host];
+   return jsUrl;
 #else
   return [CodePush bundleURL];
 #endif
 }
 
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  //handle open facebook
-//  BOOL handledFB = [[FBSDKApplicationDelegate sharedInstance] application:application
-//                                                                  openURL:url
-//                                                        sourceApplication:sourceApplication
-//                                                               annotation:annotation
-//                    ];
-  // handle open deep-link or link
-  BOOL handledRCT = [RCTLinkingManager application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-  
-//  return handledFB || handledRCT;
-  return handledRCT;
-}
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+//  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+//  //handle open facebook
+////  BOOL handledFB = [[FBSDKApplicationDelegate sharedInstance] application:application
+////                                                                  openURL:url
+////                                                        sourceApplication:sourceApplication
+////                                                               annotation:annotation
+////                    ];
+//  // handle open deep-link or link
+//  BOOL handledRCT = [RCTLinkingManager application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+//  
+////  return handledFB || handledRCT;
+//  return handledRCT;
+//}
 
 // Only if your app is using [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html).
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
-{
-  // handle open deep-link or link
-  return [RCTLinkingManager application:application
-                   continueUserActivity:userActivity
-                     restorationHandler:restorationHandler];
-}
+//- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
+// restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
+//{
+//  // handle open deep-link or link
+//  return [RCTLinkingManager application:application
+//                   continueUserActivity:userActivity
+//                     restorationHandler:restorationHandler];
+//}
 
 #if RCT_DEV
 - (BOOL)bridge:(RCTBridge *)bridge didNotFindModule:(NSString *)moduleName {

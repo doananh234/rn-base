@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {View, StyleSheet, Dimensions} from 'react-native';
-import {connect} from 'react-redux';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { connect } from 'react-redux';
 import I18n from 'i18n-js';
-import {Colors} from 'themes';
+import { Colors } from 'themes';
 import KeyboardAwareScrollView from 'uikit/src/Form/KeyboardAwareScrollView';
 import Text from 'uikit/src/Text';
 import Button from 'uikit/src/Button';
 import Avatar from 'uikit/src/Avatar';
-import LoginActions from '@redux/AuthRedux/actions';
+import LoginActions from '@redux/auth/actions';
 import Container from 'uikit/src/Container';
 import Input from 'uikit/src/Input';
 import Divider from 'uikit/src/Divider';
-import {FacebookButton, GoogleButton} from 'uikit/src/SocialButton';
+import { FacebookButton, GoogleButton } from 'uikit/src/SocialButton';
 // import { push, pop } from '../../navigation/navigationActions';
 // import { signUp as btnSignUp } from '../../navigation/navigationButtons';
 
@@ -27,7 +27,7 @@ class SignUp extends Component {
     this.password = React.createRef();
   }
 
-  navigationButtonPressed = ({buttonId}) => {
+  navigationButtonPressed = ({ buttonId }) => {
     if (buttonId === 'login') {
       this.signIn();
     }
@@ -47,8 +47,8 @@ class SignUp extends Component {
   };
 
   submitData = () => {
-    const {userName, email, password} = this;
-    const {isEdit, editUser, signUp} = this.props;
+    const { userName, email, password } = this;
+    const { isEdit, editUser, signUp } = this.props;
     if (
       userName.current.getText() &&
       email.current.getText() &&
@@ -72,7 +72,7 @@ class SignUp extends Component {
   };
 
   onChangeValue = key => data => {
-    this.setState({[key]: data});
+    this.setState({ [key]: data });
   };
 
   onPressTerms = () => {};
@@ -80,12 +80,12 @@ class SignUp extends Component {
   onPressPrivacy = () => {};
 
   facebookSignIn = () => {
-    const {fbSignIn} = this.props;
+    const { fbSignIn } = this.props;
     fbSignIn();
   };
 
   googleSignIn = () => {
-    const {googleLogin} = this.props;
+    const { googleLogin } = this.props;
     googleLogin();
   };
 
@@ -125,7 +125,7 @@ class SignUp extends Component {
   };
 
   renderButtonView = () => {
-    const {isEdit} = this.props;
+    const { isEdit } = this.props;
     return (
       <View style={styles.vButton}>
         <Button
@@ -143,19 +143,22 @@ class SignUp extends Component {
             type="body3"
             color={Colors.primaryText}
             center
-            style={styles.termsAndPrivacy}>
+            style={styles.termsAndPrivacy}
+          >
             {I18n.t('auth.termsAndPrivacy')}
             <Text
               type="body3SemiBold"
               onPress={this.onPressTerms}
-              color={Colors.primaryText}>
+              color={Colors.primaryText}
+            >
               {I18n.t('auth.terms')}
             </Text>{' '}
             {I18n.t('auth.and')}{' '}
             <Text
               type="body3SemiBold"
               onPress={this.onPressPrivacy}
-              color={Colors.primaryText}>
+              color={Colors.primaryText}
+            >
               {I18n.t('auth.privacy')}
             </Text>{' '}
           </Text>
@@ -180,7 +183,7 @@ class SignUp extends Component {
   };
 
   renderHeader = () => {
-    const {avatar} = this.state;
+    const { avatar } = this.state;
     return (
       <Avatar
         style={styles.avatar}
@@ -192,7 +195,7 @@ class SignUp extends Component {
   };
 
   render() {
-    const {isEdit} = this.props;
+    const { isEdit } = this.props;
     return (
       <Container>
         <KeyboardAwareScrollView>
@@ -215,7 +218,7 @@ SignUp.propTypes = {
   isFromSignIn: PropTypes.bool,
 };
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   vInput: {
@@ -276,7 +279,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

@@ -8,7 +8,7 @@ import {Colors} from 'themes';
 import KeyboardAwareScrollView from 'uikit/src/Form/KeyboardAwareScrollView';
 import InputRow from 'uikit/src/InputRow';
 import Button from 'uikit/src/Button';
-import Actions from '@redux/ForgotPasswordRedux/actions';
+import Actions from '@redux/forgotPassword/actions';
 import Container from 'uikit/src/Container';
 
 class ForgotPassword extends Component {

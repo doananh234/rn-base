@@ -1,5 +1,5 @@
 import createFilter from 'redux-persist-transform-filter';
-import realmInstance from './RealmPersistInstance';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const whitelist = {
   auth: ['data', 'token', 'isSkipLogin', 'isFirstTime', 'isLogged'],
@@ -11,7 +11,7 @@ const makeTransforms = () =>
 
 export const REDUX_PERSIST = {
   key: 'root',
-  storage: realmInstance,
+  storage: AsyncStorage,
   version: 1,
   whitelist: Object.keys(whitelist),
   blacklist: [],

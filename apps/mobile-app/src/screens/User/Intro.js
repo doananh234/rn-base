@@ -4,7 +4,7 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 import I18n from 'i18n-js';
 import { push } from 'navigation/navigationActions';
-import { skipLogin } from '@redux/AuthRedux/actions';
+import { skipLogin } from '@redux/auth/actions';
 import { Colors } from 'themes';
 import Button from 'uikit/src/Button';
 import { FacebookButton, GoogleButton } from 'uikit/src/SocialButton';

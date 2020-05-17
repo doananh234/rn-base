@@ -13,7 +13,7 @@ import Divider from 'uikit/src/Divider';
 import { FacebookButton, GoogleButton } from 'uikit/src/SocialButton';
 import Touchable from 'uikit/src/Touchable';
 import Input from 'uikit/src/Input';
-import LoginActions from '@redux/AuthRedux/actions';
+import LoginActions from '@redux/auth/actions';
 
 const SignIn = React.memo(() => {
   // const isLogged = useSelector(state => state.auth.isLogged);

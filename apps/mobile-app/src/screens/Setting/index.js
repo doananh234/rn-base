@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import I18n from 'i18n-js';
 
 import { Colors } from 'themes';
-import LoginActions from '@redux/AuthRedux/actions';
+import LoginActions from '@redux/auth/actions';
 import Divider from 'uikit/src/Divider';
 import Button from 'uikit/src/Button';
 import Text from 'uikit/src/Text';

@@ -1,36 +1,25 @@
 import { createSelector } from 'reselect';
-import { LOADING_ITEMS } from '../../localData';
+import { getFilterFromUrl } from '../../utils/tools';
 
 export default class CRUDSelectors {
-  constructor(resources) {
-    this.resources = resources;
+  constructor(resource) {
+    this.resource = resource;
   }
 
-  getRestData = (state, resources) => {
-    return typeof resources === 'string'
-      ? state[resources || this.resources]
-      : state[this.resources];
-  };
+  getRestData = (state, props) => props?.defaultOptions?.rootResource ? state[props?.defaultOptions?.rootResource][this.resource] : state[this.resource];
+
+  getDefaultValue = (state, props) =>
+    props.location && (!props.location.hash || props.location.hash === '#')
+      ? decodeURI(props.location.search.substring(1)).trim()
+      : props.location.hash.match(`#${this.resource}/create?(.*)`)?.[1];
+
+  getDefaultFromProps = (state, props) => props.defaultValue;
 
   getDataArr = createSelector(
     [this.getRestData],
     resources => {
-      const { data, ids, page, loading, numberOfPages } = resources;
-      return (!loading && page < numberOfPages) || loading
-        ? [...ids.map(id => data[id]), ...LOADING_ITEMS]
-        : ids.map(id => data[id]);
-    },
-  );
-
-  getDataArrWithoutLoadingItem = createSelector(
-    [this.getRestData],
-    resources => {
-      const { data, ids, loading } = resources;
-      const storeData = ids.map(id => data[id]);
-      const convertData = loading
-        ? [...storeData, ...LOADING_ITEMS]
-        : storeData;
-      return convertData;
+      const { data, ids } = resources;
+      return ids.map(id => data[id]);
     },
   );
 
@@ -42,37 +31,67 @@ export default class CRUDSelectors {
     },
   );
 
+  getDefaultCreateData = createSelector(
+    [this.getDefaultValue, this.getDefaultFromProps],
+    (defaultValue, defaultValueFromProps) =>
+      defaultValue !== ''
+        ? getFilterFromUrl(defaultValue).filter
+        : defaultValueFromProps || {},
+  );
+
   getCurrentData = createSelector(
     [this.getRestData],
-    resources => {
-      const { currentId, data } = resources;
-      return data[currentId] || {};
+    (resources = {}) => {
+      const { currentData } = resources;
+      return currentData || {};
+    },
+  );
+
+  getLoadingCurrentRecord = createSelector(
+    [this.getRestData],
+    (resources = {}) => {
+      const { currentId, itemLoadings } = resources;
+      return itemLoadings[currentId];
     },
   );
 
   enabledLoadMore = createSelector(
     [this.getRestData],
     resources => {
-      const { page, loading, numberOfPages } = resources;
-      return !loading && page < numberOfPages;
+      const { offset, limit, loading, numberOfPages } = resources;
+      return !loading && offset / limit + 1 < numberOfPages;
     },
   );
 
   getLoading = createSelector(
     [this.getRestData],
-    resources => {
+    (resources = { loading: false }) => {
       const { loading } = resources;
       return loading;
     },
   );
 
-  getDataWithoutLoadMore = createSelector(
+  getCreateLoading = createSelector(
+    [this.getRestData],
+    (resources = { createLoading: false }) => {
+      const { createLoading } = resources;
+      return createLoading;
+    },
+  );
+
+  getError = createSelector(
     [this.getRestData],
     resources => {
-      const { data, ids, loading } = resources;
-      return loading
-        ? [...ids.map(id => data[id]), ...LOADING_ITEMS]
-        : ids.map(id => data[id]);
+      const { error } = resources;
+      return error;
+    },
+  );
+
+  getFilters = createSelector(
+    [this.getRestData],
+    resources => {
+      const { limit, offset, filter, total, orderBy, q } = resources;
+      return { limit, offset, filter, count: total, orderBy, q };
     },
   );
 }

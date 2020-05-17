@@ -4,8 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-  <key>CFBundleDisplayName</key>
-  <string>__RN_CONFIG_APP_NAME</string>
+	<key>CFBundleDisplayName</key>
+	<string>__RN_CONFIG_APP_NAME</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,8 +22,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-  <key>CodePushDeploymentKey</key>
-  <string>__RN_CONFIG_CODE_PUSH_IOS_KEY</string>
+	<key>CodePushDeploymentKey</key>
+	<string>__RN_CONFIG_CODE_PUSH_IOS_KEY</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -39,40 +39,40 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>__RN_CONFIG_APP_NAME requires access to your camera to help you add photos to your avatar.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
-  <key>NSCameraUsageDescription</key>
-  <string>__RN_CONFIG_APP_NAME requires access to your camera to help you add photos to your avatar.</string>
-  <key>NSLocationAlwaysUsageDescription</key>
-  <string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
-  <key>NSLocationUsageDescription</key>
-  <string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
-  <key>NSLocationWhenInUseUsageDescription</key>
-  <string>__RN_CONFIG_APP_NAME needs your location to help you discover amazing tutor nearby.</string>
-  <key>NSPhotoLibraryAddUsageDescription</key>
-  <string>__RN_CONFIG_APP_NAME requires access to your photos to help you add photos to your avatar.</string>
-  <key>NSPhotoLibraryUsageDescription</key>
-  <string>__RN_CONFIG_APP_NAME requires access to your photos to help you add photos to your avatar.</string>
-  <key>UIAppFonts</key>
-  <array>
-    <string>AntDesign.ttf</string>
-    <string>mealplanner.ttf</string>
-    <string>Entypo.ttf</string>
-    <string>EvilIcons.ttf</string>
-    <string>Feather.ttf</string>
-    <string>FontAwesome.ttf</string>
-    <string>FontAwesome5_Brands.ttf</string>
-    <string>FontAwesome5_Regular.ttf</string>
-    <string>FontAwesome5_Solid.ttf</string>
-    <string>Fontisto.ttf</string>
-    <string>Foundation.ttf</string>
-    <string>Ionicons.ttf</string>
-    <string>MaterialCommunityIcons.ttf</string>
-    <string>MaterialIcons.ttf</string>
-    <string>Octicons.ttf</string>
-    <string>SimpleLineIcons.ttf</string>
-    <string>Zocial.ttf</string>
-  </array>
+	<key>NSMainNibFile</key>
+	<string>LaunchScreen</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>__RN_CONFIG_APP_NAME requires access to your photos to help you add photos to your avatar.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>__RN_CONFIG_APP_NAME requires access to your photos to help you add photos to your avatar.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AntDesign.ttf</string>
+		<string>mealplanner.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Fontisto.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -82,10 +82,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

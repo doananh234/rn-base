@@ -11,20 +11,21 @@
     "init-ios": "./node_modules/.bin/generate-icon ./customIcon/styles.css --componentName=mealplanner  --prefix=icon- --fontFamily=mealplanner > ./node_modules/react-native-vector-icons/mealplanner.js && cp ./customIcon/fonts/mealplanner.ttf ./node_modules/react-native-vector-icons/Fonts/mealplanner.ttf && cd ios && pod install && cd ..",
     "createIconFont": "./node_modules/.bin/generate-icon ./customIcon/styles.css --componentName=mealplanner  --prefix=icon- --fontFamily=mealplanner > ./node_modules/react-native-vector-icons/mealplanner.js && cp ./customIcon/fonts/mealplanner.ttf ./node_modules/react-native-vector-icons/Fonts/mealplanner.ttf",
     "buildandroid": "cd android && ./gradlew clean && ./gradlew assembleRelease",
-    "postinstall": "node node_modules/realm/scripts/download-realm.js ios --sync && yarn run createIconFont",
+    "postinstall": "yarn run createIconFont",
     "codePush": "code-push release-react app-ios ios && code-push release-react app-android android",
     "codePushProduction": "code-push promote app-ios Staging Production && code-push promote app-android Staging Production"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.10.1",
     "@reduxjs/toolkit": "^1.3.2",
-    "babel-plugin-module-resolver": "^4.0.0",
     "fuse.js": "^5.1.0",
     "i18n-js": "^3.5.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
+    "npm": "^6.14.4",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
-    "react-native": "0.62.1",
+    "react-native": "0.62.2",
     "react-native-code-push": "^6.2.0",
     "react-native-config": "0.11.7",
     "react-native-fast-image": "^8.1.5",
@@ -39,12 +40,10 @@
     "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.2.0",
     "react-timer-mixin": "^0.13.4",
-    "realm": "^5.0.3",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
     "redux-persist-transform-filter": "^0.0.20",
-    "redux-saga": "^1.1.3",
-    "uikit": "^3.3.7"
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
